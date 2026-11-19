@@ -176,7 +176,8 @@ export function initCharacterLab({
     const mode = getMode();
     const layers = CHARACTER_GRIDS[mode] || CHARACTER_GRIDS.creative;
     let rows = layers[layer] || layers.base;
-    const mirrored = mode === "developer" && (layer === "hair" || layer === "ear");
+    /* V2 grids are stored already mirrored for the developer mode. */
+    const mirrored = false;
     if (mirrored) rows = rows.map((row) => [...row].reverse().join(""));
     const unitX = g.canvas.width / GRID_W;
     const unitY = g.canvas.height / GRID_H;
