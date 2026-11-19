@@ -5,12 +5,14 @@
 import "./styles.css";
 import { createSpeechBubble } from "./speech.js";
 import { createDockMenu } from "./dock-menu.js";
+import { initMotion } from "./motion.js";
 
 export function initEnhancements({
   config,
   audio = null,
   character = null,
-  reducedMotion = false
+  reducedMotion = false,
+  ticker = null
 } = {}) {
   const hero = document.getElementById("hero");
   const dock = document.getElementById("dock");
@@ -20,6 +22,8 @@ export function initEnhancements({
   ];
 
   const dockMenu = createDockMenu({ dock, audio });
+
+  const motion = initMotion({ config, ticker, reducedMotion });
 
   const speech = createSpeechBubble({
     host: hero,
@@ -60,9 +64,11 @@ export function initEnhancements({
   return {
     dockMenu,
     speech,
+    motion,
     lab: () => lab,
     destroy() {
       window.clearTimeout(speechFallback);
+      motion?.destroy();
       dockMenu?.destroy();
       speech?.destroy();
       lab?.destroy?.();

@@ -809,7 +809,8 @@ import("./enhancements/index.js")
       config: CONFIG,
       audio,
       character,
-      reducedMotion: reduced
+      reducedMotion: reduced,
+      ticker
     })
   )
   .catch((error) => console.warn("[enhancements]", error));

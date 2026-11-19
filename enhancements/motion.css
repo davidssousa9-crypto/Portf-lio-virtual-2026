@@ -1,0 +1,68 @@
+/* ============================================================
+   MOTION — hero entrance, page curtain (loader stays above it)
+   ============================================================ */
+
+.hero__line {
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.hero__content,
+#heroStage,
+#dock,
+#pacNav {
+  will-change: transform, opacity;
+}
+
+html.is-transitioning,
+html.is-transitioning body {
+  overflow: hidden;
+}
+
+.page-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 190;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0s linear 0.7s;
+}
+
+.page-curtain.is-active {
+  visibility: visible;
+  transition: visibility 0s linear 0s;
+}
+
+.page-curtain span {
+  display: block;
+  height: 100%;
+  background:
+    linear-gradient(180deg, rgba(188, 237, 18, 0.06), transparent 22%),
+    #0b0b0b;
+  border-top: 2px solid var(--lime);
+  transform: translateY(101%);
+  transition: transform 0.38s steps(7, end);
+  transition-delay: calc(var(--i) * 14ms);
+}
+
+.page-curtain.is-active span {
+  transform: translateY(0);
+}
+
+.page-curtain.is-instant span {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-curtain {
+    display: none;
+  }
+
+  html.is-transitioning,
+  html.is-transitioning body {
+    overflow: visible;
+  }
+}
