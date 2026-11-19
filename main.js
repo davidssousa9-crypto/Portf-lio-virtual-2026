@@ -12,6 +12,7 @@ import { glitchText, glitchLogo, spawnConfetti } from "./glitch.js";
 import { renderLogo } from "./src/logo.js";
 import { ICONS, iconSVG, soundIconSVG } from "./src/pixel-art.js";
 import { initSections } from "./sections.js";
+import { initLoader } from "./loader/index.js";
 
 /* ============================================================
    ENVIRONMENT
@@ -21,6 +22,9 @@ const reducedQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 let reduced = reducedQuery.matches;
 
 document.documentElement.classList.add("js");
+
+/* Additive boot loader: no-op when disabled or skipped. */
+initLoader({ config: CONFIG, reducedMotion: reduced });
 
 /* ============================================================
    SHARED TICKER — one RAF, paused when the tab is hidden

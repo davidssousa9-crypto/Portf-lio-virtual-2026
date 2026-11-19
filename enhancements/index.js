@@ -27,15 +27,21 @@ export function initEnhancements({
     reducedMotion
   });
 
-  const startSpeech = () => speech?.start(600);
-  let loaderDone = false;
-  window.addEventListener("agrvai:loader-complete", () => {
-    loaderDone = true;
-    startSpeech();
-  }, { once: true });
-  window.setTimeout(() => {
-    if (!loaderDone) startSpeech();
-  }, reducedMotion ? 900 : 2200);
+  let speechFallback = 0;
+  const startSpeech = (delay = 600) => {
+    window.clearTimeout(speechFallback);
+    speech?.start(delay);
+  };
+  if (window.__agrvaiLoaderDone) {
+    startSpeech(reducedMotion ? 0 : 600);
+  } else {
+    window.addEventListener("agrvai:loader-complete", () => {
+      startSpeech(reducedMotion ? 0 : 600);
+    }, { once: true });
+    speechFallback = window.setTimeout(() => {
+      if (!window.__agrvaiLoaderDone) startSpeech(reducedMotion ? 0 : 600);
+    }, reducedMotion ? 1200 : 2800);
+  }
 
   const query = new URLSearchParams(window.location.search);
   let lab = null;
@@ -56,6 +62,7 @@ export function initEnhancements({
     speech,
     lab: () => lab,
     destroy() {
+      window.clearTimeout(speechFallback);
       dockMenu?.destroy();
       speech?.destroy();
       lab?.destroy?.();
