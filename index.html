@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#121212">
+  <meta name="description" content="AGRVAI — portfólio em pixel art que mistura design editorial, interfaces feitas à mão e engenharia 8-bit. Transformando pixels em experiências digitais memoráveis desde 2010.">
+  <title>AGRVAI — Transformando pixels em experiências digitais memoráveis</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23121212'/%3E%3Crect x='4' y='4' width='8' height='8' fill='%23CEFF00'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Pixelify+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.remove('no-js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <!-- fixed arcade HUD -->
+  <header class="topnav" id="topNav">
+    <div class="topnav__inner">
+      <nav class="topnav__links" id="topNavLinks" aria-label="Navegação principal"></nav>
+
+      <a class="logo topnav__logo" id="logo" href="#hero" aria-label="AGRVAI — voltar ao topo">
+        <span class="logo__mount" id="logoMount" aria-hidden="true"></span>
+      </a>
+
+      <div class="topnav__meta">
+        <p class="topnav__level" aria-hidden="true">
+          <span>NÍV.</span><b id="topNavLevelValue">02</b><span>/</span><span id="topNavLevelTotal">13</span>
+        </p>
+        <a class="pixel-btn pixel-btn--solid topnav__cta" href="#cta" data-open-contact>
+          <span class="topnav__cta-label">Contato</span> <span aria-hidden="true">▶</span>
+        </a>
+      </div>
+
+      <button class="topnav__toggle" id="topNavToggle" type="button" aria-expanded="false" aria-controls="topNavMenu">
+        <span class="topnav__toggle-label">Menu</span>
+        <span class="topnav__toggle-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+    </div>
+    <div class="topnav__menu" id="topNavMenu" hidden></div>
+    <div class="topnav__progress" aria-hidden="true"><i id="topNavProgress"></i></div>
+  </header>
+
+  <main id="main">
+    <!-- ============================== HERO ============================== -->
+    <section class="hero" id="hero" aria-labelledby="heroTitle">
+      <div class="hero__stage" id="heroStage">
+        <canvas id="characterCanvas" class="character-canvas" width="840" height="900"
+          role="img" tabindex="0"
+          aria-label="Retrato em pixel art do criador do portfólio. Pressione Enter ou clique para fazer o personagem pular."></canvas>
+      </div>
+
+      <div class="hero__content">
+        <h1 class="hero__title" id="heroTitle">
+          <span class="hero__line"><span class="hero__initial" id="heroInitial">T</span>ransformo pixels</span>
+          <span class="hero__line">em experiências</span>
+          <span class="hero__line">digitais</span>
+          <span class="hero__line">memoráveis.</span>
+        </h1>
+        <p class="hero__subtitle" id="heroSubtitle">
+          <span class="hero__subline">Código fluido e design cuidadoso,</span>
+          <span class="hero__subline">criando e dando vida a visões desde 2010.</span>
+        </p>
+
+        <div class="mode-switch" id="modeSwitch" role="group" aria-label="Selecione o modo do personagem">
+          <span class="mode-marker" id="modeMarker" aria-hidden="true">
+            <svg viewBox="0 0 5 8" width="21" height="36" shape-rendering="crispEdges" focusable="false">
+              <rect x="0" y="0" width="1" height="8" fill="currentColor"/>
+              <rect x="1" y="1" width="1" height="6" fill="currentColor"/>
+              <rect x="2" y="2" width="1" height="4" fill="currentColor"/>
+              <rect x="3" y="3" width="1" height="2" fill="currentColor"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== ABOUT ============================== -->
+    <section class="section about" id="about" aria-labelledby="aboutTitle">
+      <div class="wrap section-grid">
+        <div class="section-copy" data-reveal>
+          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 02 / CRIADOR</p>
+          <h2 class="display" id="aboutTitle">Sobre Mim.</h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+          <p class="body">Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla.</p>
+        </div>
+
+        <div class="player-card" data-reveal style="--delay:120ms">
+          <div class="player-card__head">
+            <span class="player-card__label">PERFIL DO JOGADOR</span>
+            <span class="player-card__lvl">NÍV. 32</span>
+          </div>
+          <div class="player-card__portrait" aria-hidden="true">
+            <span class="portrait-pixel p1"></span><span class="portrait-pixel p2"></span>
+            <span class="portrait-pixel p3"></span><span class="portrait-pixel p4"></span>
+            <span class="portrait-pixel p5"></span><span class="portrait-pixel p6"></span>
+            <span class="portrait-pixel p7"></span><span class="portrait-pixel p8"></span>
+            <span class="portrait-pixel p9"></span><span class="portrait-pixel p10"></span>
+            <span class="portrait-pixel p11"></span><span class="portrait-pixel p12"></span>
+          </div>
+          <dl class="player-card__stats">
+            <div><dt>CLASSE</dt><dd>FRONT-END</dd></div>
+            <div><dt>BASE</dt><dd id="playerBase">PICOS — PI</dd></div>
+            <div><dt>ARMA</dt><dd>HTML / CSS / JS</dd></div>
+            <div><dt>MODO</dt><dd class="lime" id="aboutMode">CRIATIVO</dd></div>
+          </dl>
+          <a class="pixel-btn pixel-btn--solid" href="#tetris">Jogar <span aria-hidden="true">▶</span></a>
+          <p class="player-card__foot">Sem save necessário. O progresso fica salvo localmente.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== PIXELS ============================== -->
+    <section class="section pixels" id="pixels" aria-labelledby="pixelsTitle">
+      <div class="wrap section-grid section-grid--reverse">
+        <div class="section-copy" data-reveal>
+          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 03 / ORIGEM</p>
+          <h2 class="display" id="pixelsTitle">História de Vida.</h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.</p>
+          <p class="body">Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <p class="pixel-readout"><span id="pixelProgress">000</span> / 256 PX ACESOS</p>
+        </div>
+        <div class="pixel-machine" data-reveal style="--delay:100ms">
+          <div class="pixel-machine__bar" aria-hidden="true"><span>PIXEL.INC</span><span>16×16</span></div>
+          <div class="pixel-grid" id="pixelGrid" role="img" aria-label="Um ícone de faísca em pixel art que acende conforme você rola a página"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== IDEAS ============================== -->
+    <section class="section ideas" id="ideas" aria-labelledby="ideasTitle">
+      <div class="wrap ideas__inner">
+        <div class="ideas__copy" data-reveal>
+          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 04 / FAÍSCA</p>
+          <h2 class="display display--wide" id="ideasTitle">É aqui que as ideias tomam forma.</h2>
+          <p class="lead">Transformo conceitos iniciais em direções de interface: estrutura, fluxo e as primeiras telas que provam a ideia.</p>
+        </div>
+        <div class="idea-orbit" data-reveal style="--delay:120ms" aria-hidden="true">
+          <span class="orbit-node n1">FAÍSCA</span>
+          <span class="orbit-node n2">FORMA</span>
+          <span class="orbit-node n3">SENTIR</span>
+          <span class="orbit-node n4">ENTREGAR</span>
+          <span class="orbit-line l1"></span>
+          <span class="orbit-line l2"></span>
+          <span class="orbit-line l3"></span>
+          <span class="orbit-core"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== BRAIN ============================== -->
+    <section class="section brain" id="brain-section" aria-labelledby="brainTitle">
+      <div class="wrap brain__inner">
+        <div class="brain__visual" data-reveal>
+          <canvas id="brainCanvas" class="brain-canvas" width="720" height="540" aria-hidden="true"></canvas>
+          <span class="concept-tag">CONCEITO</span>
+        </div>
+        <div class="section-copy" data-reveal style="--delay:120ms">
+          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 05 / CONCEITO</p>
+          <h2 class="display" id="brainTitle">Torne o invisível legível.</h2>
+          <p class="lead">Mapeio a ideia em wireframes, componentes e um plano de build.</p>
+          <p class="body">Cada parte ganha nome, propósito e lugar antes da primeira linha de código.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== DNA ============================== -->
+    <section class="section dna" id="dna" aria-labelledby="dnaTitle">
+      <div class="wrap section-grid dna__grid">
+        <div class="section-copy" data-reveal>
+          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 06 / SISTEMA</p>
+          <h2 class="display" id="dnaTitle">Deste fio, tudo cresce…</h2>
+          <p class="lead">Tokens de design, escalas tipográficas, espaçamento e regras de movimento, documentados e reutilizáveis.</p>
+          <p class="body">O sistema mantém a próxima tela consistente sem travar o trabalho.</p>
+          <div class="dna__legend" aria-hidden="true">
+            <span><i class="swatch swatch--lime"></i>LÓGICA</span>
+            <span><i class="swatch swatch--cyan"></i>RITMO</span>
+            <span><i class="swatch swatch--magenta"></i>VOZ</span>
+          </div>
+        </div>
+        <div class="dna__visual" data-reveal style="--delay:100ms">
+          <canvas id="dnaCanvas" class="dna-canvas" width="640" height="720" aria-hidden="true"></canvas>
+          <span class="dna__tag">SEQUENCIA_A</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== EMOTION ============================== -->
+    <section class="section emotion" id="emotion" aria-labelledby="emotionTitle">
+      <canvas id="emotionCanvas" class="emotion-canvas" width="1440" height="900" aria-hidden="true"></canvas>
+      <div class="wrap emotion__inner">
+        <div class="section-copy" data-reveal>
+          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 07 / EMOÇÃO</p>
+          <h2 class="display" id="emotionTitle">Mais do que função.</h2>
+          <p class="lead">Movimento, tempo e feedback carregam significado. Eles confirmam ações e orientam a atenção.</p>
+          <p class="body">Mova o ponteiro pelo campo para testar a resposta.</p>
+        </div>
+        <p class="emotion__hint" aria-hidden="true">MOVA O PONTEIRO <span>→</span></p>
+      </div>
+    </section>
+
+    <!-- ============================== BEAUTY ============================== -->
+    <section class="section beauty" id="beauty" aria-labelledby="beautyTitle">
+      <div class="wrap section-grid">
+        <div class="section-copy" data-reveal>
+          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 08 / FORMA</p>
+          <h2 class="display" id="beautyTitle">A forma segue a função, mas a beleza conduz.</h2>
+          <p class="lead">Cor, tipografia, espaçamento e alinhamento são escolhidos em conjunto, não adicionados como decoração.</p>
+          <p class="body">Role a página para alinhar a composição. Passe o mouse por um bloco para isolar uma cor.</p>
+        </div>
+        <div class="palette" data-reveal style="--delay:100ms" aria-label="Paleta de cores usada no portfólio">
+          <div class="palette__block" style="--c:#BCED12; --x:-26px; --y:18px; --r:-4deg; --i:0"><span>LIMA</span><b>#BCED12</b></div>
+          <div class="palette__block" style="--c:#F6C53A; --x:18px; --y:-22px; --r:3deg; --i:1"><span>OURO</span><b>#F6C53A</b></div>
+          <div class="palette__block" style="--c:#12C2ED; --x:-14px; --y:30px; --r:2deg; --i:2"><span>CIANO</span><b>#12C2ED</b></div>
+          <div class="palette__block" style="--c:#ED3D91; --x:24px; --y:-12px; --r:-3deg; --i:3"><span>MAGENTA</span><b>#ED3D91</b></div>
+          <div class="palette__block" style="--c:#894AED; --x:-30px; --y:10px; --r:4deg; --i:4"><span>ROXO</span><b>#894AED</b></div>
+          <div class="palette__block" style="--c:#ED7812; --x:14px; --y:24px; --r:-2deg; --i:5"><span>LARANJA</span><b>#ED7812</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== HANDS ============================== -->
+    <section class="section hands" id="hands" aria-labelledby="handsTitle">
+      <div class="wrap">
+        <div class="hands__head" data-reveal>
+          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 09 / PROJETOS</p>
+          <h2 class="display" id="handsTitle">Ideias não são nada sem mãos que as construam.</h2>
+          <p class="lead">Três projetos autorais que cobrem sistemas de UI, áudio generativo e ferramentas de design.</p>
+        </div>
+        <div class="projects">
+          <article class="project-card" data-reveal style="--delay:0ms">
+            <div class="project-card__thumb"><canvas class="sprite-canvas" data-sprite="ghost" width="192" height="192" aria-hidden="true"></canvas><span class="project-card__id">PROJETO_01</span></div>
+            <div class="project-card__body">
+              <h3>ARCADE OS</h3>
+              <p>Um desktop de navegador que trata cada janela como um objeto jogável. Teclado primeiro, sem dependências.</p>
+              <ul class="tag-list"><li>CANVAS</li><li>SISTEMA DE UI</li><li>2026</li></ul>
+            </div>
+          </article>
+          <article class="project-card" data-reveal style="--delay:100ms">
+            <div class="project-card__thumb"><canvas class="sprite-canvas" data-sprite="cassette" width="192" height="192" aria-hidden="true"></canvas><span class="project-card__id">PROJETO_02</span></div>
+            <div class="project-card__body">
+              <h3>PIXEL FM</h3>
+              <p>Uma rádio generativa minúscula em que cada faixa desenha a própria capa em tempo real. Som ligado por escolha.</p>
+              <ul class="tag-list"><li>ÁUDIO WEB</li><li>GENERATIVO</li><li>2025</li></ul>
+            </div>
+          </article>
+          <article class="project-card" data-reveal style="--delay:200ms">
+            <div class="project-card__thumb"><canvas class="sprite-canvas" data-sprite="rocket" width="192" height="192" aria-hidden="true"></canvas><span class="project-card__id">PROJETO_03</span></div>
+            <div class="project-card__body">
+              <h3>SYNTH LAB</h3>
+              <p>Um playground de tokens de design que transforma decisões de espaçamento e cor em uma pequena máquina jogável.</p>
+              <ul class="tag-list"><li>SISTEMA DE DESIGN</li><li>FERRAMENTAS</li><li>2025</li></ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== WINDOWS ============================== -->
+    <section class="section windows" id="windows" aria-labelledby="windowsTitle">
+      <div class="wrap section-grid windows__grid">
+        <div class="section-copy" data-reveal>
+          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 10 / PROCESSO</p>
+          <h2 class="display" id="windowsTitle">Cada janela é uma decisão.</h2>
+          <p class="lead">Alertas, estados de carregamento, avisos e confirmações: as pequenas interfaces que mantêm um processo claro.</p>
+          <p class="body">Feche, minimize e restaure as janelas para testar cada estado.</p>
+          <button class="pixel-btn" id="restoreWindows" type="button">Restaurar janelas</button>
+        </div>
+
+        <div class="window-stack" id="windowStack" data-reveal style="--delay:100ms">
+          <article class="win" style="--stack:0">
+            <div class="win__bar">
+              <span class="win__title"><i class="win__icon win__icon--magenta"></i>sistema.alerta</span>
+              <span class="win__controls">
+                <button type="button" class="win__btn" data-win="min" aria-label="Minimizar sistema.alerta">_</button>
+                <button type="button" class="win__btn" data-win="close" aria-label="Fechar sistema.alerta">×</button>
+              </span>
+            </div>
+            <div class="win__body">
+              <p><strong>[!] PROCESSO DESCONHECIDO</strong></p>
+              <p>Uma nova ideia está pedindo permissão para rodar. Permitir?</p>
+              <div class="win__actions"><button class="win__action" type="button" data-dismiss>PERMITIR</button><button class="win__action win__action--ghost" type="button" data-dismiss>DEPOIS</button></div>
+            </div>
+          </article>
+
+          <article class="win" style="--stack:1">
+            <div class="win__bar">
+              <span class="win__title"><i class="win__icon win__icon--cyan"></i>carregando.exe</span>
+              <span class="win__controls">
+                <button type="button" class="win__btn" data-win="min" aria-label="Minimizar carregando.exe">_</button>
+                <button type="button" class="win__btn" data-win="close" aria-label="Fechar carregando.exe">×</button>
+              </span>
+            </div>
+            <div class="win__body">
+              <p><strong>renderizando pixels…</strong></p>
+              <div class="bar" aria-label="Progresso de carregamento: 64 por cento"><i style="--fill:64%"></i></div>
+              <p class="win__meta">64% · 2.048 blocos na fila</p>
+            </div>
+          </article>
+
+          <article class="win" style="--stack:2">
+            <div class="win__bar">
+              <span class="win__title"><i class="win__icon win__icon--orange"></i>aviso.exe</span>
+              <span class="win__controls">
+                <button type="button" class="win__btn" data-win="min" aria-label="Minimizar aviso.exe">_</button>
+                <button type="button" class="win__btn" data-win="close" aria-label="Fechar aviso.exe">×</button>
+              </span>
+            </div>
+            <div class="win__body">
+              <p><strong>[!] EXCESSO DE BOM GOSTO DETECTADO</strong></p>
+              <p>Reduzir o contraste? De jeito nenhum.</p>
+              <div class="win__actions"><button class="win__action" type="button" data-dismiss>IGNORAR</button></div>
+            </div>
+          </article>
+
+          <article class="win" style="--stack:3">
+            <div class="win__bar">
+              <span class="win__title"><i class="win__icon win__icon--lime"></i>sistema_pronto</span>
+              <span class="win__controls">
+                <button type="button" class="win__btn" data-win="min" aria-label="Minimizar sistema_pronto">_</button>
+                <button type="button" class="win__btn" data-win="close" aria-label="Fechar sistema_pronto">×</button>
+              </span>
+            </div>
+            <div class="win__body">
+              <p><strong>Todos os sistemas operando normalmente.</strong></p>
+              <div class="bar" aria-label="Prontidão: 100 por cento"><i style="--fill:100%"></i></div>
+              <p class="win__meta">100% · pronto para o próximo nível</p>
+            </div>
+          </article>
+
+          <article class="win win--final" style="--stack:4">
+            <div class="win__bar">
+              <span class="win__title"><i class="win__icon win__icon--yellow"></i>portfolio.exe</span>
+              <span class="win__controls">
+                <button type="button" class="win__btn" data-win="min" aria-label="Minimizar portfolio.exe">_</button>
+                <button type="button" class="win__btn" data-win="close" aria-label="Fechar portfolio.exe">×</button>
+              </span>
+            </div>
+            <div class="win__body">
+              <p class="win__question">Abrir os projetos selecionados?</p>
+              <div class="win__actions">
+                <button class="win__action win__action--ghost" type="button" data-win="close">Não</button>
+                <a class="win__action" href="#hands" data-win="yes">Sim</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== TETRIS ============================== -->
+    <section class="section tetris" id="tetris" aria-labelledby="tetrisTitle">
+      <div class="wrap section-grid tetris__grid">
+        <div class="section-copy" data-reveal>
+          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 11 / JOGO</p>
+          <h2 class="display" id="tetrisTitle">Encaixe perfeito.</h2>
+          <p class="lead">Um pequeno tabuleiro estilo Tetris feito para ritmo, cliques e linhas limpas.</p>
+          <p class="body">O tabuleiro roda sozinho. Use Próxima para acelerar a próxima peça.</p>
+          <div class="tetris__actions">
+            <button class="pixel-btn pixel-btn--solid" id="tetrisNext" type="button">Próxima <span aria-hidden="true">▶</span></button>
+            <a class="pixel-btn" href="#cta">Continuar</a>
+          </div>
+          <p class="pixel-readout">LINHAS <span id="tetrisLines">000</span> · PEÇAS <span id="tetrisPieces">000</span></p>
+        </div>
+        <div class="tetris-machine" data-reveal style="--delay:100ms">
+          <div class="tetris-machine__bar"><span>TETRIS.EXE</span><span>DEMO ESTÁTICA</span></div>
+          <div class="tetris-machine__screen">
+            <canvas id="tetrisCanvas" class="tetris-canvas" width="300" height="480" aria-hidden="true"></canvas>
+            <div class="tetris-flash" id="tetrisFlash" aria-hidden="true">ENCAIXE PERFEITO!</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CTA ============================== -->
+    <section class="section cta" id="cta" aria-labelledby="ctaTitle">
+      <div class="cta__blocks" aria-hidden="true">
+        <span class="cta-block b1"></span><span class="cta-block b2"></span><span class="cta-block b3"></span><span class="cta-block b4"></span><span class="cta-block b5"></span>
+      </div>
+      <div class="wrap cta__inner" data-reveal>
+        <p class="kicker kicker--center"><span class="kicker__dot"></span>NÍVEL 12 / CONTATO</p>
+        <h2 class="display display--center" id="ctaTitle">Empilhe sua visão<br>com a minha.</h2>
+        <p class="lead lead--center">Me conte o que você quer construir. Respondo com os próximos passos.</p>
+        <button class="pixel-btn pixel-btn--solid pixel-btn--large" type="button" data-open-contact>Fale comigo <span aria-hidden="true">▶</span></button>
+        <p class="cta__meta">TEMPO DE RESPOSTA: GERALMENTE UM CAFÉ</p>
+      </div>
+    </section>
+
+    <!-- ============================== WORLD ============================== -->
+    <section class="section world" id="world" aria-labelledby="worldTitle">
+      <div class="wrap world__inner">
+        <div class="world__head" data-reveal>
+          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 13 / MUNDO</p>
+          <h2 class="display" id="worldTitle">Vamos construir seu próximo projeto, pixel a pixel.</h2>
+        </div>
+        <div class="world__map-wrap" data-reveal style="--delay:100ms">
+          <canvas id="worldCanvas" class="world-canvas" width="960" height="480" aria-hidden="true"></canvas>
+          <span class="world__coords" aria-hidden="true">LAT -23.55 / LON -46.63</span>
+          <span class="world__time"><i class="dot-live" aria-hidden="true"></i> PICOS — PI <b id="localTime">--:--</b></span>
+        </div>
+        <div class="world__foot" data-reveal style="--delay:160ms">
+          <div class="socials" aria-label="Links sociais">
+            <a href="https://github.com/" data-social="github" target="_blank" rel="noreferrer">GITHUB ↗</a>
+            <a href="https://www.linkedin.com/" data-social="linkedin" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
+            <a href="https://www.instagram.com/" data-social="instagram" target="_blank" rel="noreferrer">INSTAGRAM ↗</a>
+            <a href="mailto:hello@agrvai.dev" data-social="email">E-MAIL ↗</a>
+          </div>
+          <p class="copyright">©2026 AGRVAI · FEITO PIXEL A PIXEL</p>
+        </div>
+      </div>
+      <footer class="footer"><span>FIM DO ARQUIVO</span><button class="footer__top" type="button" id="backToTop">VOLTAR AO INÍCIO ↑</button></footer>
+    </section>
+  </main>
+
+  <!-- fixed arcade chrome -->
+  <aside class="dock" id="dock" aria-label="Barra de ferramentas"></aside>
+  <nav class="pacnav" id="pacNav" aria-label="Navegação por seções"></nav>
+
+  <!-- ============================== MODALS ============================== -->
+  <dialog class="win-dialog" id="contactDialog" aria-labelledby="contactDialogTitle">
+    <div class="win-dialog__bar">
+      <span class="win__title"><i class="win__icon win__icon--lime"></i><span id="contactDialogTitle">C:/SEU-SITE/CONTATO</span></span>
+      <form method="dialog">
+        <button class="win__btn" type="submit" aria-label="Fechar formulário de contato">×</button>
+      </form>
+    </div>
+    <div class="win-dialog__body">
+      <form id="contactForm" novalidate>
+        <p class="win-dialog__intro">Abra um novo projeto ou apenas diga olá. Os campos obrigatórios estão marcados com <span class="lime">*</span>.</p>
+        <div class="field">
+          <label for="fieldName">Nome <span class="lime">*</span></label>
+          <input id="fieldName" name="name" type="text" autocomplete="name" aria-describedby="errName">
+          <p class="field__error" id="errName" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="fieldEmail">E-mail <span class="lime">*</span></label>
+          <input id="fieldEmail" name="email" type="email" autocomplete="email" inputmode="email" aria-describedby="errEmail">
+          <p class="field__error" id="errEmail" role="alert"></p>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label for="fieldCompany">Empresa</label>
+            <input id="fieldCompany" name="company" type="text" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="fieldWebsite">Site</label>
+            <input id="fieldWebsite" name="website" type="url" autocomplete="url" inputmode="url">
+            <p class="field__error" id="errWebsite" role="alert"></p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="fieldMessage">Mensagem <span class="lime">*</span></label>
+          <textarea id="fieldMessage" name="message" rows="4" aria-describedby="errMessage"></textarea>
+          <p class="field__error" id="errMessage" role="alert"></p>
+        </div>
+        <div class="win-dialog__actions">
+          <button class="pixel-btn pixel-btn--solid" type="submit">Enviar <span aria-hidden="true">▶</span></button>
+          <button class="pixel-btn" type="button" data-close-contact>Cancelar</button>
+        </div>
+      </form>
+      <div class="form-success" id="formSuccess" hidden>
+        <p class="form-success__title">MENSAGEM.ENVIADA</p>
+        <p>Obrigado — sua mensagem entrou na fila. Vou responder de um endereço humano de verdade.</p>
+        <button class="pixel-btn" type="button" data-close-contact>Fechar janela</button>
+      </div>
+    </div>
+  </dialog>
+
+  <p class="sr-only" id="liveRegion" aria-live="polite"></p>
+
+  <noscript>
+    <div class="noscript">Este portfólio usa JavaScript para o personagem em pixel, o som e a navegação. O conteúdo continua legível, mas o fliperama precisa de energia.</div>
+  </noscript>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

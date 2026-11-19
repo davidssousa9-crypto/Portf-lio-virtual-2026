@@ -1,0 +1,325 @@
+- generic [active] [ref=f12e1]:
+  - link "Pular para o conteúdo" [ref=f12e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f12e3]:
+    - generic [ref=f12e4]:
+      - navigation "Navegação principal" [ref=f12e5]:
+        - link "Criador" [ref=f12e6] [cursor=pointer]:
+          - /url: "#about"
+        - link "Projetos" [ref=f12e8] [cursor=pointer]:
+          - /url: "#hands"
+        - link "Jogar" [ref=f12e10] [cursor=pointer]:
+          - /url: "#tetris"
+      - link "AGRVAI — voltar ao topo" [ref=f12e12] [cursor=pointer]:
+        - /url: "#hero"
+      - generic [ref=f12e220]:
+        - paragraph [aria-hidden] [ref=f12e221]:
+          - generic [ref=f12e222]: NÍV.
+          - generic [ref=f12e223]: "01"
+          - generic [ref=f12e224]: /
+          - generic [ref=f12e225]: "13"
+        - link "Contato" [ref=f12e226] [cursor=pointer]:
+          - /url: "#cta"
+          - generic [aria-hidden] [ref=f12e228]: ▶
+  - main [ref=f12e229]:
+    - region "T ransformo pixels em experiências digitais memoráveis." [ref=f12e230]:
+      - img "Retrato em pixel art do criador do portfólio. Pressione Enter ou clique para fazer o personagem pular." [ref=f12e232] [cursor=pointer]
+      - generic [ref=f12e233]:
+        - heading "T ransformo pixels em experiências digitais memoráveis." [level=1] [ref=f12e234]:
+          - generic [ref=f12e235]:
+            - generic [ref=f12e236]: T
+            - text: ransformo pixels
+          - generic [ref=f12e237]: em experiências
+          - generic [ref=f12e238]: digitais
+          - generic [ref=f12e239]: memoráveis.
+        - paragraph [ref=f12e240]:
+          - generic [ref=f12e241]: Código fluido e design cuidadoso,
+          - generic [ref=f12e242]: criando e dando vida a visões desde 2010.
+        - group "Selecione o modo do personagem" [ref=f12e243]:
+          - button "Modo Desenvolvedor" [ref=f12e250] [cursor=pointer]
+          - button "Modo Criativo" [pressed] [ref=f12e251] [cursor=pointer]
+    - region "Sobre Mim." [ref=f12e252]:
+      - generic [ref=f12e253]:
+        - generic [ref=f12e254]:
+          - paragraph [ref=f12e255]: NÍVEL 02 / CRIADOR
+          - heading "Sobre Mim." [level=2] [ref=f12e257]
+          - paragraph [ref=f12e258]: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+          - paragraph [ref=f12e259]: Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla.
+        - generic [ref=f12e260]:
+          - generic [ref=f12e261]:
+            - generic [ref=f12e262]: PERFIL DO JOGADOR
+            - generic [ref=f12e263]: NÍV. 32
+          - generic [ref=f12e277]:
+            - generic [ref=f12e278]:
+              - term [ref=f12e279]: CLASSE
+              - definition [ref=f12e280]: FRONT-END
+            - generic [ref=f12e281]:
+              - term [ref=f12e282]: BASE
+              - definition [ref=f12e283]: PICOS — PI
+            - generic [ref=f12e284]:
+              - term [ref=f12e285]: ARMA
+              - definition [ref=f12e286]: HTML / CSS / JS
+            - generic [ref=f12e287]:
+              - term [ref=f12e288]: MODO
+              - definition [ref=f12e289]: CRIATIVO
+          - link "Jogar" [ref=f12e290] [cursor=pointer]:
+            - /url: "#tetris"
+            - text: Jogar
+            - generic [aria-hidden] [ref=f12e291]: ▶
+          - paragraph [ref=f12e292]: Sem save necessário. O progresso fica salvo localmente.
+    - region "História de Vida." [ref=f12e293]:
+      - generic [ref=f12e294]:
+        - generic [ref=f12e295]:
+          - paragraph [ref=f12e296]: NÍVEL 03 / ORIGEM
+          - heading "História de Vida." [level=2] [ref=f12e298]
+          - paragraph [ref=f12e299]: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
+          - paragraph [ref=f12e300]: Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur.
+          - paragraph [ref=f12e301]: 000 / 256 PX ACESOS
+        - generic [ref=f12e302]:
+          - generic [aria-hidden] [ref=f12e303]:
+            - generic [ref=f12e304]: PIXEL.INC
+            - generic [ref=f12e305]: 16×16
+          - img "Um ícone de faísca em pixel art que acende conforme você rola a página" [ref=f12e306]
+    - region "É aqui que as ideias tomam forma." [ref=f12e563]:
+      - generic [ref=f12e564]:
+        - generic [ref=f12e565]:
+          - paragraph [ref=f12e566]: NÍVEL 04 / FAÍSCA
+          - heading "É aqui que as ideias tomam forma." [level=2] [ref=f12e568]
+          - paragraph [ref=f12e569]: "Transformo conceitos iniciais em direções de interface: estrutura, fluxo e as primeiras telas que provam a ideia."
+        - generic [aria-hidden] [ref=f12e570]:
+          - generic [ref=f12e571]: FAÍSCA
+          - generic [ref=f12e572]: FORMA
+          - generic [ref=f12e573]: SENTIR
+          - generic [ref=f12e574]: ENTREGAR
+    - region "Torne o invisível legível." [ref=f12e579]:
+      - generic [ref=f12e580]:
+        - generic [ref=f12e581]: CONCEITO
+        - generic [ref=f12e584]:
+          - paragraph [ref=f12e585]: NÍVEL 05 / CONCEITO
+          - heading "Torne o invisível legível." [level=2] [ref=f12e587]
+          - paragraph [ref=f12e588]: Mapeio a ideia em wireframes, componentes e um plano de build.
+          - paragraph [ref=f12e589]: Cada parte ganha nome, propósito e lugar antes da primeira linha de código.
+    - region "Deste fio, tudo cresce…" [ref=f12e590]:
+      - generic [ref=f12e591]:
+        - generic [ref=f12e592]:
+          - paragraph [ref=f12e593]: NÍVEL 06 / SISTEMA
+          - heading "Deste fio, tudo cresce…" [level=2] [ref=f12e595]
+          - paragraph [ref=f12e596]: Tokens de design, escalas tipográficas, espaçamento e regras de movimento, documentados e reutilizáveis.
+          - paragraph [ref=f12e597]: O sistema mantém a próxima tela consistente sem travar o trabalho.
+          - generic [aria-hidden] [ref=f12e598]:
+            - generic [ref=f12e599]: LÓGICA
+            - generic [ref=f12e601]: RITMO
+            - generic [ref=f12e603]: VOZ
+        - generic [ref=f12e605]: SEQUENCIA_A
+    - region "Mais do que função." [ref=f12e608]:
+      - generic [ref=f12e610]:
+        - generic [ref=f12e611]:
+          - paragraph [ref=f12e612]: NÍVEL 07 / EMOÇÃO
+          - heading "Mais do que função." [level=2] [ref=f12e614]
+          - paragraph [ref=f12e615]: Movimento, tempo e feedback carregam significado. Eles confirmam ações e orientam a atenção.
+          - paragraph [ref=f12e616]: Mova o ponteiro pelo campo para testar a resposta.
+        - paragraph [aria-hidden] [ref=f12e617]: MOVA O PONTEIRO →
+    - region "A forma segue a função, mas a beleza conduz." [ref=f12e618]:
+      - generic [ref=f12e619]:
+        - generic [ref=f12e620]:
+          - paragraph [ref=f12e621]: NÍVEL 08 / FORMA
+          - heading "A forma segue a função, mas a beleza conduz." [level=2] [ref=f12e623]
+          - paragraph [ref=f12e624]: Cor, tipografia, espaçamento e alinhamento são escolhidos em conjunto, não adicionados como decoração.
+          - paragraph [ref=f12e625]: Role a página para alinhar a composição. Passe o mouse por um bloco para isolar uma cor.
+        - generic "Paleta de cores usada no portfólio" [ref=f12e626]:
+          - generic [ref=f12e627]:
+            - generic [ref=f12e628]: LIMA
+            - generic [ref=f12e629]: "#BCED12"
+          - generic [ref=f12e630]:
+            - generic [ref=f12e631]: OURO
+            - generic [ref=f12e632]: "#F6C53A"
+          - generic [ref=f12e633]:
+            - generic [ref=f12e634]: CIANO
+            - generic [ref=f12e635]: "#12C2ED"
+          - generic [ref=f12e636]:
+            - generic [ref=f12e637]: MAGENTA
+            - generic [ref=f12e638]: "#ED3D91"
+          - generic [ref=f12e639]:
+            - generic [ref=f12e640]: ROXO
+            - generic [ref=f12e641]: "#894AED"
+          - generic [ref=f12e642]:
+            - generic [ref=f12e643]: LARANJA
+            - generic [ref=f12e644]: "#ED7812"
+    - region "Ideias não são nada sem mãos que as construam." [ref=f12e645]:
+      - generic [ref=f12e646]:
+        - generic [ref=f12e647]:
+          - paragraph [ref=f12e648]: NÍVEL 09 / PROJETOS
+          - heading "Ideias não são nada sem mãos que as construam." [level=2] [ref=f12e650]
+          - paragraph [ref=f12e651]: Três projetos autorais que cobrem sistemas de UI, áudio generativo e ferramentas de design.
+        - generic [ref=f12e652]:
+          - article [ref=f12e653]:
+            - generic [ref=f12e654]: PROJETO_01
+            - generic [ref=f12e657]:
+              - heading "ARCADE OS" [level=3] [ref=f12e658]
+              - paragraph [ref=f12e659]: Um desktop de navegador que trata cada janela como um objeto jogável. Teclado primeiro, sem dependências.
+              - list [ref=f12e660]:
+                - listitem [ref=f12e661]: CANVAS
+                - listitem [ref=f12e662]: SISTEMA DE UI
+                - listitem [ref=f12e663]: "2026"
+          - article [ref=f12e664]:
+            - generic [ref=f12e665]: PROJETO_02
+            - generic [ref=f12e668]:
+              - heading "PIXEL FM" [level=3] [ref=f12e669]
+              - paragraph [ref=f12e670]: Uma rádio generativa minúscula em que cada faixa desenha a própria capa em tempo real. Som ligado por escolha.
+              - list [ref=f12e671]:
+                - listitem [ref=f12e672]: ÁUDIO WEB
+                - listitem [ref=f12e673]: GENERATIVO
+                - listitem [ref=f12e674]: "2025"
+          - article [ref=f12e675]:
+            - generic [ref=f12e676]: PROJETO_03
+            - generic [ref=f12e679]:
+              - heading "SYNTH LAB" [level=3] [ref=f12e680]
+              - paragraph [ref=f12e681]: Um playground de tokens de design que transforma decisões de espaçamento e cor em uma pequena máquina jogável.
+              - list [ref=f12e682]:
+                - listitem [ref=f12e683]: SISTEMA DE DESIGN
+                - listitem [ref=f12e684]: FERRAMENTAS
+                - listitem [ref=f12e685]: "2025"
+    - region "Cada janela é uma decisão." [ref=f12e686]:
+      - generic [ref=f12e687]:
+        - generic [ref=f12e688]:
+          - paragraph [ref=f12e689]: NÍVEL 10 / PROCESSO
+          - heading "Cada janela é uma decisão." [level=2] [ref=f12e691]
+          - paragraph [ref=f12e692]: "Alertas, estados de carregamento, avisos e confirmações: as pequenas interfaces que mantêm um processo claro."
+          - paragraph [ref=f12e693]: Feche, minimize e restaure as janelas para testar cada estado.
+          - button "Restaurar janelas" [ref=f12e694] [cursor=pointer]
+        - generic [ref=f12e695]:
+          - article [ref=f12e696]:
+            - generic [ref=f12e697]:
+              - generic [ref=f12e698]: sistema.alerta
+              - generic [ref=f12e700]:
+                - button "Minimizar sistema.alerta" [ref=f12e701] [cursor=pointer]: _
+                - button "Fechar sistema.alerta" [ref=f12e702] [cursor=pointer]: ×
+            - generic [ref=f12e703]:
+              - paragraph [ref=f12e704]:
+                - strong [ref=f12e705]: "[!] PROCESSO DESCONHECIDO"
+              - paragraph [ref=f12e706]: Uma nova ideia está pedindo permissão para rodar. Permitir?
+              - generic [ref=f12e707]:
+                - button "PERMITIR" [ref=f12e708] [cursor=pointer]
+                - button "DEPOIS" [ref=f12e709] [cursor=pointer]
+          - article [ref=f12e710]:
+            - generic [ref=f12e711]:
+              - generic [ref=f12e712]: carregando.exe
+              - generic [ref=f12e714]:
+                - button "Minimizar carregando.exe" [ref=f12e715] [cursor=pointer]: _
+                - button "Fechar carregando.exe" [ref=f12e716] [cursor=pointer]: ×
+            - generic [ref=f12e717]:
+              - paragraph [ref=f12e718]:
+                - strong [ref=f12e719]: renderizando pixels…
+              - 'generic "Progresso de carregamento: 64 por cento" [ref=f12e720]'
+              - paragraph [ref=f12e721]: 64% · 2.048 blocos na fila
+          - article [ref=f12e722]:
+            - generic [ref=f12e723]:
+              - generic [ref=f12e724]: aviso.exe
+              - generic [ref=f12e726]:
+                - button "Minimizar aviso.exe" [ref=f12e727] [cursor=pointer]: _
+                - button "Fechar aviso.exe" [ref=f12e728] [cursor=pointer]: ×
+            - generic [ref=f12e729]:
+              - paragraph [ref=f12e730]:
+                - strong [ref=f12e731]: "[!] EXCESSO DE BOM GOSTO DETECTADO"
+              - paragraph [ref=f12e732]: Reduzir o contraste? De jeito nenhum.
+              - button "IGNORAR" [ref=f12e734] [cursor=pointer]
+          - article [ref=f12e735]:
+            - generic [ref=f12e736]:
+              - generic [ref=f12e737]: sistema_pronto
+              - generic [ref=f12e739]:
+                - button "Minimizar sistema_pronto" [ref=f12e740] [cursor=pointer]: _
+                - button "Fechar sistema_pronto" [ref=f12e741] [cursor=pointer]: ×
+            - generic [ref=f12e742]:
+              - paragraph [ref=f12e743]:
+                - strong [ref=f12e744]: Todos os sistemas operando normalmente.
+              - 'generic "Prontidão: 100 por cento" [ref=f12e745]'
+              - paragraph [ref=f12e746]: 100% · pronto para o próximo nível
+          - article [ref=f12e747]:
+            - generic [ref=f12e748]:
+              - generic [ref=f12e749]: portfolio.exe
+              - generic [ref=f12e751]:
+                - button "Minimizar portfolio.exe" [ref=f12e752] [cursor=pointer]: _
+                - button "Fechar portfolio.exe" [ref=f12e753] [cursor=pointer]: ×
+            - generic [ref=f12e754]:
+              - paragraph [ref=f12e755]: Abrir os projetos selecionados?
+              - generic [ref=f12e756]:
+                - button "Não" [ref=f12e757] [cursor=pointer]
+                - link "Sim" [ref=f12e758] [cursor=pointer]:
+                  - /url: "#hands"
+    - region "Encaixe perfeito." [ref=f12e759]:
+      - generic [ref=f12e760]:
+        - generic [ref=f12e761]:
+          - paragraph [ref=f12e762]: NÍVEL 11 / JOGO
+          - heading "Encaixe perfeito." [level=2] [ref=f12e764]
+          - paragraph [ref=f12e765]: Um pequeno tabuleiro estilo Tetris feito para ritmo, cliques e linhas limpas.
+          - paragraph [ref=f12e766]: O tabuleiro roda sozinho. Use Próxima para acelerar a próxima peça.
+          - generic [ref=f12e767]:
+            - button "Próxima" [ref=f12e768] [cursor=pointer]:
+              - text: Próxima
+              - generic [aria-hidden] [ref=f12e769]: ▶
+            - link "Continuar" [ref=f12e770] [cursor=pointer]:
+              - /url: "#cta"
+          - paragraph [ref=f12e771]: LINHAS 000 · PEÇAS 000
+        - generic [ref=f12e772]:
+          - generic [ref=f12e773]:
+            - generic [ref=f12e774]: TETRIS.EXE
+            - generic [ref=f12e775]: DEMO ESTÁTICA
+          - generic [ref=f12e776]:
+            - generic [aria-hidden]: ENCAIXE PERFEITO!
+    - region "Empilhe sua visão com a minha." [ref=f12e778]:
+      - generic [ref=f12e779]:
+        - paragraph [ref=f12e780]: NÍVEL 12 / CONTATO
+        - heading "Empilhe sua visão com a minha." [level=2] [ref=f12e782]: Empilhe sua visãocom a minha.
+        - paragraph [ref=f12e783]: Me conte o que você quer construir. Respondo com os próximos passos.
+        - button "Fale comigo" [ref=f12e784] [cursor=pointer]:
+          - text: Fale comigo
+          - generic [aria-hidden] [ref=f12e785]: ▶
+        - paragraph [ref=f12e786]: "TEMPO DE RESPOSTA: GERALMENTE UM CAFÉ"
+    - region "Vamos construir seu próximo projeto, pixel a pixel." [ref=f12e787]:
+      - generic [ref=f12e788]:
+        - generic [ref=f12e789]:
+          - paragraph [ref=f12e790]: NÍVEL 13 / MUNDO
+          - heading "Vamos construir seu próximo projeto, pixel a pixel." [level=2] [ref=f12e792]
+        - generic [ref=f12e793]:
+          - generic [aria-hidden] [ref=f12e795]: LAT -23.55 / LON -46.63
+          - generic [ref=f12e796]:
+            - text: PICOS — PI
+            - generic [ref=f12e798]: 16:47
+        - generic [ref=f12e799]:
+          - generic "Links sociais" [ref=f12e800]:
+            - link "GITHUB ↗" [ref=f12e801] [cursor=pointer]:
+              - /url: https://github.com/
+            - link "LINKEDIN ↗" [ref=f12e802] [cursor=pointer]:
+              - /url: https://www.linkedin.com/
+            - link "INSTAGRAM ↗" [ref=f12e803] [cursor=pointer]:
+              - /url: https://www.instagram.com/
+            - link "E-MAIL ↗" [ref=f12e804] [cursor=pointer]:
+              - /url: mailto:hello@agrvai.dev
+          - paragraph [ref=f12e805]: ©2026 AGRVAI · FEITO PIXEL A PIXEL
+      - generic [ref=f12e806]:
+        - generic [ref=f12e807]: FIM DO ARQUIVO
+        - button "VOLTAR AO INÍCIO ↑" [ref=f12e808] [cursor=pointer]
+  - complementary "Barra de ferramentas" [ref=f12e809]:
+    - button "Som" [ref=f12e810] [cursor=pointer]
+    - link "Contato" [ref=f12e832] [cursor=pointer]:
+      - /url: "#cta"
+    - link "Jogo" [ref=f12e855] [cursor=pointer]:
+      - /url: "#tetris"
+    - link "Projetos" [ref=f12e875] [cursor=pointer]:
+      - /url: "#hands"
+  - navigation "Navegação por seções" [ref=f12e888]:
+    - generic [ref=f12e890]:
+      - button "Ir para a seção Início" [ref=f12e891] [cursor=pointer]
+      - button "Ir para a seção Criador" [ref=f12e913] [cursor=pointer]
+      - button "Ir para a seção Pixels" [ref=f12e922] [cursor=pointer]
+      - button "Ir para a seção Ideias" [ref=f12e931] [cursor=pointer]
+      - button "Ir para a seção Cérebro" [ref=f12e940] [cursor=pointer]
+      - button "Ir para a seção DNA" [ref=f12e949] [cursor=pointer]
+      - button "Ir para a seção Emoção" [ref=f12e958] [cursor=pointer]
+      - button "Ir para a seção Beleza" [ref=f12e967] [cursor=pointer]
+      - button "Ir para a seção Projetos" [ref=f12e976] [cursor=pointer]
+      - button "Ir para a seção Janelas" [ref=f12e985] [cursor=pointer]
+      - button "Ir para a seção Tetris" [ref=f12e994] [cursor=pointer]
+      - button "Ir para a seção Contato" [ref=f12e1003] [cursor=pointer]
+      - button "Ir para a seção Mundo" [ref=f12e1012] [cursor=pointer]
+  - paragraph [ref=f12e1021]

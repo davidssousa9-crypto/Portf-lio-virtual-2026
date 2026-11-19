@@ -1,0 +1,308 @@
+- generic [active] [ref=f9e1]:
+  - link "Skip to content" [ref=f9e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f9e3]:
+    - generic [ref=f9e4]:
+      - link "AGRVAI — back to top" [ref=f9e5] [cursor=pointer]:
+        - /url: "#hero"
+      - button "Menu" [ref=f9e213] [cursor=pointer]
+  - main [ref=f9e219]:
+    - region "T urning Pixels into Memorable Digital Experiences." [ref=f9e220]:
+      - img "Pixel-art portrait of the portfolio creator. Press Enter or click to make the character jump." [ref=f9e222] [cursor=pointer]
+      - generic [ref=f9e223]:
+        - heading "T urning Pixels into Memorable Digital Experiences." [level=1] [ref=f9e224]:
+          - generic [ref=f9e225]:
+            - generic [ref=f9e226]: T
+            - text: urning Pixels
+          - generic [ref=f9e227]: into Memorable
+          - generic [ref=f9e228]: Digital
+          - generic [ref=f9e229]: Experiences.
+        - paragraph [ref=f9e230]:
+          - generic [ref=f9e231]: Seamless code and thoughtful design,
+          - generic [ref=f9e232]: crafting and bringing visions to life since 2010.
+        - group "Select character mode" [ref=f9e233]:
+          - button "Developer Mode" [ref=f9e240] [cursor=pointer]
+          - button "Creative Mode" [pressed] [ref=f9e241] [cursor=pointer]
+    - region "About Me." [ref=f9e242]:
+      - generic [ref=f9e243]:
+        - generic [ref=f9e244]:
+          - paragraph [ref=f9e245]: LEVEL 02 / CREATOR
+          - heading "About Me." [level=2] [ref=f9e247]
+          - paragraph [ref=f9e248]: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+          - paragraph [ref=f9e249]: Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla.
+        - generic [ref=f9e250]:
+          - generic [ref=f9e251]:
+            - generic [ref=f9e252]: PLAYER PROFILE
+            - generic [ref=f9e253]: LVL. 32
+          - generic [ref=f9e267]:
+            - generic [ref=f9e268]:
+              - term [ref=f9e269]: CLASS
+              - definition [ref=f9e270]: FRONT-END
+            - generic [ref=f9e271]:
+              - term [ref=f9e272]: BASE
+              - definition [ref=f9e273]: PICOS — PI
+            - generic [ref=f9e274]:
+              - term [ref=f9e275]: WEAPON
+              - definition [ref=f9e276]: HTML / CSS / JS
+            - generic [ref=f9e277]:
+              - term [ref=f9e278]: MODE
+              - definition [ref=f9e279]: CREATIVE
+          - link "Play" [ref=f9e280] [cursor=pointer]:
+            - /url: "#tetris"
+            - text: Play
+            - generic [aria-hidden] [ref=f9e281]: ▶
+          - paragraph [ref=f9e282]: No save required. Progress is stored locally.
+    - region "Life Story." [ref=f9e283]:
+      - generic [ref=f9e284]:
+        - generic [ref=f9e285]:
+          - paragraph [ref=f9e286]: LEVEL 03 / ORIGIN
+          - heading "Life Story." [level=2] [ref=f9e288]
+          - paragraph [ref=f9e289]: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
+          - paragraph [ref=f9e290]: Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur.
+          - paragraph [ref=f9e291]: 000 / 256 PX LIT
+        - generic [ref=f9e292]:
+          - generic [aria-hidden] [ref=f9e293]:
+            - generic [ref=f9e294]: PIXEL.INC
+            - generic [ref=f9e295]: 16×16
+          - img "A pixel spark icon lighting up as you scroll" [ref=f9e296]
+    - region "This is where ideas take shape." [ref=f9e553]:
+      - generic [ref=f9e554]:
+        - generic [ref=f9e555]:
+          - paragraph [ref=f9e556]: LEVEL 04 / SPARK
+          - heading "This is where ideas take shape." [level=2] [ref=f9e558]
+          - paragraph [ref=f9e559]: A concept is a cluster of loose pixels. The work is finding the arrangement that makes them inevitable.
+        - generic [aria-hidden] [ref=f9e560]:
+          - generic [ref=f9e561]: SPARK
+          - generic [ref=f9e562]: FORM
+          - generic [ref=f9e563]: FEEL
+          - generic [ref=f9e564]: SHIP
+    - region "Make the invisible legible." [ref=f9e569]:
+      - generic [ref=f9e570]:
+        - generic [ref=f9e571]: CONCEPT
+        - generic [ref=f9e574]:
+          - paragraph [ref=f9e575]: LEVEL 05 / CONCEPT
+          - heading "Make the invisible legible." [level=2] [ref=f9e577]
+          - paragraph [ref=f9e578]: Strategy becomes wireframe. Wireframe becomes system. The spark is only real when someone else can use it.
+          - paragraph [ref=f9e579]: I map the idea, name the parts, then build the smallest version that proves the whole thing can breathe.
+    - region "From this strand, everything grows…" [ref=f9e580]:
+      - generic [ref=f9e581]:
+        - generic [ref=f9e582]:
+          - paragraph [ref=f9e583]: LEVEL 06 / SYSTEM
+          - heading "From this strand, everything grows…" [level=2] [ref=f9e585]
+          - paragraph [ref=f9e586]: Tokens, type scales, spacing rules, motion curves. The invisible code underneath every visible choice.
+          - paragraph [ref=f9e587]: A good system is not a cage. It is a shared language that lets the next person move faster without losing the accent.
+          - generic [aria-hidden] [ref=f9e588]:
+            - generic [ref=f9e589]: LOGIC
+            - generic [ref=f9e591]: RHYTHM
+            - generic [ref=f9e593]: VOICE
+        - generic [ref=f9e595]: SEQUENCE_A
+    - region "More than just function." [ref=f9e598]:
+      - generic [ref=f9e601]:
+        - paragraph [ref=f9e602]: LEVEL 07 / FEELING
+        - heading "More than just function." [level=2] [ref=f9e604]
+        - paragraph [ref=f9e605]: A product can be correct and still feel dead. Motion, timing, and tone are not decoration — they are how the interface tells you it heard you.
+        - paragraph [ref=f9e606]: Move your pointer through the field. The little things react.
+    - region "Form follows function, but beauty leads." [ref=f9e607]:
+      - generic [ref=f9e608]:
+        - generic [ref=f9e609]:
+          - paragraph [ref=f9e610]: LEVEL 08 / FORM
+          - heading "Form follows function, but beauty leads." [level=2] [ref=f9e612]
+          - paragraph [ref=f9e613]: Harmony is not a coat of paint. It is a palette, a rhythm, and a set of edges all agreeing on the same story.
+          - paragraph [ref=f9e614]: Scroll into alignment. Hover a block to isolate the note.
+        - generic "Color palette used across the portfolio" [ref=f9e615]:
+          - generic [ref=f9e616]:
+            - generic [ref=f9e617]: LIME
+            - generic [ref=f9e618]: "#BCED12"
+          - generic [ref=f9e619]:
+            - generic [ref=f9e620]: GOLD
+            - generic [ref=f9e621]: "#F6C53A"
+          - generic [ref=f9e622]:
+            - generic [ref=f9e623]: CYAN
+            - generic [ref=f9e624]: "#12C2ED"
+          - generic [ref=f9e625]:
+            - generic [ref=f9e626]: MAGENTA
+            - generic [ref=f9e627]: "#ED3D91"
+          - generic [ref=f9e628]:
+            - generic [ref=f9e629]: PURPLE
+            - generic [ref=f9e630]: "#894AED"
+          - generic [ref=f9e631]:
+            - generic [ref=f9e632]: ORANGE
+            - generic [ref=f9e633]: "#ED7812"
+    - region "Ideas are nothing without hands to build them." [ref=f9e634]:
+      - generic [ref=f9e635]:
+        - generic [ref=f9e636]:
+          - paragraph [ref=f9e637]: LEVEL 09 / BUILDS
+          - heading "Ideas are nothing without hands to build them." [level=2] [ref=f9e639]
+          - paragraph [ref=f9e640]: Three self-initiated builds that keep the arcade muscle warm.
+        - generic [ref=f9e641]:
+          - article [ref=f9e642]:
+            - generic [ref=f9e643]: BUILD_01
+            - generic [ref=f9e646]:
+              - heading "ARCADE OS" [level=3] [ref=f9e647]
+              - paragraph [ref=f9e648]: A browser desktop that treats every window like a playable object. Keyboard-first, no dependencies.
+              - list [ref=f9e649]:
+                - listitem [ref=f9e650]: CANVAS
+                - listitem [ref=f9e651]: UI SYSTEM
+                - listitem [ref=f9e652]: "2026"
+          - article [ref=f9e653]:
+            - generic [ref=f9e654]: BUILD_02
+            - generic [ref=f9e657]:
+              - heading "PIXEL FM" [level=3] [ref=f9e658]
+              - paragraph [ref=f9e659]: A tiny generative radio where every track draws its own cover in real time. Sound on by choice.
+              - list [ref=f9e660]:
+                - listitem [ref=f9e661]: WEB AUDIO
+                - listitem [ref=f9e662]: GENERATIVE
+                - listitem [ref=f9e663]: "2025"
+          - article [ref=f9e664]:
+            - generic [ref=f9e665]: BUILD_03
+            - generic [ref=f9e668]:
+              - heading "SYNTH LAB" [level=3] [ref=f9e669]
+              - paragraph [ref=f9e670]: A design-token playground that turns spacing and color decisions into a playable little machine.
+              - list [ref=f9e671]:
+                - listitem [ref=f9e672]: DESIGN SYSTEM
+                - listitem [ref=f9e673]: TOOLING
+                - listitem [ref=f9e674]: "2025"
+    - region "Every window is a decision." [ref=f9e675]:
+      - generic [ref=f9e676]:
+        - generic [ref=f9e677]:
+          - paragraph [ref=f9e678]: LEVEL 10 / PROCESS
+          - heading "Every window is a decision." [level=2] [ref=f9e680]
+          - paragraph [ref=f9e681]: Alerts, loading states, warnings, and the final yes. A process is a sequence of small interfaces that keep someone oriented.
+          - paragraph [ref=f9e682]: Close a window. Minimize another. Restore the stack if you miss it.
+          - button "Restore windows" [ref=f9e683] [cursor=pointer]
+        - generic [ref=f9e684]:
+          - article [ref=f9e685]:
+            - generic [ref=f9e686]:
+              - generic [ref=f9e687]: system.alert
+              - generic [ref=f9e689]:
+                - button "Minimize system.alert" [ref=f9e690] [cursor=pointer]: _
+                - button "Close system.alert" [ref=f9e691] [cursor=pointer]: ×
+            - generic [ref=f9e692]:
+              - paragraph [ref=f9e693]:
+                - strong [ref=f9e694]: "[!] UNKNOWN PROCESS"
+              - paragraph [ref=f9e695]: A new idea is requesting permission to run. Allow it?
+              - generic [ref=f9e696]:
+                - button "ALLOW" [ref=f9e697] [cursor=pointer]
+                - button "LATER" [ref=f9e698] [cursor=pointer]
+          - article [ref=f9e699]:
+            - generic [ref=f9e700]:
+              - generic [ref=f9e701]: loading.exe
+              - generic [ref=f9e703]:
+                - button "Minimize loading.exe" [ref=f9e704] [cursor=pointer]: _
+                - button "Close loading.exe" [ref=f9e705] [cursor=pointer]: ×
+            - generic [ref=f9e706]:
+              - paragraph [ref=f9e707]:
+                - strong [ref=f9e708]: rendering pixels…
+              - generic "Loading progress 64 percent" [ref=f9e709]
+              - paragraph [ref=f9e710]: 64% · 2,048 blocks queued
+          - article [ref=f9e711]:
+            - generic [ref=f9e712]:
+              - generic [ref=f9e713]: warning.exe
+              - generic [ref=f9e715]:
+                - button "Minimize warning.exe" [ref=f9e716] [cursor=pointer]: _
+                - button "Close warning.exe" [ref=f9e717] [cursor=pointer]: ×
+            - generic [ref=f9e718]:
+              - paragraph [ref=f9e719]:
+                - strong [ref=f9e720]: "[!] TOO MUCH GOOD TASTE DETECTED"
+              - paragraph [ref=f9e721]: Reduce contrast? Absolutely not.
+              - button "IGNORE" [ref=f9e723] [cursor=pointer]
+          - article [ref=f9e724]:
+            - generic [ref=f9e725]:
+              - generic [ref=f9e726]: system_ready
+              - generic [ref=f9e728]:
+                - button "Minimize system_ready" [ref=f9e729] [cursor=pointer]: _
+                - button "Close system_ready" [ref=f9e730] [cursor=pointer]: ×
+            - generic [ref=f9e731]:
+              - paragraph [ref=f9e732]:
+                - strong [ref=f9e733]: All systems nominal.
+              - generic "Readiness 100 percent" [ref=f9e734]
+              - paragraph [ref=f9e735]: 100% · ready for next level
+          - article [ref=f9e736]:
+            - generic [ref=f9e737]:
+              - generic [ref=f9e738]: portfolio.exe
+              - generic [ref=f9e740]:
+                - button "Minimize portfolio.exe" [ref=f9e741] [cursor=pointer]: _
+                - button "Close portfolio.exe" [ref=f9e742] [cursor=pointer]: ×
+            - generic [ref=f9e743]:
+              - paragraph [ref=f9e744]: Open selected builds?
+              - generic [ref=f9e745]:
+                - button "No" [ref=f9e746] [cursor=pointer]
+                - link "Yes" [ref=f9e747] [cursor=pointer]:
+                  - /url: "#hands"
+    - region "Perfect fit." [ref=f9e748]:
+      - generic [ref=f9e749]:
+        - generic [ref=f9e750]:
+          - paragraph [ref=f9e751]: LEVEL 11 / PLAY
+          - heading "Perfect fit." [level=2] [ref=f9e753]
+          - paragraph [ref=f9e754]: A small machine that drops blocks, finds rhythm, and clears the line. No score to chase — just the pleasure of the click.
+          - paragraph [ref=f9e755]: The board runs itself. Press Next when you want the next piece to hurry up.
+          - generic [ref=f9e756]:
+            - button "Next" [ref=f9e757] [cursor=pointer]:
+              - text: Next
+              - generic [aria-hidden] [ref=f9e758]: ▶
+            - link "Keep going" [ref=f9e759] [cursor=pointer]:
+              - /url: "#cta"
+          - paragraph [ref=f9e760]: LINES 000 · PIECES 000
+        - generic [ref=f9e761]:
+          - generic [ref=f9e762]:
+            - generic [ref=f9e763]: TETRIS.EXE
+            - generic [ref=f9e764]: STATIC DEMO
+          - generic [ref=f9e765]:
+            - generic [aria-hidden]: PERFECT FIT!
+    - region "Stack your vision with mine." [ref=f9e767]:
+      - generic [ref=f9e768]:
+        - paragraph [ref=f9e769]: LEVEL 12 / CONTACT
+        - heading "Stack your vision with mine." [level=2] [ref=f9e771]: Stack your visionwith mine.
+        - paragraph [ref=f9e772]: Bring the idea. I will bring the grid, the code, and the small obsessions that make it stick.
+        - button "Contact Me" [ref=f9e773] [cursor=pointer]:
+          - text: Contact Me
+          - generic [aria-hidden] [ref=f9e774]: ▶
+        - paragraph [ref=f9e775]: "RESPONSE TIME: USUALLY ONE COFFEE"
+    - region "Let’s build your next project, one pixel at a time." [ref=f9e776]:
+      - generic [ref=f9e777]:
+        - generic [ref=f9e778]:
+          - paragraph [ref=f9e779]: LEVEL 13 / WORLD
+          - heading "Let’s build your next project, one pixel at a time." [level=2] [ref=f9e781]
+        - generic [ref=f9e782]:
+          - generic [aria-hidden] [ref=f9e784]: LAT -23.55 / LON -46.63
+          - generic [ref=f9e785]:
+            - text: PICOS — PI
+            - generic [ref=f9e787]: 16:14
+        - generic [ref=f9e788]:
+          - generic "Social links" [ref=f9e789]:
+            - link "GITHUB ↗" [ref=f9e790] [cursor=pointer]:
+              - /url: https://github.com/
+            - link "LINKEDIN ↗" [ref=f9e791] [cursor=pointer]:
+              - /url: https://www.linkedin.com/
+            - link "INSTAGRAM ↗" [ref=f9e792] [cursor=pointer]:
+              - /url: https://www.instagram.com/
+            - link "EMAIL ↗" [ref=f9e793] [cursor=pointer]:
+              - /url: mailto:hello@agrvai.dev
+          - paragraph [ref=f9e794]: ©2026 AGRVAI · BUILT PIXEL BY PIXEL
+      - generic [ref=f9e795]:
+        - generic [ref=f9e796]: END OF FILE
+        - button "RETURN TO HERO ↑" [ref=f9e797] [cursor=pointer]
+  - complementary "Utility dock" [ref=f9e798]:
+    - button "Sound" [ref=f9e799] [cursor=pointer]
+    - link "Contact" [ref=f9e821] [cursor=pointer]:
+      - /url: "#cta"
+    - link "Game" [ref=f9e844] [cursor=pointer]:
+      - /url: "#tetris"
+    - link "Projects" [ref=f9e864] [cursor=pointer]:
+      - /url: "#hands"
+  - navigation "Section navigation" [ref=f9e877]:
+    - generic [ref=f9e879]:
+      - button "Go to Home section" [ref=f9e880] [cursor=pointer]
+      - button "Go to Creator section" [ref=f9e902] [cursor=pointer]
+      - button "Go to Pixels section" [ref=f9e911] [cursor=pointer]
+      - button "Go to Ideas section" [ref=f9e920] [cursor=pointer]
+      - button "Go to Brain section" [ref=f9e929] [cursor=pointer]
+      - button "Go to DNA section" [ref=f9e938] [cursor=pointer]
+      - button "Go to Emotion section" [ref=f9e947] [cursor=pointer]
+      - button "Go to Beauty section" [ref=f9e956] [cursor=pointer]
+      - button "Go to Hands section" [ref=f9e965] [cursor=pointer]
+      - button "Go to Windows section" [ref=f9e974] [cursor=pointer]
+      - button "Go to Tetris section" [ref=f9e983] [cursor=pointer]
+      - button "Go to Contact section" [ref=f9e992] [cursor=pointer]
+      - button "Go to World section" [ref=f9e1001] [cursor=pointer]
+  - paragraph [ref=f9e1010]
