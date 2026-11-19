@@ -7,6 +7,14 @@
 export const CONFIG = {
   brand: "AGRVAI",
 
+  /* ---------- ENHANCEMENT FLAGS (additive) ---------- */
+  features: {
+    loader: true,
+    minigames: true,
+    transitions: true,
+    knowledge: true
+  },
+
   meta: {
     title: "AGRVAI — Transformando pixels em experiências digitais memoráveis",
     description:
@@ -62,6 +70,19 @@ export const CONFIG = {
 
   /* ---------- CHARACTER (Prompt 1) ---------- */
   character: {
+    /* New-model glasses only; everything else uses the original palette. */
+    glassesPalette: {
+      g: "#3A2A38",
+      G: "#2B1E2B"
+    },
+    /* New-model jacket tones. */
+    clothesPalette: {
+      X: "#322A30",
+      V: "#2B2430",
+      K: "#231C28",
+      D: "#2D2830"
+    },
+    speech: ["oi, meu nome é David", "bem vindo ao meu portfólio"],
     pixelSize: 0,
     mobileVw: 0.032,
     transition: 650,

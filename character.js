@@ -1,13 +1,13 @@
 /* ============================================================
    CHARACTER.JS — 28 × 30 procedural pixel portrait
-   Creative mode: white tee + heart.
-   Developer mode: mirrored head + white shirt under a black
-   jacket; the hood goes up on hover. Both modes keep the
-   original clear-frame glasses.
+   Original character restored: brown wavy crop, long face,
+   white tee with a light-blue 333 chest mark, developer
+   jacket (no hood). The glasses are the new 13 px frame.
    ============================================================ */
 
 const GRID_W = 28;
 const GRID_H = 30;
+const F_LINE = 9; // top row of the glasses frame
 const DOTS = "............................";
 
 /* ---------- CREATIVE: base head, neck, jaw ---------- */
@@ -43,9 +43,9 @@ const HAIR = [
   "......hhjhhxxhhhhHHhh.......",
   ".....hjhhxhhhhhhHHhhhh......",
   "....hhjhhhhhhHHHhhhhhhh.....",
-  "....hjjhhHHHH........hh.....",
-  "....hhjhHH...........hh.....",
-  "....hHH..............hh.....",
+  "....hjjhhHHHH..jx....hh.....",
+  "....hhjhHH.....j.....hh.....",
+  "....hHH........H.....hh.....",
   "....hHj..............hh.....",
   ".....hj..............Hh.....",
   ".....hH..............Hh.....",
@@ -68,42 +68,15 @@ const BROWS = [
   DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS
 ];
 
-/* ---------- SHARED: original thin rectangular frames + cool lens tint ---------- */
+/* ---------- SHARED: new v2 frame — 13 px wide, heavy lower rim ---------- */
 const GLASSES = [
-  DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS,
-  ".....ggggggggGGgggggggg.....",
-  ".......gLLLqL..LqLLLg.......",
-  ".......gLLLLL..LLLLLg.......",
-  ".......gMMMMM..MMMMMg.......",
-  ".......GGGGGG..GGGGGG.......",
-  DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS
-];
-
-/* ---------- DEVELOPER: hood silhouette drawn over hair/sides on hover ---------- */
-const DEVELOPER_HOOD = [
-  "........OOORROOOOO..........",
-  ".......OOORROOOOOOO.........",
-  "......OOORROOOOOOOOO........",
-  ".....OOORROOOOOOOOOOO.......",
-  "....OOORROOOOOOOOOOOOOOO....",
-  "....OOOR............ROOO....",
-  "....OOOR............ROOO....",
-  "....OOOR............ROOO....",
-  "....OOOR............ROOO....",
-  "....OOOR............ROOO....",
-  "....OOOR............ROOO....",
-  "....OOOR............ROOO....",
-  "....OOOR............ROOO....",
-  "....OOOR............ROOO....",
-  ".....OOR............ROO.....",
-  ".....OOR............ROO.....",
-  ".....OOR............ROO.....",
-  "......OOR..........ROO......",
-  "......OOR..........ROO......",
-  ".......OOR........ROO.......",
-  ".......OOR........ROO.......",
-  "........OOR......ROO........",
-  DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS
+  DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS,
+  ".......gggggg.gggggg........",
+  ".......gllllgggllllg........",
+  ".......gllllglgllllgggg.....",
+  ".......gllllglgllllg........",
+  "........GGGG...GGGG.........",
+  DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS
 ];
 
 /* ---------- CREATIVE: both ears, right one more visible ---------- */
@@ -126,30 +99,34 @@ const EXPRESSION = [
   DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS
 ];
 
-/* ---------- CREATIVE: white tee ---------- */
+/* ---------- CREATIVE: v2 white tee with stepped collar ---------- */
 const CREATIVE_CLOTHING = [
-  DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS,
-  ".......wWWc......cWWw.......",
-  "......wWWWc......cWWWw......",
-  ".....wWWWWccccccccWWWWw.....",
-  "....wWWWWWWWWccWWWWWWWWw....",
-  "...wWwWWWWWWWWWWWWWWWWwWw...",
-  "..wWWwWWWWWWWWWWWWWWWWwWWw..",
-  ".wWWWwWWWWWWWWWWWWWWWWwWWWw.",
-  "wWWWWwWWWWWWWWWWWWWWWWwWWWWw"
+  DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS,
+  ".........w.......w..........",
+  "........ww.......ww.........",
+  "......wwwWWW....WWWwww......",
+  "....wwWWWWWWwwwwWWWWWWww....",
+  "...wwWWWWWWWWWWWWWWWWWWww...",
+  "...WWWWwWWWWWWWWWWWWwWWWW...",
+  "..wwWWWwWWWWWWWWWWWWwWWWww..",
+  ".wwWWWWwWWWWWWWWWWWWwWWWWww.",
+  ".wWWWWWwWWWWWWWWWWWWwWWWWWw.",
+  ".wWWWWWwWWWWWWWWWWWWwWWWWWw."
 ];
 
-/* ---------- DEVELOPER: white shirt under an open black jacket ---------- */
+/* ---------- DEVELOPER: v2 dark jacket with seams and panels ---------- */
 const DEVELOPER_CLOTHING = [
-  DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS,
-  ".........KJJcWWcJJK.........",
-  "........KJPcWWWWcPJK........",
-  "......KJJPcWWWWWWcPJJK......",
-  ".....KJJJPcWWwWWWcPJJJK.....",
-  "....KJJJJJPcWwQWcPJJJJJK....",
-  "...KJJJJJJPcWwWWcPJJJJJJK...",
-  "..KJJJKJJJPcWwQWcPJJJKJJJK..",
-  ".KJJKJJJJJPcWwWWcPJJJKJJJJK."
+  DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS, DOTS,
+  ".........K.......K..........",
+  ".......KKKK.....KKK.........",
+  "......KKKKKX....KKKXXX......",
+  "....XXXXXXXXXXXXXXXXXXXX....",
+  "...XXKXXKXXKDDDKXXXKXXKXX...",
+  "...XXKXXKXXKDDDKXXXKXXKXX...",
+  "..KXXKXXKXXKDDDKXXXKXXKXXK..",
+  ".VKXXKXXXXXKDDDKXXXXXXKXXKV.",
+  ".VKXXKXXXXXKDDDKXXXXXXKXXKV.",
+  ".VKVVKVVVVVKDDDKVVVVVVKVVKV."
 ];
 
 /* Palettes: character chars → colour. */
@@ -176,9 +153,8 @@ const DEFAULT_PALETTE = {
   "L": "#D8EDEF", // glass lens
   "M": "#B4D6DA", // glass lens shade
   "q": "#FFFFFF", // glass highlight
-  "O": "#2A212F", // hood outer
-  "R": "#574960", // hood rim
   "Q": "#C9A45C", // shirt buttons
+  "chest": "#7FD4FF", // creative chest mark (333)
   "e": "#E0A582", // ear
   "E": "#C98B6C", // ear inner
   "W": "#F7F4EC", // shirt
@@ -206,7 +182,7 @@ const DEFAULT_PALETTE = {
 
 const SKIN_NOISE = ["#E9C099", "#E7BC93", "#E8BE96", "#EAC29B"];
 
-const HEART = ["XX.XX", "XXXXX", ".XXX.", "..X.."];
+const THREE = ["XXX", "..X", "XXX", "..X", "XXX"];
 
 function normalizeGrid(rows) {
   return rows.map((row) => (row + DOTS).slice(0, GRID_W));
@@ -226,13 +202,16 @@ const GRIDS = {
     base: normalizeGrid(BASE),
     hair: normalizeGrid(HAIR),
     brows: normalizeGrid(BROWS),
-    hood: normalizeGrid(DEVELOPER_HOOD),
     glasses: normalizeGrid(GLASSES),
     ear: normalizeGrid(EAR),
     expression: normalizeGrid(EXPRESSION),
     clothing: normalizeGrid(DEVELOPER_CLOTHING)
   }
 };
+
+/* Read-only views for the calibration lab and future game hooks. */
+export const CHARACTER_GRIDS = GRIDS;
+export { GRID_W, GRID_H, F_LINE, DEFAULT_PALETTE };
 
 function mirrorGrid(rows) {
   return rows.map((row) => [...row].reverse().join(""));
@@ -243,7 +222,6 @@ const MIRRORED_HEAD = {
   base: mirrorGrid(GRIDS.creative.base),
   hair: mirrorGrid(GRIDS.creative.hair),
   brows: mirrorGrid(GRIDS.creative.brows),
-  hood: mirrorGrid(GRIDS.developer.hood),
   glasses: mirrorGrid(GRIDS.developer.glasses),
   ear: mirrorGrid(GRIDS.creative.ear),
   expression: mirrorGrid(GRIDS.creative.expression)
@@ -263,7 +241,12 @@ export function createCharacter({
   initialMode = "creative"
 }) {
   const ctx = canvas.getContext("2d", { alpha: true });
-  const palette = { ...DEFAULT_PALETTE, ...(config.character?.palette || {}) };
+  const palette = {
+    ...DEFAULT_PALETTE,
+    ...(config.character?.palette || {}),
+    ...(config.character?.glassesPalette || {}),
+    ...(config.character?.clothesPalette || {})
+  };
   const timing = {
     blinkMin: 3000,
     blinkMax: 5000,
@@ -341,7 +324,7 @@ export function createCharacter({
     }
   }
 
-  function buildHead(targetMode, hooded = false) {
+  function buildHead(targetMode) {
     const c = makeCanvas(width, height);
     const g = c.getContext("2d");
     g.imageSmoothingEnabled = false;
@@ -351,7 +334,6 @@ export function createCharacter({
     drawGrid(g, head.base, opts);
     drawGrid(g, head.hair, opts);
     drawGrid(g, head.ear, opts);
-    if (isDev && hooded) drawGrid(g, head.hood, opts);
     drawGrid(g, head.brows, opts);
     drawGrid(g, head.glasses, opts);
     drawGrid(g, head.expression, opts);
@@ -369,8 +351,7 @@ export function createCharacter({
   function buildCaches() {
     headCache = {
       creative: buildHead("creative"),
-      developer: buildHead("developer"),
-      developerHover: buildHead("developer", true)
+      developer: buildHead("developer")
     };
     bodyCache = {
       creative: buildBody("creative"),
@@ -432,33 +413,32 @@ export function createCharacter({
     }
   }
 
-  function drawHeart(g, offsetY, now) {
-    const beat = !reduced && now % 1500 < 120;
-    const half = Math.max(1, Math.round(unit / 2));
-    const cell = beat ? Math.max(half + 1, Math.round(half * 1.16)) : half;
-    const w = cell * 5;
-    const h = cell * 4;
-    const x = Math.round(14 * unit - w / 2);
-    const y = Math.round(25.2 * unit + offsetY - (beat ? cell * 0.15 : 0));
-    const colors = [palette.redLight, palette.red, palette.red, palette.redDark];
+  function drawChestMark(g, offsetY) {
+    const cell = Math.max(1, Math.round(unit / 2));
+    const gap = cell;
+    const digitWidth = cell * 3;
+    const totalWidth = digitWidth * 3 + gap * 2;
+    const x0 = Math.round(13.5 * unit - totalWidth / 2);
+    const y0 = Math.round(25.2 * unit + offsetY);
+    g.fillStyle = palette.chest || "#7FD4FF";
 
-    for (let row = 0; row < HEART.length; row += 1) {
-      for (let col = 0; col < HEART[row].length; col += 1) {
-        if (HEART[row][col] !== "X") continue;
-        g.fillStyle = colors[row];
-        g.fillRect(x + col * cell, y + row * cell, cell, cell);
+    for (let digit = 0; digit < 3; digit += 1) {
+      const dx = x0 + digit * (digitWidth + gap);
+      for (let row = 0; row < THREE.length; row += 1) {
+        for (let col = 0; col < 3; col += 1) {
+          if (THREE[row][col] !== "X") continue;
+          g.fillRect(dx + col * cell, y0 + row * cell, cell, cell);
+        }
       }
     }
   }
 
   function drawCharacter(g, targetMode, jumpY, bodyY, opts = {}) {
-    const headKey =
-      targetMode === "developer" && hover ? "developerHover" : targetMode;
-    g.drawImage(headCache[headKey], 0, jumpY);
+    g.drawImage(headCache[targetMode], 0, jumpY);
     drawEyes(g, targetMode, jumpY, opts);
     drawMouth(g, targetMode, jumpY, Boolean(opts.open));
     g.drawImage(bodyCache[targetMode], 0, bodyY + jumpY);
-    if (targetMode === "creative") drawHeart(g, bodyY + jumpY, opts.now || performance.now());
+    if (targetMode === "creative") drawChestMark(g, bodyY + jumpY);
   }
 
   function composeFrame(targetMode, jumpY = 0, bodyY = 0, opts = {}) {
@@ -680,6 +660,29 @@ export function createCharacter({
     }
   }
 
+  /* Additive hooks for the mini-games. They do not alter the resting frame. */
+  function setGameActive(value) {
+    pointer.inside = !value;
+    if (value) {
+      pointer.x = 14;
+      pointer.y = 12;
+    }
+  }
+
+  function lookAt(x, y) {
+    const px = Number(x);
+    const py = Number(y);
+    if (!Number.isFinite(px) || !Number.isFinite(py)) return;
+    pointer.inside = true;
+    pointer.x = Math.max(0, Math.min(GRID_W, px));
+    pointer.y = Math.max(0, Math.min(GRID_H, py));
+  }
+
+  function celebrate() {
+    jump();
+    if (!reduced) winkUntil = performance.now() + timing.winkDuration;
+  }
+
   function onPointerMove(event) {
     if (event.pointerType === "touch") return;
     const rect = canvas.getBoundingClientRect();
@@ -728,6 +731,9 @@ export function createCharacter({
     resize,
     setMode,
     setReducedMotion,
+    setGameActive,
+    lookAt,
+    celebrate,
     jump,
     getMode: () => mode,
     destroy() {

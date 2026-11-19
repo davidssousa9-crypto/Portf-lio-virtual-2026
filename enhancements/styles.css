@@ -1,0 +1,310 @@
+/* ============================================================
+   ENHANCEMENTS — additive UI.
+   Everything here is scoped to .speech-bubble / .dock-menu and
+   leaves the frozen portfolio stylesheet untouched.
+   ============================================================ */
+
+/* ---------- speech bubble ---------- */
+.speech-bubble {
+  position: absolute;
+  top: 20%;
+  right: 3.2%;
+  z-index: 6;
+  width: min(252px, 42%);
+  padding: 14px 30px 13px 15px;
+  background: var(--surface, #171717);
+  border: 2px solid var(--ink, #EDEDED);
+  box-shadow:
+    4px 4px 0 rgba(0, 0, 0, 0.72),
+    8px 8px 0 rgba(188, 237, 18, 0.16);
+  color: var(--ink, #EDEDED);
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(7px) scale(0.97);
+  transform-origin: 0% 100%;
+  transition:
+    opacity 130ms steps(3, end),
+    transform 160ms steps(3, end),
+    visibility 0ms linear 160ms;
+  pointer-events: none;
+  image-rendering: pixelated;
+}
+
+.speech-bubble.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transition:
+    opacity 130ms steps(3, end),
+    transform 160ms steps(3, end),
+    visibility 0ms linear 0ms;
+  pointer-events: auto;
+}
+
+/* pixel tail, three stepped blocks pointing to the character */
+.speech-bubble::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  bottom: 10px;
+  width: 8px;
+  height: 8px;
+  background: var(--ink, #EDEDED);
+  box-shadow:
+    8px 0 0 0 var(--ink, #EDEDED),
+    8px 8px 0 0 var(--ink, #EDEDED),
+    16px 8px 0 0 var(--ink, #EDEDED),
+    16px 16px 0 0 var(--ink, #EDEDED);
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  left: -9px;
+  bottom: 13px;
+  width: 7px;
+  height: 7px;
+  background: var(--surface, #171717);
+  box-shadow:
+    7px 0 0 0 var(--surface, #171717),
+    7px 7px 0 0 var(--surface, #171717),
+    14px 7px 0 0 var(--surface, #171717);
+}
+
+.speech-bubble__label {
+  margin: 0 0 7px;
+  color: var(--lime, #BCED12);
+  font-family: var(--font-pixel, monospace);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.speech-bubble__text {
+  margin: 0;
+  min-height: 2.6em;
+  font-family: var(--font-body, sans-serif);
+  font-size: 14.5px;
+  line-height: 1.42;
+  letter-spacing: 0.005em;
+  color: var(--ink, #EDEDED);
+}
+
+.speech-bubble__text::after {
+  content: "▌";
+  margin-left: 1px;
+  color: var(--lime, #BCED12);
+  animation: speech-caret 720ms steps(2, end) infinite;
+}
+
+.speech-bubble:not(.is-visible) .speech-bubble__text::after {
+  content: "";
+}
+
+.speech-bubble__close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 1px solid var(--line, #303030);
+  background: transparent;
+  color: var(--gold, #F6C53A);
+  font-family: var(--font-pixel, monospace);
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.speech-bubble__close:hover,
+.speech-bubble__close:focus-visible {
+  border-color: var(--lime, #BCED12);
+  color: var(--lime, #BCED12);
+  outline: none;
+}
+
+@keyframes speech-caret {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@media (max-width: 900px) {
+  .speech-bubble {
+    top: 14px;
+    right: 12px;
+    width: min(230px, calc(100% - 24px));
+    padding: 11px 28px 10px 12px;
+  }
+  .speech-bubble__text { min-height: 0; font-size: 13px; }
+  .speech-bubble::before { left: 22px; bottom: -14px; }
+  .speech-bubble::after { left: 25px; bottom: -9px; }
+}
+
+/* ---------- dock → menu ---------- */
+.dock-menu__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dock-menu__toggle {
+  display: none;
+  position: relative;
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  border: 0;
+  background: var(--bg, #121212);
+  color: var(--gold, #F6C53A);
+  cursor: pointer;
+  place-items: center;
+}
+
+.dock.is-menu .dock-menu__toggle {
+  display: grid;
+}
+
+.dock.is-menu .dock-menu__toggle:hover,
+.dock.is-menu .dock-menu__toggle:focus-visible {
+  color: #FFD75A;
+  outline: none;
+}
+
+.dock.is-menu .dock-menu__toggle:focus-visible {
+  outline: 2px dashed var(--lime, #BCED12);
+  outline-offset: -4px;
+}
+
+.dock-menu__glyph {
+  display: grid;
+  grid-template-columns: repeat(2, 5px);
+  grid-template-rows: repeat(2, 5px);
+  gap: 3px;
+}
+
+.dock-menu__glyph i {
+  display: block;
+  width: 5px;
+  height: 5px;
+  background: currentColor;
+  transition: transform 120ms steps(2, end), opacity 120ms linear;
+}
+
+.dock.is-open .dock-menu__glyph i:nth-child(1) { transform: translate(8px, 8px); opacity: 0; }
+.dock.is-open .dock-menu__glyph i:nth-child(2) { transform: translate(-8px, 8px); opacity: 0; }
+.dock.is-open .dock-menu__glyph i:nth-child(3) { transform: translate(8px, -8px); opacity: 0; }
+.dock.is-open .dock-menu__glyph i:nth-child(4) { transform: translate(-8px, -8px); opacity: 0; }
+
+.dock-menu__word {
+  display: none;
+  font-family: var(--font-pixel, monospace);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--muted, #A6A6A6);
+}
+
+.dock__label {
+  display: none;
+  font-family: var(--font-pixel, monospace);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--ink, #EDEDED);
+  white-space: nowrap;
+}
+
+/* collapsed state after scroll: only the menu button stays visible */
+.dock.is-menu .dock-menu__panel {
+  position: absolute;
+  left: 0;
+  bottom: 58px;
+  padding: 6px;
+  background: var(--bg, #121212);
+  border: 2px solid var(--ink, #EDEDED);
+  box-shadow:
+    4px 4px 0 rgba(0, 0, 0, 0.72),
+    0 0 0 0 transparent;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition:
+    opacity 130ms steps(3, end),
+    transform 160ms steps(3, end),
+    visibility 0ms linear 160ms;
+}
+
+.dock.is-menu.is-open .dock-menu__panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition:
+    opacity 130ms steps(3, end),
+    transform 160ms steps(3, end),
+    visibility 0ms linear 0ms;
+}
+
+.dock.is-menu .dock__item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  width: 176px;
+  height: 42px;
+  padding: 0 10px;
+  transform: none;
+  color: var(--gold, #F6C53A);
+}
+
+.dock.is-menu .dock__item + .dock__item {
+  border-top: 1px solid var(--line-soft, rgba(237, 237, 237, 0.09));
+}
+
+.dock.is-menu .dock__item:hover,
+.dock.is-menu .dock__item:focus-visible {
+  transform: none;
+  color: var(--lime, #BCED12);
+  background: var(--surface-2, #1D1D1D);
+}
+
+.dock.is-menu .dock__label {
+  display: block;
+}
+
+.dock.is-menu .dock__item .dock__icon {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+  .dock.is-menu {
+    flex-direction: column;
+    padding: 0;
+    background: transparent;
+  }
+  .dock.is-menu .dock-menu__panel {
+    left: 50%;
+    bottom: 58px;
+    transform: translate(-50%, 8px);
+  }
+  .dock.is-menu.is-open .dock-menu__panel {
+    transform: translate(-50%, 0);
+  }
+  .dock.is-menu .dock__item {
+    width: 178px;
+    height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .speech-bubble,
+  .speech-bubble.is-visible,
+  .dock.is-menu .dock-menu__panel,
+  .dock.is-menu.is-open .dock-menu__panel {
+    transition: none;
+  }
+  .speech-bubble__text::after { animation: none; }
+}

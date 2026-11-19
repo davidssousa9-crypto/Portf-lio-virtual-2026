@@ -287,6 +287,11 @@ Qualquer alteração fora das áreas permitidas deve ser tratada como regressão
 ## Chaves do CONFIG
 
 - `brand`
+- `features`
+- `features.loader`
+- `features.minigames`
+- `features.transitions`
+- `features.knowledge`
 - `meta`
 - `meta.title`
 - `meta.description`
@@ -320,6 +325,15 @@ Qualquer alteração fora das áreas permitidas deve ser tratada como regressão
 - `nav.cta.label`
 - `nav.cta.href`
 - `character`
+- `character.glassesPalette`
+- `character.glassesPalette.g`
+- `character.glassesPalette.G`
+- `character.clothesPalette`
+- `character.clothesPalette.X`
+- `character.clothesPalette.V`
+- `character.clothesPalette.K`
+- `character.clothesPalette.D`
+- `character.speech`
 - `character.pixelSize`
 - `character.mobileVw`
 - `character.transition`

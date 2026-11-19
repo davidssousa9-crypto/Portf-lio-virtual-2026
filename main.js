@@ -798,6 +798,19 @@ document.fonts?.ready.then(() => {
 /* shared character loop */
 ticker.add((now) => character?.update(now));
 
+/* additive enhancement layer: speech bubbles, dock menu, character lab */
+import("./enhancements/index.js")
+  .then(({ initEnhancements }) =>
+    initEnhancements({
+      config: CONFIG,
+      audio,
+      character,
+      reducedMotion: reduced
+    })
+  )
+  .catch((error) => console.warn("[enhancements]", error));
+
+
 /* intro glitch, once the first paint has settled */
 if (!reduced) {
   window.setTimeout(() => {
