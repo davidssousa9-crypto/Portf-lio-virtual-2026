@@ -5,4 +5,5 @@ playwright-report/
 blob-report/
 .playwright-mcp/
 .lighthouse/
+tests/artifacts/
 *.log

@@ -1,0 +1,132 @@
+{
+  "id": "humanas",
+  "name": "HUMANAS",
+  "code": "HM",
+  "color": "#F6C53A",
+  "short": "Tempo, espaço e sociedade",
+  "lead": "Entender o presente exige olhar para trás: processos, rupturas e disputas que moldaram o mundo.",
+  "flashcards": [
+    {
+      "id": "hm-f1",
+      "front": "Revolução Francesa",
+      "back": "1789–1799. Fim do Antigo Regime, queda da monarquia absoluta e afirmação de direitos universais."
+    },
+    {
+      "id": "hm-f2",
+      "front": "Iluminismo",
+      "back": "Movimento intelectual do século XVIII que valorizava razão, liberdade, igualdade e crítica ao absolutismo."
+    },
+    {
+      "id": "hm-f3",
+      "front": "Revolução Industrial",
+      "back": "Começou na Inglaterra no século XVIII, com máquina a vapor, fábricas e urbanização acelerada."
+    },
+    {
+      "id": "hm-f4",
+      "front": "Guerra Fria",
+      "back": "Disputa bipolar entre EUA e URSS (1947–1991), sem confronto militar direto entre as superpotências."
+    },
+    {
+      "id": "hm-f5",
+      "front": "Globalização",
+      "back": "Integração econômica, cultural e informacional em escala mundial, com fluxos de capital, mercadorias e pessoas."
+    },
+    {
+      "id": "hm-f6",
+      "front": "Êxodo rural",
+      "back": "Migração do campo para a cidade, impulsionada pela mecanização agrícola e pela busca de trabalho."
+    },
+    {
+      "id": "hm-f7",
+      "front": "Climas do Brasil",
+      "back": "Equatorial, tropical, semiárido, tropical de altitude e subtropical são os principais tipos."
+    },
+    {
+      "id": "hm-f8",
+      "front": "Clássicos da Sociologia",
+      "back": "Durkheim (fato social), Weber (ação social) e Marx (luta de classes e modo de produção)."
+    }
+  ],
+  "questions": [
+    {
+      "id": "hm-q1",
+      "question": "A queda da Bastilha, em 1789, é associada a qual processo?",
+      "options": ["Revolução Industrial", "Revolução Francesa", "Independência dos EUA", "Revolução Russa"],
+      "answer": 1,
+      "explanation": "A tomada da Bastilha, em 14 de julho de 1789, é um marco da Revolução Francesa."
+    },
+    {
+      "id": "hm-q2",
+      "question": "O Iluminismo defendia principalmente:",
+      "options": ["A razão e a liberdade individual", "O absolutismo monárquico", "A servidão feudal", "A censura religiosa"],
+      "answer": 0,
+      "explanation": "Os iluministas criticavam o absolutismo e valorizavam razão, ciência, liberdade e igualdade."
+    },
+    {
+      "id": "hm-q3",
+      "question": "A Revolução Industrial teve início em qual país?",
+      "options": ["França", "Alemanha", "Inglaterra", "Estados Unidos"],
+      "answer": 2,
+      "explanation": "A Inglaterra reuniu capital, mão de obra e recursos para liderar a industrialização no século XVIII."
+    },
+    {
+      "id": "hm-q4",
+      "question": "A Guerra Fria foi marcada pela bipolaridade entre:",
+      "options": ["Brasil e Argentina", "EUA e URSS", "China e Japão", "Reino Unido e França"],
+      "answer": 1,
+      "explanation": "EUA (capitalismo) e URSS (socialismo) disputaram influência política, econômica e militar até 1991."
+    },
+    {
+      "id": "hm-q5",
+      "question": "O êxodo rural corresponde ao movimento de:",
+      "options": ["Campo para a cidade", "Cidade para o campo", "Um país para outro", "Uma região para outra"],
+      "answer": 0,
+      "explanation": "É a saída da população do campo em direção às cidades, típica da urbanização acelerada."
+    },
+    {
+      "id": "hm-q6",
+      "question": "O clima semiárido brasileiro é caracterizado por:",
+      "options": ["Chuvas abundantes o ano todo", "Frio intenso no inverno", "Chuvas escassas e irregulares", "Neve frequente"],
+      "answer": 2,
+      "explanation": "O semiárido, típico do Sertão nordestino, tem chuvas escassas e mal distribuídas."
+    },
+    {
+      "id": "hm-q7",
+      "question": "Para Durkheim, os fatos sociais são:",
+      "options": [
+        "Escolhas individuais conscientes",
+        "Maneiras de agir externas e coercitivas",
+        "Apenas leis escritas",
+        "Fenômenos exclusivamente econômicos"
+      ],
+      "answer": 1,
+      "explanation": "Fatos sociais são exteriores ao indivíduo, gerais e coercitivos — como normas e costumes."
+    },
+    {
+      "id": "hm-q8",
+      "question": "A globalização pode ser definida como:",
+      "options": [
+        "Integração de mercados, culturas e informações em escala mundial",
+        "Fechamento das fronteiras nacionais",
+        "Fim do comércio internacional",
+        "Volta ao feudalismo"
+      ],
+      "answer": 0,
+      "explanation": "Globalização intensifica fluxos econômicos, culturais e informacionais entre países."
+    },
+    {
+      "id": "hm-q9",
+      "question": "A ONU foi criada em qual contexto?",
+      "options": ["Após a Primeira Guerra", "Durante a Guerra Fria", "Após a Segunda Guerra", "Após a queda do Muro de Berlim"],
+      "answer": 2,
+      "explanation": "A Organização das Nações Unidas foi fundada em 1945, após a Segunda Guerra Mundial."
+    },
+    {
+      "id": "hm-q10",
+      "question": "A Proclamação da República no Brasil ocorreu em:",
+      "options": ["1822", "1889", "1930", "1964"],
+      "answer": 1,
+      "explanation": "Em 15 de novembro de 1889, o Brasil deixou de ser uma monarquia e tornou-se república."
+    }
+  ]
+}

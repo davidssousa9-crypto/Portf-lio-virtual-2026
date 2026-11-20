@@ -224,6 +224,11 @@ export function createAudioEngine({ enabled = null, volume = 0.22 } = {}) {
     on = event.newValue === "1";
     if (on) startMusic();
     else stopMusic();
+    window.dispatchEvent(
+      new CustomEvent("agrvai:sound-change", {
+        detail: { enabled: on, external: true }
+      })
+    );
   });
   window.addEventListener("pointerdown", onGesture, { passive: true });
   window.addEventListener("keydown", onGesture);

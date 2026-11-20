@@ -1,0 +1,127 @@
+{
+  "id": "natureza",
+  "name": "NATUREZA",
+  "code": "NT",
+  "color": "#ED3D91",
+  "short": "Vida, matéria e energia",
+  "lead": "Do átomo à célula, do movimento à reação: as regras que sustentam o mundo físico e vivo.",
+  "flashcards": [
+    {
+      "id": "nt-f1",
+      "front": "Célula",
+      "back": "Unidade básica da vida. Pode ser procarionte (sem núcleo) ou eucarionte (com núcleo)."
+    },
+    {
+      "id": "nt-f2",
+      "front": "Mitose",
+      "back": "Divisão celular que gera duas células-filhas com o mesmo número de cromossomos da célula-mãe."
+    },
+    {
+      "id": "nt-f3",
+      "front": "Meiose",
+      "back": "Divisão que reduz o número de cromossomos à metade e produz gametas."
+    },
+    {
+      "id": "nt-f4",
+      "front": "Fotossíntese",
+      "back": "CO₂ + H₂O + luz → glicose + O₂. Ocorre nos cloroplastos, com clorofila."
+    },
+    {
+      "id": "nt-f5",
+      "front": "DNA",
+      "back": "Material genético formado por nucleotídeos. As bases pareiam A–T e C–G."
+    },
+    {
+      "id": "nt-f6",
+      "front": "Átomo",
+      "back": "Prótons e nêutrons no núcleo; elétrons na eletrosfera. O número atômico é o número de prótons."
+    },
+    {
+      "id": "nt-f7",
+      "front": "Ligações químicas",
+      "back": "Iônica: transferência de elétrons (metal + ametal). Covalente: compartilhamento (ametal + ametal)."
+    },
+    {
+      "id": "nt-f8",
+      "front": "Leis de Newton",
+      "back": "1ª: inércia. 2ª: F = m·a. 3ª: toda ação tem reação de mesma intensidade e sentido oposto."
+    }
+  ],
+  "questions": [
+    {
+      "id": "nt-q1",
+      "question": "Qual organela é responsável pela respiração celular?",
+      "options": ["Ribossomo", "Lisossomo", "Mitocôndria", "Complexo de Golgi"],
+      "answer": 2,
+      "explanation": "A mitocôndria produz ATP por meio da respiração celular."
+    },
+    {
+      "id": "nt-q2",
+      "question": "Na fotossíntese, qual gás é liberado?",
+      "options": ["Gás carbônico", "Oxigênio", "Nitrogênio", "Hidrogênio"],
+      "answer": 1,
+      "explanation": "A fotossíntese consome CO₂ e água e libera O₂."
+    },
+    {
+      "id": "nt-q3",
+      "question": "A mitose produz:",
+      "options": ["Duas células idênticas", "Quatro células diferentes", "Gametas com metade dos cromossomos", "Células sem núcleo"],
+      "answer": 0,
+      "explanation": "A mitose gera duas células-filhas com o mesmo material genético."
+    },
+    {
+      "id": "nt-q4",
+      "question": "No DNA, a base adenina (A) pareia com:",
+      "options": ["Citosina", "Timina", "Guanina", "Uracila"],
+      "answer": 1,
+      "explanation": "No DNA, A pareia com T e C pareia com G."
+    },
+    {
+      "id": "nt-q5",
+      "question": "O número atômico de um elemento corresponde ao número de:",
+      "options": ["Prótons", "Nêutrons", "Elétrons livres", "Camadas"],
+      "answer": 0,
+      "explanation": "O número atômico (Z) é o número de prótons no núcleo."
+    },
+    {
+      "id": "nt-q6",
+      "question": "A ligação entre um metal e um ametal é tipicamente:",
+      "options": ["Covalente", "Metálica", "Iônica", "Aponte de hidrogênio"],
+      "answer": 2,
+      "explanation": "Metais tendem a doar elétrons e ametais a receber, formando ligação iônica."
+    },
+    {
+      "id": "nt-q7",
+      "question": "A fórmula F = m·a representa qual lei de Newton?",
+      "options": ["Primeira lei", "Segunda lei", "Terceira lei", "Lei da gravitação"],
+      "answer": 1,
+      "explanation": "A segunda lei relaciona força resultante, massa e aceleração."
+    },
+    {
+      "id": "nt-q8",
+      "question": "A unidade de força no SI é o:",
+      "options": ["Joule", "Watt", "Pascal", "Newton"],
+      "answer": 3,
+      "explanation": "Força é medida em newtons (N); joule é energia, watt é potência e pascal é pressão."
+    },
+    {
+      "id": "nt-q9",
+      "question": "Uma solução com pH menor que 7 é:",
+      "options": ["Ácida", "Neutra", "Básica", "Alcalina"],
+      "answer": 0,
+      "explanation": "pH < 7 indica acidez; pH = 7 é neutro; pH > 7 é básico."
+    },
+    {
+      "id": "nt-q10",
+      "question": "A meiose é importante porque:",
+      "options": [
+        "Produz células idênticas para o crescimento",
+        "Duplica o número de cromossomos",
+        "Forma gametas com metade dos cromossomos",
+        "Impede a variabilidade genética"
+      ],
+      "answer": 2,
+      "explanation": "A meiose reduz o número de cromossomos à metade, formando gametas e favorecendo a variabilidade."
+    }
+  ]
+}

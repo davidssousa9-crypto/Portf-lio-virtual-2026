@@ -1,0 +1,126 @@
+{
+  "id": "senai",
+  "name": "SENAI",
+  "code": "SN",
+  "color": "#894AED",
+  "short": "Técnica, norma e precisão",
+  "lead": "Chão de fábrica, metrologia e segurança. Precisão não é detalhe: é a diferença entre certo e retrabalho.",
+  "flashcards": [
+    {
+      "id": "sn-f1",
+      "front": "Metrologia",
+      "back": "Ciência da medição. O paquímetro mede dimensões internas, externas e de profundidade."
+    },
+    {
+      "id": "sn-f2",
+      "front": "Paquímetro",
+      "back": "Instrumento de precisão com escala principal e nônio. Resolução comum: 0,05 mm (varia conforme o instrumento).",
+      "revisar": true
+    },
+    {
+      "id": "sn-f3",
+      "front": "Vistas ortográficas",
+      "back": "No 1º diedro (ABNT), a vista superior fica abaixo da frontal e a lateral esquerda à direita.",
+      "revisar": true
+    },
+    {
+      "id": "sn-f4",
+      "front": "EPI x EPC",
+      "back": "EPI protege o indivíduo (luva, óculos). EPC protege o coletivo (guarda-corpo, exaustão)."
+    },
+    {
+      "id": "sn-f5",
+      "front": "NR-12",
+      "back": "Norma regulamentadora de segurança no trabalho em máquinas e equipamentos."
+    },
+    {
+      "id": "sn-f6",
+      "front": "Lei de Ohm",
+      "back": "V = R · I. Tensão (V), resistência (Ω) e corrente (A) se relacionam de forma diretamente proporcional."
+    },
+    {
+      "id": "sn-f7",
+      "front": "Manutenção preventiva",
+      "back": "Intervenção planejada antes da falha, reduzindo paradas e custos. A corretiva ocorre após o defeito."
+    },
+    {
+      "id": "sn-f8",
+      "front": "Lean e 5S",
+      "back": "Lean elimina desperdícios. 5S organiza o ambiente: utilização, ordenação, limpeza, padronização e disciplina."
+    }
+  ],
+  "questions": [
+    {
+      "id": "sn-q1",
+      "question": "Qual instrumento mede diâmetro externo com boa precisão?",
+      "options": ["Trena", "Paquímetro", "Régua escolar", "Transferidor"],
+      "answer": 1,
+      "explanation": "O paquímetro mede dimensões externas, internas e profundidades com resolução fina."
+    },
+    {
+      "id": "sn-q2",
+      "question": "No 1º diedro, a vista superior é posicionada:",
+      "options": ["Acima da frontal", "À direita da frontal", "Abaixo da frontal", "Sobre a lateral"],
+      "answer": 2,
+      "explanation": "No 1º diedro, a vista superior fica abaixo da frontal e a lateral esquerda à direita.",
+      "revisar": true
+    },
+    {
+      "id": "sn-q3",
+      "question": "Óculos de proteção e luvas são exemplos de:",
+      "options": ["EPI", "EPC", "NR", "PCMSO"],
+      "answer": 0,
+      "explanation": "Equipamentos de Proteção Individual protegem diretamente o trabalhador."
+    },
+    {
+      "id": "sn-q4",
+      "question": "A NR-12 trata de:",
+      "options": ["Ergonomia", "Segurança em máquinas e equipamentos", "Trabalho em altura", "Resíduos industriais"],
+      "answer": 1,
+      "explanation": "A NR-12 estabelece requisitos de segurança para máquinas e equipamentos."
+    },
+    {
+      "id": "sn-q5",
+      "question": "A Lei de Ohm é expressa por:",
+      "options": ["P = V·I", "V = R·I", "E = m·c²", "F = m·a"],
+      "answer": 1,
+      "explanation": "Tensão é igual à resistência multiplicada pela corrente: V = R·I."
+    },
+    {
+      "id": "sn-q6",
+      "question": "A manutenção preventiva é realizada:",
+      "options": ["Antes da falha, conforme plano", "Somente após o defeito", "Apenas em emergências", "Sem registro técnico"],
+      "answer": 0,
+      "explanation": "A preventiva é planejada e executada antes da falha, reduzindo paradas não programadas."
+    },
+    {
+      "id": "sn-q7",
+      "question": "Quantos sensos compõem o programa 5S?",
+      "options": ["3", "4", "5", "6"],
+      "answer": 2,
+      "explanation": "São cinco: utilização, ordenação, limpeza, padronização e disciplina."
+    },
+    {
+      "id": "sn-q8",
+      "question": "O Lean Manufacturing tem como objetivo principal:",
+      "options": ["Aumentar estoques", "Eliminar desperdícios", "Reduzir a segurança", "Aumentar retrabalho"],
+      "answer": 1,
+      "explanation": "Lean busca valor para o cliente com o mínimo de desperdício."
+    },
+    {
+      "id": "sn-q9",
+      "question": "A resolução de 0,05 mm é comum em qual instrumento?",
+      "options": ["Paquímetro", "Micrômetro", "Trena", "Régua"],
+      "answer": 0,
+      "explanation": "Paquímetros analógicos costumam ter resolução de 0,05 mm, embora existam versões de 0,02 mm.",
+      "revisar": true
+    },
+    {
+      "id": "sn-q10",
+      "question": "A unidade ohm (Ω) mede:",
+      "options": ["Corrente elétrica", "Resistência elétrica", "Tensão elétrica", "Potência elétrica"],
+      "answer": 1,
+      "explanation": "Ohm é a unidade de resistência; ampere mede corrente, volt mede tensão e watt mede potência."
+    }
+  ]
+}

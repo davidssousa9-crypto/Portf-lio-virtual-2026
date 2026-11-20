@@ -4,12 +4,173 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#121212">
+  <meta name="description" content="Base de conhecimento AGRVAI: cinco mundos de estudo com flashcards, quiz, chefe e minigame. Linguagens, Matemática, Humanas, Natureza e SENAI.">
   <title>Base de Conhecimento — AGRVAI</title>
-  <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
-  <main id="main" style="min-height:100vh;display:grid;place-items:center;">
-    <h1 class="display">Base de Conhecimento</h1>
+<body class="kn-page">
+  <a class="skip-link" href="#knMain">PULAR PARA O CONTEÚDO</a>
+
+  <header class="kn-top">
+    <a class="kn-top__logo" href="../index.html" aria-label="AGRVAI — voltar ao portfólio">AGRVAI</a>
+    <p class="kn-top__tag">BASE DE CONHECIMENTO <span>//</span> 5 MUNDOS</p>
+
+    <div class="kn-top__hud" aria-label="Progresso do jogador">
+      <span class="kn-hud__level">LVL <b data-hud-level>01</b></span>
+      <span class="kn-hud__xp" title="Experiência"><i data-hud-xp></i></span>
+      <span class="kn-hud__xpnum">XP <b data-hud-xpnum>000</b></span>
+      <span class="kn-hud__streak">STREAK <b data-hud-streak>0</b></span>
+    </div>
+
+    <nav class="kn-top__actions" aria-label="Ações da base">
+      <button class="kn-top__btn" type="button" data-sound aria-pressed="false" aria-label="Ativar som">SOM: OFF</button>
+      <button class="kn-top__btn" type="button" data-progress>PROGRESSO</button>
+      <a class="kn-top__btn kn-top__btn--home" href="../index.html">PORTFÓLIO ↗</a>
+    </nav>
+  </header>
+
+  <main id="knMain" class="kn-main" tabindex="-1">
+    <section class="kn-hero" id="knHero" aria-labelledby="knTitle">
+      <div class="kn-hero__copy">
+        <p class="kicker"><span class="kicker__dot" aria-hidden="true"></span>MODO ESTUDO / 8-BIT</p>
+        <h1 class="display" id="knTitle">Cinco mundos.<br>Uma jornada.</h1>
+        <p class="lead">Flashcards, quiz, chefe e um minigame para transformar revisão em progresso. Escolha um mundo e volte sempre que precisar.</p>
+        <div class="kn-hero__actions">
+          <button class="pixel-btn pixel-btn--solid" type="button" data-resume>CONTINUAR DE ONDE PAROU <span aria-hidden="true">▶</span></button>
+          <button class="pixel-btn" type="button" data-map-jump>VER OS 5 MUNDOS</button>
+        </div>
+        <dl class="kn-hero__stats">
+          <div><dt>MUNDOS</dt><dd>05</dd></div>
+          <div><dt>CARDS</dt><dd>40</dd></div>
+          <div><dt>QUESTÕES</dt><dd>50</dd></div>
+          <div><dt>FEITOS</dt><dd data-hero-known>00</dd></div>
+        </dl>
+      </div>
+
+      <div class="kn-hero__stage">
+        <div class="kn-guide">
+          <p class="kn-guide__label">DAVID // GUIA</p>
+          <canvas id="knGuide" width="224" height="240" aria-hidden="true"></canvas>
+          <p class="kn-guide__bubble" data-npc-bubble></p>
+        </div>
+        <div class="kn-session">
+          <p class="kn-session__top">SESSÃO ATUAL</p>
+          <p class="kn-session__value" data-session-value>0/40 CARDS</p>
+          <div class="kn-meter" aria-hidden="true"><i data-session-meter></i></div>
+          <p class="kn-session__note" data-session-note>Comece por qualquer mundo. O progresso fica salvo neste navegador.</p>
+          <p class="kn-session__keys">TECLAS: 1–5 MUNDOS · F/Q/B/L ABAS · ESC MAPA</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="kn-worlds" id="knMap" aria-labelledby="knMapTitle">
+      <header class="kn-worlds__head">
+        <div>
+          <p class="kicker">MAPA / SELEÇÃO DE MUNDO</p>
+          <h2 class="display" id="knMapTitle">Escolha onde estudar.</h2>
+        </div>
+        <p class="kn-worlds__meta">
+          <span><b data-map-known>0</b>/40 CARDS</span>
+          <span><b data-map-badges>0</b> INSÍGNIAS</span>
+          <span><b data-map-review>0</b> PARA REVISAR</span>
+        </p>
+      </header>
+      <div class="kn-worlds__grid" data-worlds></div>
+    </section>
+
+    <section class="kn-world" id="knWorld" hidden aria-labelledby="knWorldTitle">
+      <header class="kn-world__head">
+        <button class="kn-back" type="button" data-back>← MAPA</button>
+        <div class="kn-world__title-wrap">
+          <p class="kicker" data-world-kicker>MUNDO 01 / ESTUDO</p>
+          <h2 class="display" id="knWorldTitle" data-world-title>LINGUAGENS</h2>
+          <p class="kn-world__lead" data-world-lead></p>
+        </div>
+        <div class="kn-world__stats" aria-label="Estatísticas do mundo">
+          <span><b data-world-known>0</b>/8 CARDS</span>
+          <span>QUIZ <b data-world-quiz>000</b></span>
+          <span>BOSS <b data-world-boss>000</b></span>
+          <span>LIGA <b data-world-match>000</b></span>
+        </div>
+      </header>
+
+      <div class="kn-tabs" role="tablist" aria-label="Atividades do mundo">
+        <button type="button" role="tab" id="tab-flashcards" aria-controls="panel-flashcards" aria-selected="true" data-tab="flashcards">FLASHCARDS <kbd>F</kbd></button>
+        <button type="button" role="tab" id="tab-quiz" aria-controls="panel-quiz" aria-selected="false" tabindex="-1" data-tab="quiz">QUIZ <kbd>Q</kbd></button>
+        <button type="button" role="tab" id="tab-boss" aria-controls="panel-boss" aria-selected="false" tabindex="-1" data-tab="boss">BOSS <kbd>B</kbd></button>
+        <button type="button" role="tab" id="tab-match" aria-controls="panel-match" aria-selected="false" tabindex="-1" data-tab="match">LIGAR <kbd>L</kbd></button>
+      </div>
+
+      <div class="kn-panels">
+        <section class="kn-panel" id="panel-flashcards" role="tabpanel" aria-labelledby="tab-flashcards" data-panel="flashcards">
+          <div class="kn-flash">
+            <div class="kn-flash__meta">
+              <span data-flash-count>01/08</span>
+              <span data-flash-known-count>0 DOMINADOS</span>
+              <span class="kn-tag kn-tag--review" data-flash-review hidden>REVISAR</span>
+            </div>
+            <button class="kn-flash__card" type="button" data-flash-card aria-label="Virar flashcard">
+              <span class="kn-flash__face" data-flash-face>FRENTE</span>
+              <span class="kn-flash__hint">CLIQUE / ENTER PARA VIRAR</span>
+            </button>
+            <div class="kn-flash__actions">
+              <button class="pixel-btn" type="button" data-flash-prev>← ANTERIOR</button>
+              <button class="pixel-btn pixel-btn--solid" type="button" data-flash-known>DOMINEI</button>
+              <button class="pixel-btn" type="button" data-flash-review-btn>REVISAR</button>
+              <button class="pixel-btn" type="button" data-flash-next>PRÓXIMO →</button>
+            </div>
+            <div class="kn-meter kn-flash__bar" aria-hidden="true"><i data-flash-bar></i></div>
+          </div>
+        </section>
+
+        <section class="kn-panel" id="panel-quiz" role="tabpanel" aria-labelledby="tab-quiz" data-panel="quiz" hidden>
+          <div class="kn-quiz" data-quiz></div>
+        </section>
+
+        <section class="kn-panel" id="panel-boss" role="tabpanel" aria-labelledby="tab-boss" data-panel="boss" hidden>
+          <div class="kn-boss" data-boss></div>
+        </section>
+
+        <section class="kn-panel" id="panel-match" role="tabpanel" aria-labelledby="tab-match" data-panel="match" hidden>
+          <div class="kn-match-host" data-match-host></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="kn-pomodoro" id="knPomodoro" aria-labelledby="knPomodoroTitle">
+      <div class="kn-pomodoro__copy">
+        <p class="kicker">FOCO / 25 MINUTOS</p>
+        <h2 class="display" id="knPomodoroTitle">Um ciclo de cada vez.</h2>
+        <p class="body">Vinte e cinco minutos de foco, cinco de pausa. Cada ciclo concluído vale XP e aproxima a base inteira do seu domínio.</p>
+      </div>
+      <div class="kn-pomodoro__timer">
+        <p class="kn-pomodoro__mode" data-pomo-mode>FOCO</p>
+        <p class="kn-pomodoro__clock" data-pomo-clock>25:00</p>
+        <div class="kn-pomodoro__actions">
+          <button class="pixel-btn pixel-btn--solid" type="button" data-pomo-toggle>INICIAR</button>
+          <button class="pixel-btn" type="button" data-pomo-reset>ZERAR</button>
+          <button class="pixel-btn" type="button" data-pomo-skip>PULAR</button>
+        </div>
+        <p class="kn-pomodoro__meta"><b data-pomo-count>0</b> CICLOS CONCLUÍDOS</p>
+      </div>
+    </section>
   </main>
+
+  <footer class="kn-footer">
+    <p>AGRVAI // BASE DE CONHECIMENTO</p>
+    <p><span data-review-count>0</span> ITENS MARCADOS PARA REVISÃO</p>
+    <button type="button" data-progress>VER PROGRESSO ↑</button>
+  </footer>
+
+  <dialog class="kn-dialog" id="knProgressDialog" aria-labelledby="knProgressTitle">
+    <div class="kn-dialog__bar">
+      <span id="knProgressTitle">PROGRESSO.SYS</span>
+      <button type="button" data-close-progress aria-label="Fechar progresso">×</button>
+    </div>
+    <div class="kn-dialog__body" data-progress-body></div>
+  </dialog>
+
+  <p class="kn-toast" data-toast role="status" aria-live="polite"></p>
+
+  <script type="module" src="../knowledge/app.js"></script>
 </body>
 </html>

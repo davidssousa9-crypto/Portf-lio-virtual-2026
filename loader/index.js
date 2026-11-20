@@ -378,15 +378,20 @@ export function initLoader({ config = {}, reducedMotion = false } = {}) {
       overlay.classList.add("is-ready");
       if (!startShown) {
         startShown = true;
-        window.setTimeout(() => {
-          if (finished) return;
-          startButton.hidden = false;
-          startButton.focus({ preventScroll: true });
-        }, 520);
-        autoTimer = window.setTimeout(
-          () => leave(false),
-          reduced ? 900 : 6500
-        );
+        if (isKnowledge) {
+          /* Study pages get a short, self-running boot. */
+          autoTimer = window.setTimeout(() => leave(false), reduced ? 120 : 180);
+        } else {
+          window.setTimeout(() => {
+            if (finished) return;
+            startButton.hidden = false;
+            startButton.focus({ preventScroll: true });
+          }, 520);
+          autoTimer = window.setTimeout(
+            () => leave(false),
+            reduced ? 900 : 6500
+          );
+        }
       }
     }
     raf = window.requestAnimationFrame(frame);

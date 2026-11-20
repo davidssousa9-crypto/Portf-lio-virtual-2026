@@ -1,0 +1,127 @@
+{
+  "id": "linguagens",
+  "name": "LINGUAGENS",
+  "code": "LG",
+  "color": "#BCED12",
+  "short": "Códigos, textos e signos",
+  "lead": "Leitura, interpretação e os truques da língua. Aqui a arma é a atenção ao detalhe.",
+  "flashcards": [
+    {
+      "id": "lg-f1",
+      "front": "Metáfora",
+      "back": "Comparação implícita, sem conectivo: \"meu coração é um deserto\"."
+    },
+    {
+      "id": "lg-f2",
+      "front": "Metonímia",
+      "back": "Troca de um termo por outro ligado a ele: \"li Machado\" (autor pela obra)."
+    },
+    {
+      "id": "lg-f3",
+      "front": "Hipérbole",
+      "back": "Exagero intencional: \"já falei um milhão de vezes\"."
+    },
+    {
+      "id": "lg-f4",
+      "front": "Ironia",
+      "back": "Dizer o contrário do que se quer significar, geralmente com crítica implícita."
+    },
+    {
+      "id": "lg-f5",
+      "front": "Modernismo — 1ª fase",
+      "back": "Ruptura com o passado, verso livre, humor e anarquia. Marco: Semana de Arte Moderna de 1922."
+    },
+    {
+      "id": "lg-f6",
+      "front": "Funções da linguagem",
+      "back": "Referencial (informar), emotiva (eu), apelativa (você), poética (forma), metalinguística (código), fática (canal)."
+    },
+    {
+      "id": "lg-f7",
+      "front": "Gêneros textuais",
+      "back": "Narração, descrição, dissertação, exposição e injunção (receita, manual)."
+    },
+    {
+      "id": "lg-f8",
+      "front": "Coesão x coerência",
+      "back": "Coesão é a articulação formal entre partes; coerência é a relação lógica global de sentido."
+    }
+  ],
+  "questions": [
+    {
+      "id": "lg-q1",
+      "question": "Em \"meu coração é um deserto\", qual figura de linguagem aparece?",
+      "options": ["Metáfora", "Metonímia", "Hipérbole", "Eufemismo"],
+      "answer": 0,
+      "explanation": "A comparação é implícita, sem conectivo: coração = deserto. Isso é metáfora."
+    },
+    {
+      "id": "lg-q2",
+      "question": "Em \"adoro ler Machado de Assis\", ocorre:",
+      "options": ["Metáfora", "Metonímia", "Antítese", "Pleonasmo"],
+      "answer": 1,
+      "explanation": "O autor substitui a obra por contiguidade: leem-se os livros, não a pessoa. É metonímia."
+    },
+    {
+      "id": "lg-q3",
+      "question": "\"Já falei um milhão de vezes\" é exemplo de:",
+      "options": ["Eufemismo", "Hipérbole", "Metáfora", "Ironia"],
+      "answer": 1,
+      "explanation": "O exagero intencional é a marca da hipérbole."
+    },
+    {
+      "id": "lg-q4",
+      "question": "Depois de uma bagunça, alguém diz: \"Que organização exemplar!\". A figura é:",
+      "options": ["Ironia", "Hipérbole", "Metonímia", "Personificação"],
+      "answer": 0,
+      "explanation": "Diz-se o contrário do que se quer significar, com crítica implícita: ironia."
+    },
+    {
+      "id": "lg-q5",
+      "question": "A Semana de Arte Moderna de 1922 está ligada a qual movimento?",
+      "options": ["Romantismo", "1ª fase do Modernismo", "Parnasianismo", "Barroco"],
+      "answer": 1,
+      "explanation": "1922 marca a 1ª fase modernista: ruptura, verso livre, humor e experimentação."
+    },
+    {
+      "id": "lg-q6",
+      "question": "A função da linguagem centrada no destinatário, tentando convencê-lo, é a:",
+      "options": ["Referencial", "Emotiva", "Apelativa", "Metalinguística"],
+      "answer": 2,
+      "explanation": "A função apelativa (ou conativa) usa vocativos e verbos no imperativo para influenciar o interlocutor."
+    },
+    {
+      "id": "lg-q7",
+      "question": "Um texto que diz \"eu sinto\", \"eu penso\" e expõe emoções privilegia a função:",
+      "options": ["Fática", "Emotiva", "Referencial", "Poética"],
+      "answer": 1,
+      "explanation": "A função emotiva (expressiva) centra-se no emissor e na 1ª pessoa."
+    },
+    {
+      "id": "lg-q8",
+      "question": "Receita de bolo e manual de instruções pertencem ao gênero:",
+      "options": ["Narrativo", "Descritivo", "Injuntivo", "Dissertativo"],
+      "answer": 2,
+      "explanation": "Gêneros injuntivos orientam ações, com verbos no imperativo e sequência de passos."
+    },
+    {
+      "id": "lg-q9",
+      "question": "A coerência textual é:",
+      "options": [
+        "A relação lógica global entre as ideias do texto",
+        "O uso exclusivo de conectivos",
+        "A quantidade de parágrafos",
+        "A repetição de palavras-chave"
+      ],
+      "answer": 0,
+      "explanation": "Coerência é o sentido global; coesão é a articulação formal entre as partes."
+    },
+    {
+      "id": "lg-q10",
+      "question": "Quando um texto dialoga com outro, retomando ou contestando ideias, temos:",
+      "options": ["Coesão referencial", "Intertextualidade", "Ambiguidade", "Redundância"],
+      "answer": 1,
+      "explanation": "Intertextualidade é o diálogo entre textos, explícito ou implícito."
+    }
+  ]
+}
