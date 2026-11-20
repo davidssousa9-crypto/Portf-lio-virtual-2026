@@ -68,6 +68,7 @@ export function createAudio({
     if (!ac) return;
     unlocked = true;
     if (ac.state === "suspended") ac.resume().catch(() => {});
+    window.dispatchEvent(new CustomEvent("agrvai:audio-unlock"));
   }
 
   const unlockEvents = ["pointerdown", "keydown", "touchstart"];
@@ -178,6 +179,9 @@ export function createAudio({
       unlock();
       if (!silent) click();
     }
+    window.dispatchEvent(
+      new CustomEvent("agrvai:sound-change", { detail: { enabled } })
+    );
     return enabled;
   }
 

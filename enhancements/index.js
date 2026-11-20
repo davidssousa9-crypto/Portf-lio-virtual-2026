@@ -6,13 +6,16 @@ import "./styles.css";
 import { createSpeechBubble } from "./speech.js";
 import { createDockMenu } from "./dock-menu.js";
 import { initMotion } from "./motion.js";
+import { createAudioEngine } from "./audio-engine.js";
+import { createGameManager } from "../games/core/manager.js";
 
 export function initEnhancements({
   config,
   audio = null,
   character = null,
   reducedMotion = false,
-  ticker = null
+  ticker = null,
+  announce = () => {}
 } = {}) {
   const hero = document.getElementById("hero");
   const dock = document.getElementById("dock");
@@ -22,6 +25,16 @@ export function initEnhancements({
   ];
 
   const dockMenu = createDockMenu({ dock, audio });
+  const audioEngine = createAudioEngine({
+    enabled: audio?.isEnabled?.() ?? false
+  });
+  const games = createGameManager({
+    config,
+    audio,
+    audioEngine,
+    character,
+    announce
+  });
 
   const motion = initMotion({ config, ticker, reducedMotion });
 
@@ -65,10 +78,14 @@ export function initEnhancements({
     dockMenu,
     speech,
     motion,
+    games,
+    audioEngine,
     lab: () => lab,
     destroy() {
       window.clearTimeout(speechFallback);
       motion?.destroy();
+      games?.destroy();
+      audioEngine?.destroy();
       dockMenu?.destroy();
       speech?.destroy();
       lab?.destroy?.();

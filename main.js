@@ -810,7 +810,8 @@ import("./enhancements/index.js")
       audio,
       character,
       reducedMotion: reduced,
-      ticker
+      ticker,
+      announce
     })
   )
   .catch((error) => console.warn("[enhancements]", error));

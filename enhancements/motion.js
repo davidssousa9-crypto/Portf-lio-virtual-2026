@@ -283,6 +283,13 @@ export function initMotion({ config = {}, ticker = null, reducedMotion = false }
   dialog?.addEventListener("toggle", onDialogToggle);
   cleanups.push(() => dialog?.removeEventListener("toggle", onDialogToggle));
 
+  const onModal = (event) => {
+    if (event.detail?.open) lenis.stop();
+    else if (!dialog?.open) lenis.start();
+  };
+  window.addEventListener("agrvai:modal", onModal);
+  cleanups.push(() => window.removeEventListener("agrvai:modal", onModal));
+
   /* ---------- hero entrance ---------- */
   initHeroEntrance(cleanups);
 
