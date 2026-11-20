@@ -216,10 +216,7 @@ export function createAudioEngine({ enabled = null, volume = 0.22 } = {}) {
     window.removeEventListener("pointerdown", onGesture);
     window.removeEventListener("keydown", onGesture);
   };
-
-  window.addEventListener("agrvai:sound-change", onSoundChange);
-  window.addEventListener("agrvai:audio-unlock", onUnlock);
-  window.addEventListener("storage", (event) => {
+  const onStorage = (event) => {
     if (event.key !== STORAGE_KEY) return;
     on = event.newValue === "1";
     if (on) startMusic();
@@ -229,9 +226,18 @@ export function createAudioEngine({ enabled = null, volume = 0.22 } = {}) {
         detail: { enabled: on, external: true }
       })
     );
-  });
+  };
+  const onVisibility = () => {
+    if (document.hidden) stopMusic();
+    else if (on) startMusic();
+  };
+
+  window.addEventListener("agrvai:sound-change", onSoundChange);
+  window.addEventListener("agrvai:audio-unlock", onUnlock);
+  window.addEventListener("storage", onStorage);
   window.addEventListener("pointerdown", onGesture, { passive: true });
   window.addEventListener("keydown", onGesture);
+  document.addEventListener("visibilitychange", onVisibility);
   if (window.__agrvaiLoaderDone) unlock();
 
   return {
@@ -245,8 +251,10 @@ export function createAudioEngine({ enabled = null, volume = 0.22 } = {}) {
       disposed = true;
       window.removeEventListener("agrvai:sound-change", onSoundChange);
       window.removeEventListener("agrvai:audio-unlock", onUnlock);
+      window.removeEventListener("storage", onStorage);
       window.removeEventListener("pointerdown", onGesture);
       window.removeEventListener("keydown", onGesture);
+      document.removeEventListener("visibilitychange", onVisibility);
       music?.unload();
       if (musicUrl) URL.revokeObjectURL(musicUrl);
       music = null;

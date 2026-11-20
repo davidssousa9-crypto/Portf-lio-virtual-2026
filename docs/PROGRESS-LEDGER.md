@@ -12,7 +12,7 @@ tratadas como trabalho do autor e preservadas.
 - [x] Fase 3 — motion (Lenis + parallax + cortina de página + microinterações).
 - [x] Fase 4 — minigames (10 cartuchos, HUD/XP/moedas, launcher no #tetris).
 - [x] Fase 5 — página de conhecimento (5 mundos, cards, quiz, boss, ligar).
-- [ ] Fase 6 — áudio e persistência.
+- [x] Fase 6 — áudio e persistência.
 - [ ] Fase 7 — qualidade, testes e performance.
 
 ## Fase 4 — minigames
@@ -45,6 +45,19 @@ tratadas como trabalho do autor e preservadas.
 - Loader curto na rota de conhecimento: sem PRESS START, auto-reveal.
 - Verificado em 1440×900 e 390×844, sem overflow horizontal e sem erros de
   console; build de produção validado em `vite preview`.
+
+## Fase 6 — áudio e persistência
+
+- `enhancements/audio-engine.js`: música chiptune gerada em memória (Howler)
+  + efeitos zzfx, sem asset externo. Só inicia após gesto do usuário.
+- Preferência única em `localStorage["agrvai-sound-enabled"]`; o motor ouve
+  `agrvai:sound-change`, `agrvai:audio-unlock` e `storage` (sincroniza abas e
+  atualiza o rótulo SOM: ON/OFF na página de conhecimento).
+- Música pausa quando a aba fica oculta e retoma ao voltar; `destroy()`
+  remove todos os listeners e libera o blob da música.
+- Persistência: `agrvai-knowledge-v1` (XP, cards, recordes, streak, insígnias,
+  Pomodoro, import/export) e `agrvai-arcade-v1` (HUD dos minigames) sobrevivem
+  a reload; verificado na página de conhecimento e no portfólio.
 
 ## Rulings
 
