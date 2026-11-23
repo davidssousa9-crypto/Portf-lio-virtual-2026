@@ -1,7 +1,7 @@
 .frame-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
-  gap: 34px 28px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 42px 34px;
   padding: clamp(18px, 4vw, 42px);
   border: 1px solid #292820;
   background:
@@ -52,7 +52,7 @@
   display: grid;
   place-items: center;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 11;
   padding: 12px;
   border: 7px solid #8e7146;
   background: #cbb58d;
@@ -64,7 +64,7 @@
 
 .photo-frame:nth-child(2) .frame-window,
 .photo-frame:nth-child(5) .frame-window {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 16 / 11;
 }
 
 .frame-photo {

@@ -59,7 +59,11 @@ test("seções de atividades e beleza estão trocadas e a seção de janelas cha
   await expect(page.locator("#windowsTitle")).toHaveText("Currículo");
   await expect(page.locator(".curriculum-runner")).toHaveCount(0);
   await expect(page.locator("#emotionTitle")).toHaveText("Referências");
+  await expect(page.locator("#emotion .lead")).toContainText("todamateria");
   await expect(page.locator("#brainTitle")).toHaveText("Considerações finais");
+  await expect(page.locator("#brain-section .lead")).toContainText("Este portfólio reflete");
+  await expect(page.locator("#dnaTitle")).toHaveText("História de vida");
+  await expect(page.locator("#dna .lead")).toContainText("Meu nome é David Da Silva Sousa");
   await expect(page.locator("#ctaTitle")).toHaveText("Anexos");
   await expect(page.locator("#cta").getByRole("link", { name: /Ver anexos/ })).toHaveAttribute("href", "./anexos.html");
 });
@@ -75,44 +79,17 @@ test("botão do currículo abre a página com formação e projetos", async ({ p
   await expect(page.getByRole("heading", { name: "Projetos" })).toBeVisible();
 });
 
-test("botão Ver anexos abre quadros e salva fotos no navegador", async ({ page }) => {
+test("botão Ver anexos abre os registros do acervo", async ({ page }) => {
   await page.goto("/", { waitUntil: "networkidle" });
   await page.locator("#cta").scrollIntoViewIfNeeded();
   await page.locator("#cta").getByRole("link", { name: /Ver anexos/ }).click();
 
   await expect(page).toHaveURL(/\/anexos\.html$/);
   await expect(page.locator(".subject-name")).toHaveText("Galeria de artes");
-  await expect(page.locator(".photo-frame")).toHaveCount(32);
+  await expect(page.locator(".photo-frame")).toHaveCount(26);
   await expect(page.locator('[data-photo-frame^="archive-"]')).toHaveCount(26);
   await expect(page.locator('[data-photo-frame="archive-01"] .frame-caption span')).toHaveText("Apresentação sobre Indústrias");
   await expect(page.locator('[data-photo-frame="archive-26"] .frame-caption span')).toHaveText("Visita à Virtex");
-  const image = page.locator('[data-photo-frame="frame-01"] .frame-photo');
-  await expect(image).toBeHidden();
-
-  const bitmap = Buffer.alloc(58);
-  bitmap.write("BM", 0);
-  bitmap.writeUInt32LE(58, 2);
-  bitmap.writeUInt32LE(54, 10);
-  bitmap.writeUInt32LE(40, 14);
-  bitmap.writeInt32LE(1, 18);
-  bitmap.writeInt32LE(1, 22);
-  bitmap.writeUInt16LE(1, 26);
-  bitmap.writeUInt16LE(24, 28);
-  bitmap.writeUInt32LE(4, 34);
-  bitmap[54] = 50;
-  bitmap[55] = 120;
-  bitmap[56] = 180;
-  await page.locator("#photo-01").setInputFiles({
-    name: "foto.bmp",
-    mimeType: "image/bmp",
-    buffer: bitmap
-  });
-  await expect(image).toBeVisible();
-
-  await page.reload({ waitUntil: "networkidle" });
-  await expect(page.locator('[data-photo-frame="frame-01"] .frame-photo')).toBeVisible();
-  await page.locator('[data-photo-frame="frame-01"] [data-remove-photo]').click();
-  await expect(page.locator('[data-photo-frame="frame-01"] .frame-photo')).toBeHidden();
 });
 
 test("modal de contato abre e fecha sem erros", async ({ page }) => {

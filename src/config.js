@@ -248,22 +248,22 @@ export const CONFIG = {
       title: "Plano pessoal de estudo 'PPE'"
     },
     "brain-section": {
-      kicker: "NÍVEL 05 / CONCEITO",
+      kicker: "NÍVEL 09 / CONCEITO",
       title: "Considerações finais",
-      lead: "Mapeio a ideia em wireframes, componentes e um plano de build.",
-      body: "Cada parte ganha nome, propósito e lugar antes da primeira linha de código."
+      lead: "Este portfólio reflete todas as atividades desenvolvidas na terceira série, destacando meu progresso e aprendizado. Aprendi conceitos fundamentais e desenvolvi habilidades importantes, como organização e gestão de tempo, essenciais para alcançar resultados melhores nos estudos. Foi uma experiência enriquecedora que reforçou a importância de manter um registro organizado e dedicado ao meu desenvolvimento.",
+      body: "Agradeço a cada um de vocês que acompanharam minha jornada até aqui, foi um grande prazer aprender com profissionais qualificados e desenvolver ainda mais meus conhecimentos e habilidades."
     },
     dna: {
       kicker: "NÍVEL 06 / SISTEMA",
       title: "História de vida",
-      lead: "Tokens de design, escalas tipográficas, espaçamento e regras de movimento, documentados e reutilizáveis.",
+      lead: "Meu nome é David Da Silva Sousa tenho 17 anos e nasci na cidade de Picos Piauí, onde cresci e desenvolvi habilidades. Minha jornada estudantil começa lá no infantil na escola Frei Galvão, até chegar 2018 e eu me adentrar no SESI, desde então venho absorvendo conhecimentos, habilidades e talentos. Minha meta é conseguir ter uma vida financeira estável e bem organizada.",
       body: "O sistema mantém a próxima tela consistente sem travar o trabalho."
     },
     emotion: {
       kicker: "NÍVEL 07 / EMOÇÃO",
       title: "Referências",
-      lead: "Movimento, tempo e feedback carregam significado. Eles confirmam ações e orientam a atenção.",
-      body: "Mova o ponteiro pelo campo para testar a resposta."
+      lead: "https://www.todamateria.com.br/\nhttps://brasilescola.uol.com.br/\nhttps://chatgpt.com/\nhttps://claude.ai/",
+      body: "Portfólio desenvolvido com conhecimentos aprendidos no curso técnico em informática para a internet."
     },
     beauty: {
       kicker: "NÍVEL 08 / FORMA",
