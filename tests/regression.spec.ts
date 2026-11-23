@@ -36,8 +36,8 @@ test("âncoras congeladas, 13 seções e navegação intactas", async ({ page })
     "ideas",
     "dna",
     "hands",
-    "emotion",
     "beauty",
+    "emotion",
     "brain-section"
   ]);
 
