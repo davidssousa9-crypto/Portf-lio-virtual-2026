@@ -35,8 +35,8 @@ test("âncoras congeladas, seções e navegação intactas", async ({ page }) =>
     "ideas",
     "dna",
     "hands",
-    "emotion",
-    "brain-section"
+    "brain-section",
+    "emotion"
   ]);
 
   await expect(page.locator(".pacnav__item")).toHaveCount(12);

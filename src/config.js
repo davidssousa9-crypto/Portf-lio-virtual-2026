@@ -190,9 +190,9 @@ export const CONFIG = {
     { id: "tetris", label: "Atividades" },
     { id: "dna", label: "DNA" },
     { id: "hands", label: "Projetos" },
-    { id: "emotion", label: "Emoção" },
     { id: "windows", label: "Janelas" },
     { id: "brain-section", label: "Cérebro" },
+    { id: "emotion", label: "Emoção" },
     { id: "cta", label: "Contato" },
     { id: "world", label: "Mundo" }
   ],
@@ -278,8 +278,8 @@ export const CONFIG = {
     tetris: {
       kicker: "NÍVEL 11 / JOGO",
       title: "Visualize as atividades do ano de 2026",
-      lead: "Um pequeno tabuleiro estilo Tetris feito para ritmo, cliques e linhas limpas.",
-      body: "O tabuleiro roda sozinho. Use Próxima para acelerar a próxima peça."
+      lead: "",
+      body: ""
     },
     cta: {
       kicker: "NÍVEL 12 / ANEXOS",
