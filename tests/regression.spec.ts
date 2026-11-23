@@ -54,6 +54,11 @@ test("seções de atividades estão organizadas e a seção de janelas chama-se 
     .evaluateAll((sections) => sections.map((section) => section.id));
 
   expect(sectionOrder).toEqual(["hands", "tetris", "windows"]);
+  await expect(page.locator("#beauty")).toHaveCount(0);
+  await expect(page.locator("body")).not.toContainText("A forma segue a função, mas a beleza conduz.");
+  await expect(page.locator("body")).not.toContainText("Três projetos autorais");
+  await expect(page.locator("body")).not.toContainText("O sistema mantém a próxima tela");
+  await expect(page.locator("body")).not.toContainText("Vestibulum id ligula porta felis");
   await expect(page.locator("#windowsTitle")).toHaveText("Currículo");
   await expect(page.locator(".curriculum-runner")).toHaveCount(0);
   await expect(page.locator("#emotionTitle")).toHaveText("Referências");

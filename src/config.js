@@ -233,7 +233,7 @@ export const CONFIG = {
   copy: {
     about: {
       kicker: "NÍVEL 02 / CRIADOR",
-      title: "Idedeintificação pessoal .",
+      title: "Identificação pessoal",
       lead: "Nome: David Da Silva Sousa\nFiliação: Denise Gomes Da Silva Luz\nMayke Montiel Santos Luz\nIdade: 18 anos\nTelefone: +55 (89) 9419-5831\nEndereço: Rua Cristo Rei\nBairro: São José\nOrientadora: Wallace\nSérie: 3º Série EMI",
       body: ""
     },
