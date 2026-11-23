@@ -254,8 +254,7 @@ a { color: inherit; }
 }
 
 .activity-item--chosen {
-  grid-column: 1 / -1;
-  grid-template-columns: minmax(0, 1fr) minmax(150px, 24%);
+  grid-template-columns: minmax(0, 1fr) minmax(98px, 30%);
   grid-template-rows: auto 1fr;
   border: 2px solid var(--lime);
   box-shadow:
@@ -286,8 +285,8 @@ a { color: inherit; }
 }
 
 .activity-item--chosen .chosen-photo {
-  min-height: 390px;
-  max-height: 620px;
+  min-height: 140px;
+  max-height: 260px;
   cursor: zoom-in;
 }
 
