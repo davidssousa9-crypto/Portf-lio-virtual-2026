@@ -16,7 +16,7 @@
         'matrizes.png',
         '3.png',
         'novaordemmund.png',
-        'bioetica.png',
+        'charge.png',
         'impactosdaredesocial.png',
         'ética profissional david.png',
         'java.png',
