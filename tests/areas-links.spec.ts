@@ -30,6 +30,10 @@ test("cada cartucho abre a página e as imagens da área correspondente como arq
 
 test("cada cartucho abre sua página no servidor do site", async ({ page }) => {
   await page.goto("/areas-de-conhecimento.html", { waitUntil: "domcontentloaded" });
+  const cardOrder = await page.locator("#consoleTop [data-subject]").evaluateAll(
+    (cards) => cards.map((card) => card.getAttribute("data-subject"))
+  );
+  expect(cardOrder).toEqual(["linguagens", "matematica", "natureza", "humanas", "senai"]);
 
   for (const [id, name] of Object.entries({
     linguagens: "Linguagens",

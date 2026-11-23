@@ -542,6 +542,7 @@
         <div class="toolbar" role="search">
           <input id="subjectSearch" type="search" placeholder="Buscar matéria ou tema..." aria-label="Buscar matéria ou tema">
           <select id="subjectSort" aria-label="Ordenar matérias">
+            <option value="manual">Ordem personalizada</option>
             <option value="priority">Prioridade</option>
             <option value="mastery">Domínio</option>
             <option value="name">Nome</option>
@@ -603,16 +604,16 @@
           topics: ["Razão", "Porcentagem", "Funções", "Geometria", "Probabilidade"]
         },
         {
-          id: "humanas", name: "Humanas", className: "Explorador", accent: "#f9c53b",
-          mastery: 68, difficulty: 55, priority: 3, constancy: 72, stars: 3,
-          xp: 68, tags: ["ENEM"], exam: "PROVA EM [DIAS]",
-          topics: ["Brasil Colônia", "Era Vargas", "Cartografia", "Filosofia", "Cidadania"]
-        },
-        {
           id: "natureza", name: "Natureza", className: "Alquimista", accent: "#2fd39a",
           mastery: 52, difficulty: 72, priority: 4, constancy: 60, stars: 3,
           xp: 52, tags: ["ENEM"], exam: "PROVA EM [DIAS]",
           topics: ["Cinética", "Energia", "Estudo da matéria", "Genética", "Ecologia"]
+        },
+        {
+          id: "humanas", name: "Humanas", className: "Explorador", accent: "#f9c53b",
+          mastery: 68, difficulty: 55, priority: 3, constancy: 72, stars: 3,
+          xp: 68, tags: ["ENEM"], exam: "PROVA EM [DIAS]",
+          topics: ["Brasil Colônia", "Era Vargas", "Cartografia", "Filosofia", "Cidadania"]
         },
         {
           id: "senai", name: "SENAI", className: "Engenheiro", accent: "#ff5a3d",
