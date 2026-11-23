@@ -177,6 +177,7 @@ img, canvas { image-rendering: pixelated; }
   color: #CACACA;
 }
 .lead--center { margin-inline: auto; text-align: center; max-width: 46ch; }
+.about-identity { white-space: pre-line; }
 
 .body {
   margin-top: 18px;

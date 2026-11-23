@@ -191,7 +191,6 @@ export const CONFIG = {
     { id: "dna", label: "DNA" },
     { id: "hands", label: "Projetos" },
     { id: "emotion", label: "Emoção" },
-    { id: "beauty", label: "Beleza" },
     { id: "windows", label: "Janelas" },
     { id: "brain-section", label: "Cérebro" },
     { id: "cta", label: "Contato" },
@@ -235,8 +234,8 @@ export const CONFIG = {
     about: {
       kicker: "NÍVEL 02 / CRIADOR",
       title: "Idedeintificação pessoal .",
-      lead: "Nome: \n David Da Silva Sousa\nFiliação:\n Denise Gomes Da Silva  Luz\n Mayke Montiel Santos Luz\nIdade:\n 18 anos\nTelefone:\n +55 (89) 9419-5831\nEndereço:\n Rua Cristo Rei \n Bairro: São José\n Orientadora: \n  Wallace \n  Série: \n , 3 º Série EMI\n",
-      body: "Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla."
+      lead: "Nome: David Da Silva Sousa\nFiliação: Denise Gomes Da Silva Luz\nMayke Montiel Santos Luz\nIdade: 18 anos\nTelefone: +55 (89) 9419-5831\nEndereço: Rua Cristo Rei\nBairro: São José\nOrientadora: Wallace\nSérie: 3º Série EMI",
+      body: ""
     },
     pixels: {
       kicker: "NÍVEL 03 / ORIGEM",
@@ -257,7 +256,7 @@ export const CONFIG = {
       kicker: "NÍVEL 06 / SISTEMA",
       title: "História de vida",
       lead: "Meu nome é David Da Silva Sousa tenho 17 anos e nasci na cidade de Picos Piauí, onde cresci e desenvolvi habilidades. Minha jornada estudantil começa lá no infantil na escola Frei Galvão, até chegar 2018 e eu me adentrar no SESI, desde então venho absorvendo conhecimentos, habilidades e talentos. Minha meta é conseguir ter uma vida financeira estável e bem organizada.",
-      body: "O sistema mantém a próxima tela consistente sem travar o trabalho."
+      body: ""
     },
     emotion: {
       kicker: "NÍVEL 07 / EMOÇÃO",
@@ -265,16 +264,10 @@ export const CONFIG = {
       lead: "https://www.todamateria.com.br/\nhttps://brasilescola.uol.com.br/\nhttps://chatgpt.com/\nhttps://claude.ai/",
       body: "Portfólio desenvolvido com conhecimentos aprendidos no curso técnico em informática para a internet."
     },
-    beauty: {
-      kicker: "NÍVEL 08 / FORMA",
-      title: "A forma segue a função, mas a beleza conduz.",
-      lead: "Cor, tipografia, espaçamento e alinhamento são escolhidos em conjunto, não adicionados como decoração.",
-      body: "Role a página para alinhar a composição. Passe o mouse por um bloco para isolar uma cor."
-    },
     hands: {
       kicker: "NÍVEL 09 / PROJETOS",
       title: "Projeto de vida",
-      lead: "Três projetos autorais que cobrem sistemas de UI, áudio generativo e ferramentas de design."
+      lead: "Projetos e organizações."
     },
     windows: {
       kicker: "NÍVEL 10 / PROCESSO",
