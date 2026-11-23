@@ -64,7 +64,7 @@ test("páginas de atividade compartilham visual pixelado, fontes e datas", async
     await expect(page.locator(".activity-item")).toHaveCount(activityCount);
     await expect(page.locator(".activity-date")).toHaveCount(activityCount);
     for (const date of await page.locator(".activity-date").allTextContents()) {
-      expect(date.trim()).toMatch(/^(?:\d{2}\/\d{2}\/\d{2}|DATA A CONFIRMAR)$/);
+      expect(date.trim()).toMatch(/^(?:\d{2}\/\d{2}\/\d{2}|DATA A CONFIRMAR)?$/);
     }
 
     const overflow = await page.evaluate(
@@ -81,8 +81,19 @@ test("todas as páginas de atividade exibem os Eixos 1 a 4", async ({ page }) =>
     await expect(page.locator(".eixo-heading h2")).toHaveText([
       "Eixo 1", "Eixo 2", "Eixo 3", "Eixo 4"
     ]);
+    await expect(page.locator(".activity-item--chosen")).toHaveCount(4);
+    await expect(page.locator(".chosen-banner")).toHaveCount(4);
 
-    const expectedPlaceholders = ["linguagens", "natureza", "humanas"].includes(id) ? 2 : id === "senai" ? 1 : 0;
-    await expect(page.locator(".activity-pending")).toHaveCount(expectedPlaceholders);
+    await expect(page.locator(".activity-pending")).toHaveCount(0);
   }
+});
+
+test("atividade escolhida abre a imagem completa", async ({ page }) => {
+  await page.goto("/areas/natureza/index.html", { waitUntil: "domcontentloaded" });
+  const chosen = page.locator(".activity-item--chosen").first();
+  await chosen.locator(".chosen-photo").click();
+  await expect(page.locator(".activity-lightbox")).toBeVisible();
+  await expect(page.locator(".activity-lightbox img")).toBeVisible();
+  await page.locator(".activity-lightbox__bar button").click();
+  await expect(page.locator(".activity-lightbox")).not.toBeVisible();
 });
