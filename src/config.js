@@ -61,9 +61,18 @@ export const CONFIG = {
   nav: {
     menuTitle: "NAVEGACAO.SYS",
     items: [
+      { id: "hero", label: "Início" },
       { id: "about", label: "Criador" },
+      { id: "pixels", label: "Objetivos" },
+      { id: "ideas", label: "PPE" },
+      { id: "dna", label: "História de vida" },
       { id: "hands", label: "Projetos" },
       { id: "tetris", label: "Jogar" },
+      { id: "windows", label: "Currículo" },
+      { id: "emotion", label: "Referências" },
+      { id: "brain-section", label: "Considerações" },
+      { id: "cta", label: "Anexos" },
+      { id: "world", label: "Mundo" },
       { id: "knowledge", label: "Áreas de conhecimento", href: areasOfKnowledgePage, level: "★" }
     ],
     cta: {
@@ -191,7 +200,6 @@ export const CONFIG = {
     { id: "dna", label: "DNA" },
     { id: "hands", label: "Projetos" },
     { id: "emotion", label: "Emoção" },
-    { id: "beauty", label: "Beleza" },
     { id: "windows", label: "Janelas" },
     { id: "brain-section", label: "Cérebro" },
     { id: "cta", label: "Contato" },
@@ -264,12 +272,6 @@ export const CONFIG = {
       title: "Referências",
       lead: "https://www.todamateria.com.br/\nhttps://brasilescola.uol.com.br/\nhttps://chatgpt.com/\nhttps://claude.ai/",
       body: "Portfólio desenvolvido com conhecimentos aprendidos no curso técnico em informática para a internet."
-    },
-    beauty: {
-      kicker: "NÍVEL 08 / FORMA",
-      title: "A forma segue a função, mas a beleza conduz.",
-      lead: "Cor, tipografia, espaçamento e alinhamento são escolhidos em conjunto, não adicionados como decoração.",
-      body: "Role a página para alinhar a composição. Passe o mouse por um bloco para isolar uma cor."
     },
     hands: {
       kicker: "NÍVEL 09 / PROJETOS",

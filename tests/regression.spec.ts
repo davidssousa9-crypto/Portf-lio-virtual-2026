@@ -5,7 +5,7 @@ test.beforeEach(async ({ page }) => {
   await skipLoader(page);
 });
 
-test("âncoras congeladas, 13 seções e navegação intactas", async ({ page }) => {
+test("âncoras congeladas, seções e navegação intactas", async ({ page }) => {
   const errors = trackConsole(page);
   await page.goto("/", { waitUntil: "networkidle" });
   await page.waitForTimeout(400);
@@ -18,7 +18,6 @@ test("âncoras congeladas, 13 seções e navegação intactas", async ({ page })
     "brain-section",
     "dna",
     "emotion",
-    "beauty",
     "hands",
     "windows",
     "tetris",
@@ -30,32 +29,31 @@ test("âncoras congeladas, 13 seções e navegação intactas", async ({ page })
   }
 
   const portfolioOrder = await page
-    .locator("#ideas, #hands, #dna, #emotion, #beauty, #brain-section")
+    .locator("#ideas, #hands, #dna, #emotion, #brain-section")
     .evaluateAll((sections) => sections.map((section) => section.id));
   expect(portfolioOrder).toEqual([
     "ideas",
     "dna",
     "hands",
     "emotion",
-    "beauty",
     "brain-section"
   ]);
 
-  await expect(page.locator(".pacnav__item")).toHaveCount(13);
+  await expect(page.locator(".pacnav__item")).toHaveCount(12);
   await expect(page.locator(".dock__item")).toHaveCount(5);
-  await expect(page.locator(".topnav__link")).toHaveCount(4);
+  await expect(page.locator(".topnav__link")).toHaveCount(13);
   await expect(page.locator("#hero .mode-btn")).toHaveCount(3);
 
   expect(errors).toEqual([]);
 });
 
-test("seções de atividades e beleza estão trocadas e a seção de janelas chama-se Currículo", async ({ page }) => {
+test("seções de atividades estão organizadas e a seção de janelas chama-se Currículo", async ({ page }) => {
   await page.goto("/", { waitUntil: "networkidle" });
   const sectionOrder = await page
-    .locator("#hands, #tetris, #beauty, #windows")
+    .locator("#hands, #tetris, #windows")
     .evaluateAll((sections) => sections.map((section) => section.id));
 
-  expect(sectionOrder).toEqual(["hands", "tetris", "beauty", "windows"]);
+  expect(sectionOrder).toEqual(["hands", "tetris", "windows"]);
   await expect(page.locator("#windowsTitle")).toHaveText("Currículo");
   await expect(page.locator(".curriculum-runner")).toHaveCount(0);
   await expect(page.locator("#emotionTitle")).toHaveText("Referências");
