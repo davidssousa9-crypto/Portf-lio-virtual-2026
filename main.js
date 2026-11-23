@@ -10,6 +10,7 @@ import { createPacNav } from "./pacnav.js";
 import { createTopNav } from "./topnav.js";
 import { glitchText, glitchLogo, spawnConfetti } from "./glitch.js";
 import { renderLogo } from "./src/logo.js";
+import { initPpeSchedule } from "./src/ppe-schedule.js";
 import { ICONS, iconSVG, soundIconSVG } from "./src/pixel-art.js";
 import { initSections } from "./sections.js";
 import { initLoader } from "./loader/index.js";
@@ -747,6 +748,7 @@ applyTokens();
 applyLogo();
 applyHero();
 applyCopy();
+initPpeSchedule(document.getElementById("ppeScheduleTable"));
 applySocials();
 buildModeSwitch();
 buildDock();
@@ -761,80 +763,115 @@ topnav = createTopNav({
   onNavigate: (item) => announce(`Navegando para ${item.label}.`)
 });
 
-character = createCharacter({
-  canvas: document.getElementById("characterCanvas"),
-  stage: heroStage,
-  hero: document.getElementById("hero"),
-  config: CONFIG,
-  audio,
-  reducedMotion: reduced,
-  initialMode: mode
-});
-
-pacnav = createPacNav({
-  mount: document.getElementById("pacNav"),
-  sections: CONFIG.sections,
-  audio,
-  reducedMotion: reduced,
-  timings: CONFIG.timings,
-  onNavigate: (section) => announce(`Indo para a seção ${section.label}.`)
-});
-
-sections = initSections({
-  config: CONFIG,
-  ticker,
-  audio,
-  reducedMotion: reduced,
-  announce
-});
-
-applyReducedMotion(reduced);
 updateModeUI();
 updateSoundUI();
+applyReducedMotion(reduced);
 positionMarker();
 window.addEventListener("resize", positionMarker, { passive: true });
-document.fonts?.ready.then(() => {
+
+/* The loader covers the page; canvases, motion and the arcade can wait
+   until it finishes. This keeps the boot path light on slow devices. */
+let experienceStarted = false;
+function startExperience() {
+  if (experienceStarted) return;
+  experienceStarted = true;
+
+  character = createCharacter({
+    canvas: document.getElementById("characterCanvas"),
+    stage: heroStage,
+    hero: document.getElementById("hero"),
+    config: CONFIG,
+    audio,
+    reducedMotion: reduced,
+    initialMode: mode
+  });
+
+  pacnav = createPacNav({
+    mount: document.getElementById("pacNav"),
+    sections: CONFIG.sections,
+    audio,
+    reducedMotion: reduced,
+    timings: CONFIG.timings,
+    onNavigate: (section) => announce(`Indo para a seção ${section.label}.`)
+  });
+
+  sections = initSections({
+    config: CONFIG,
+    ticker,
+    audio,
+    reducedMotion: reduced,
+    announce
+  });
+
+  applyReducedMotion(reduced);
+  updateModeUI();
   positionMarker();
-  pacnav?.measure();
-  topnav?.measure();
-});
+  document.fonts?.ready.then(() => {
+    positionMarker();
+    pacnav?.measure();
+    topnav?.measure();
+  });
 
-/* shared character loop */
-ticker.add((now) => character?.update(now));
-
-/* additive enhancement layer: speech bubbles, dock menu, character lab */
-import("./enhancements/index.js")
-  .then(({ initEnhancements }) =>
-    initEnhancements({
-      config: CONFIG,
-      audio,
-      character,
-      reducedMotion: reduced,
-      ticker,
-      announce
-    })
-  )
-  .catch((error) => console.warn("[enhancements]", error));
-
-
-/* intro glitch, once the first paint has settled */
-if (!reduced) {
-  window.setTimeout(() => {
-    if (document.hidden) return;
-    const initial = document.getElementById("heroInitial");
-    if (initial) {
-      glitchText(initial, {
-        duration: CONFIG.timings.glitchDuration,
-        colors: CONFIG.colors
+  /* Sections below the fold use content-visibility:auto. When one
+     renders for real, refresh the nav measurements and ScrollTrigger. */
+  if ("ResizeObserver" in window) {
+    let measureRaf = 0;
+    const observer = new ResizeObserver(() => {
+      window.cancelAnimationFrame(measureRaf);
+      measureRaf = window.requestAnimationFrame(() => {
+        pacnav?.measure();
+        topnav?.measure();
+        window.dispatchEvent(new CustomEvent("agrvai:layout-refresh"));
       });
-    }
-    if (logo) {
-      glitchLogo(logo, {
-        duration: CONFIG.timings.glitchDuration,
-        colors: CONFIG.colors
-      });
-    }
-  }, CONFIG.timings.loadGlitchDelay);
+    });
+    document.querySelectorAll("main .section").forEach((node) => observer.observe(node));
+  }
+
+  /* shared character loop */
+  ticker.add((now) => character?.update(now));
+
+  /* additive enhancement layer: dock menu, games and character lab */
+  import("./enhancements/index.js")
+    .then(({ initEnhancements }) =>
+      initEnhancements({
+        config: CONFIG,
+        audio,
+        character,
+        reducedMotion: reduced,
+        ticker,
+        announce
+      })
+    )
+    .catch((error) => console.warn("[enhancements]", error));
+
+  /* intro glitch, once the loader is out of the way */
+  if (!reduced) {
+    window.setTimeout(() => {
+      if (document.hidden) return;
+      const initial = document.getElementById("heroInitial");
+      if (initial) {
+        glitchText(initial, {
+          duration: CONFIG.timings.glitchDuration,
+          colors: CONFIG.colors
+        });
+      }
+      if (logo) {
+        glitchLogo(logo, {
+          duration: CONFIG.timings.glitchDuration,
+          colors: CONFIG.colors
+        });
+      }
+    }, CONFIG.timings.loadGlitchDelay);
+  }
 }
 
-window.addEventListener("pagehide", () => ticker.stop());
+if (window.__agrvaiLoaderDone) {
+  startExperience();
+} else {
+  window.addEventListener("agrvai:loader-complete", startExperience, { once: true });
+  if (window.__agrvaiLoaderDone) startExperience();
+}
+
+window.addEventListener("pagehide", () => {
+  ticker.stop();
+});

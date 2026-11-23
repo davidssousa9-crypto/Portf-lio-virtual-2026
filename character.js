@@ -1,7 +1,7 @@
 /* ============================================================
    CHARACTER.JS — 28 × 30 layered pixel portrait (V2)
    Spec: wine hair, 13 px glasses with skin lenses, stepped
-   mouth, dark developer jacket / white creative tee + heart.
+   mouth, dark developer jacket / white creative tee + blue number.
    The public API is unchanged for the calibration lab and games.
    ============================================================ */
 
@@ -9,6 +9,8 @@ const GRID_W = 28;
 const GRID_H = 30;
 const F_LINE = 9; // top row of the glasses frame
 const DOTS = ".".repeat(GRID_W);
+const THREE = ["XXX", "..X", ".XX", "..X", "XXX"];
+const SHIRT_NUMBER = THREE.map((row) => `${row}.${row}.${row}`);
 
 /* ------------------------------------------------------------
    tiny grid helpers
@@ -103,66 +105,61 @@ function buildBase() {
 }
 
 /* ------------------------------------------------------------
-   HAIR — wine mass, irregular top, loose strands, nape
+   HAIR — rounded wine crown, long left lock, short right temple
    ------------------------------------------------------------ */
-function hairTone(x, y) {
-  const n = hash(x, y, 11);
-  if (n < 0.26) return "A";
-  if (n < 0.56) return "a";
-  if (n < 0.82) return "c";
-  return "C";
-}
-
 function buildHair() {
   const g = blank();
   const bands = [
-    [7, 19],
-    [5, 21],
-    [4, 22],
-    [4, 22],
-    [5, 23]
+    [10, 17],
+    [8, 19],
+    [7, 20],
+    [6, 20],
+    [5, 20],
+    [4, 20]
   ];
 
   bands.forEach(([from, to], y) => {
     for (let x = from; x <= to; x += 1) {
-      if (y === 0 && (x === 10 || x === 15)) continue; // irregular, partially cut top
-      if (y === 4 && (x === 8 || x === 19)) continue;
-      put(g, x, y, hairTone(x, y));
+      put(g, x, y, "a");
     }
   });
 
-  /* isolated strand on the side opposite the ear (row 1) */
-  put(g, 4, 1, "a");
+  /* Deep blocks shape the crown; edge pixels catch a muted wine highlight. */
+  [
+    [12, 0], [13, 0], [15, 1], [16, 1], [11, 2], [12, 2],
+    [13, 3], [14, 3], [15, 3], [14, 4], [15, 4], [16, 4],
+    [12, 5], [13, 5], [14, 5]
+  ].forEach(([x, y]) => put(g, x, y, "A"));
+  [
+    [8, 2], [7, 3], [6, 4], [5, 5], [6, 6], [7, 7],
+    [18, 2], [19, 3], [19, 4]
+  ].forEach(([x, y]) => put(g, x, y, "y"));
 
-  /* sides: opposite ear ends at the glasses line; ear side reaches F+1 */
-  for (let x = 5; x <= 6; x += 1) {
-    for (let y = 5; y <= 9; y += 1) put(g, x, y, hairTone(x, y));
+  /* The left side drops to the ear; the squared ear remains visible. */
+  for (let x = 4; x <= 6; x += 1) {
+    for (let y = 5; y <= 12; y += 1) put(g, x, y, "a");
   }
-  put(g, 7, 8, "l"); // 1 px of light skin piercing the hair at F-1
-  put(g, 7, 9, "a");
+  rect(g, 4, 8, 1, 2, "A");
+  put(g, 4, 11, "y");
 
-  for (let x = 18; x <= 22; x += 1) {
-    for (let y = 5; y <= 10; y += 1) put(g, x, y, hairTone(x, y));
-  }
+  /* Side-swept fringe covers the left forehead, leaving the right exposed. */
+  rect(g, 6, 5, 10, 1, "a");
+  rect(g, 7, 6, 8, 1, "a");
+  rect(g, 8, 7, 6, 1, "a");
+  rect(g, 9, 8, 3, 1, "a");
+  [[13, 5], [12, 6], [11, 7]].forEach(([x, y]) => put(g, x, y, "A"));
+  [[7, 5], [8, 6], [9, 7]].forEach(([x, y]) => put(g, x, y, "y"));
 
-  /* fringe: 2 irregular rows above the brows */
-  for (let x = 5; x <= 8; x += 1) put(g, x, 6, hairTone(x, 6));
-  for (let x = 15; x <= 22; x += 1) put(g, x, 6, hairTone(x, 6));
-  for (let x = 5; x <= 8; x += 1) put(g, x, 7, hairTone(x, 7));
-  for (let x = 10; x <= 12; x += 1) put(g, x, 7, hairTone(x, 7));
-  for (let x = 15; x <= 22; x += 1) put(g, x, 7, hairTone(x, 7));
+  /* A short right temple strip and a few loose pixels. */
+  rect(g, 19, 5, 2, 1, "a");
+  rect(g, 20, 6, 1, 1, "A");
+  put(g, 21, 7, "y");
+  put(g, 20, 9, "a");
 
-  /* 1 px shine at F-3, opposite the ear */
-  put(g, 7, 6, "s");
-
-  /* sideburn below the temple + loose hair on the cheek */
-  put(g, 21, 12, "y");
-  put(g, 22, 12, "y");
-  put(g, 20, 16, "n");
-
-  /* nape: 4 px wide, 2 rows, outside the jaw on the ear side */
-  rect(g, 19, 18, 4, 1, "n");
-  rect(g, 19, 19, 4, 1, "N");
+  /* Detached lock near the left jaw. */
+  rect(g, 4, 16, 3, 1, "A");
+  rect(g, 5, 17, 3, 1, "a");
+  rect(g, 6, 18, 2, 1, "A");
 
   return toRows(g);
 }
@@ -227,13 +224,13 @@ function buildGlasses() {
 function buildEar() {
   const g = blank();
   for (let y = 11; y <= 14; y += 1) {
-    put(g, 21, y, "e");
-    put(g, 22, y, "e");
+    put(g, 5, y, "e");
+    put(g, 6, y, "e");
   }
-  put(g, 21, 11, "6");
-  put(g, 21, 12, "l");
-  put(g, 21, 13, "6");
-  put(g, 21, 14, "6");
+  put(g, 5, 11, "6");
+  put(g, 5, 12, "l");
+  put(g, 5, 13, "6");
+  put(g, 5, 14, "6");
   return toRows(g);
 }
 
@@ -261,12 +258,15 @@ function buildCreativeClothing() {
   put(g, 8, 21, "f");
   put(g, 18, 21, "f");
 
-  /* shoulders start at F+13 with 16 px, then 20, 22, 22, 25 */
-  rect(g, 6, 22, 16, 1, "q");
+  /* Keep the neck visible between the collar and the shoulders. */
+  rect(g, 6, 22, 5, 1, "q");
+  rect(g, 16, 22, 6, 1, "q");
   put(g, 6, 22, "f");
-  put(g, 21, 22, "f");
   put(g, 7, 22, "f");
+  put(g, 10, 22, "f");
+  put(g, 16, 22, "f");
   put(g, 19, 22, "f");
+  put(g, 21, 22, "f");
 
   rect(g, 4, 23, 20, 1, "q");
   put(g, 4, 23, "f");
@@ -309,12 +309,13 @@ function buildDeveloperClothing() {
   rect(g, 7, 21, 4, 1, "K");
   rect(g, 16, 21, 3, 1, "K");
 
-  /* shoulders */
-  rect(g, 6, 22, 16, 1, "X");
+  /* Keep the neck visible inside the jacket collar. */
+  rect(g, 6, 22, 5, 1, "X");
+  rect(g, 16, 22, 6, 1, "X");
   put(g, 6, 22, "V");
   put(g, 21, 22, "V");
   put(g, 10, 22, "K");
-  put(g, 15, 22, "K");
+  put(g, 16, 22, "K");
 
   rect(g, 4, 23, 20, 1, "X");
   put(g, 4, 23, "V");
@@ -361,6 +362,65 @@ function buildDeveloperClothing() {
 }
 
 /* ------------------------------------------------------------
+   HOLIDAY CLOTHING — Santa suit and hat over the creative face
+   ------------------------------------------------------------ */
+function buildHolidayClothing() {
+  const g = blank();
+
+  put(g, 9, 20, "q");
+  put(g, 17, 20, "q");
+  rect(g, 8, 21, 3, 1, "q");
+  rect(g, 16, 21, 3, 1, "q");
+  rect(g, 6, 22, 5, 1, "q");
+  rect(g, 16, 22, 6, 1, "q");
+
+  rect(g, 4, 23, 20, 1, "z");
+  put(g, 4, 23, "Z");
+  put(g, 23, 23, "Z");
+  rect(g, 3, 24, 22, 1, "z");
+  rect(g, 3, 25, 22, 1, "z");
+  rect(g, 13, 23, 2, 3, "q");
+  rect(g, 2, 26, 24, 1, "z");
+  put(g, 2, 26, "q");
+  put(g, 3, 26, "q");
+  put(g, 24, 26, "q");
+  put(g, 25, 26, "q");
+
+  rect(g, 3, 27, 22, 1, "K");
+  rect(g, 12, 27, 4, 1, "Q");
+  put(g, 13, 27, "q");
+  put(g, 14, 27, "q");
+
+  rect(g, 2, 28, 24, 1, "z");
+  rect(g, 2, 29, 24, 1, "z");
+  put(g, 2, 28, "Z");
+  put(g, 25, 28, "Z");
+  put(g, 2, 29, "Z");
+  put(g, 25, 29, "Z");
+
+  return toRows(g);
+}
+
+function buildSantaHat() {
+  const g = blank();
+
+  rect(g, 10, 0, 7, 1, "z");
+  rect(g, 17, 0, 2, 1, "q");
+  rect(g, 8, 1, 12, 1, "z");
+  put(g, 20, 1, "q");
+  rect(g, 7, 2, 14, 1, "z");
+  rect(g, 6, 3, 16, 1, "z");
+  rect(g, 5, 4, 17, 1, "z");
+  rect(g, 4, 5, 19, 1, "z");
+  put(g, 4, 5, "Z");
+  rect(g, 4, 6, 20, 2, "q");
+  put(g, 4, 6, "f");
+  put(g, 23, 6, "f");
+
+  return toRows(g);
+}
+
+/* ------------------------------------------------------------
    palettes
    ------------------------------------------------------------ */
 const DEFAULT_PALETTE = {
@@ -377,12 +437,12 @@ const DEFAULT_PALETTE = {
   e: "#E8B58C",
 
   /* hair */
-  a: "#4B1E2C",
-  A: "#381722",
+  a: "#4A1F2E",
+  A: "#2E1520",
   c: "#62283A",
   C: "#55233A",
   s: "#8A5A5E",
-  y: "#5A2A3C",
+  y: "#6B2D3D",
   n: "#3F1A2A",
   N: "#4B1E2C",
   B: "#3B1D2D",
@@ -401,16 +461,19 @@ const DEFAULT_PALETTE = {
   /* clothing */
   q: "#FFFFFF",
   f: "#E6E6E6",
+  z: "#C62828",
+  Z: "#8E1B20",
+  T: "#7FD4FF",
   X: "#322A30",
   V: "#2B2430",
   K: "#231C28",
   D: "#2D2830",
 
   /* aliases kept for older tools / config overrides */
-  h: "#4B1E2C",
-  H: "#381722",
-  j: "#62283A",
-  x: "#8A5A5E",
+  h: "#4A2A1A",
+  H: "#2C180F",
+  j: "#6D452B",
+  x: "#9A6A3E",
   W: "#F7F4EC",
   w: "#D8D2C7",
   "7": "#A85F58",
@@ -431,22 +494,23 @@ const DEFAULT_PALETTE = {
 
 const SKIN_CHARS = new Set(["1", "2", "3", "4", "5", "6", "7", "l", "r", "e"]);
 const SKIN_NOISE = ["#E9C099", "#E7BC93", "#E8BE96", "#EAC29B"];
+const SHARED_GLASSES = mirrorRows(buildGlasses());
 
 const CREATIVE_HEAD = {
   base: buildBase(),
   hair: buildHair(),
   brows: buildBrows(),
-  glasses: buildGlasses(),
+  glasses: SHARED_GLASSES,
   ear: buildEar(),
   expression: buildExpression()
 };
 
 const DEVELOPER_HEAD = {
   base: mirrorRows(CREATIVE_HEAD.base),
-  hair: mirrorRows(CREATIVE_HEAD.hair),
+  hair: CREATIVE_HEAD.hair,
   brows: mirrorRows(CREATIVE_HEAD.brows),
-  glasses: mirrorRows(CREATIVE_HEAD.glasses),
-  ear: mirrorRows(CREATIVE_HEAD.ear),
+  glasses: SHARED_GLASSES,
+  ear: CREATIVE_HEAD.ear,
   expression: mirrorRows(CREATIVE_HEAD.expression)
 };
 
@@ -458,6 +522,11 @@ const GRIDS = {
   developer: {
     ...DEVELOPER_HEAD,
     clothing: buildDeveloperClothing()
+  },
+  holiday: {
+    ...CREATIVE_HEAD,
+    hat: buildSantaHat(),
+    clothing: buildHolidayClothing()
   }
 };
 
@@ -469,7 +538,7 @@ export { GRID_W, GRID_H, F_LINE, DEFAULT_PALETTE };
    static pixel map (loader assembly / game mascots)
    ------------------------------------------------------------ */
 export function getCharacterPixels(mode = "creative") {
-  const target = mode === "developer" ? "developer" : "creative";
+  const target = mode === "developer" || mode === "holiday" ? mode : "creative";
   const layers = GRIDS[target];
   const map = new Map();
   const add = (x, y, char) => {
@@ -479,7 +548,7 @@ export function getCharacterPixels(mode = "creative") {
     map.set(`${x}:${y}`, { x, y, color });
   };
 
-  ["base", "hair", "brows", "glasses", "ear", "expression", "clothing"].forEach((name) => {
+  ["base", "hair", "hat", "brows", "glasses", "ear", "expression", "clothing"].forEach((name) => {
     const rows = layers[name] || [];
     rows.forEach((row, y) => {
       [...row].forEach((char, x) => {
@@ -501,32 +570,18 @@ export function getCharacterPixels(mode = "creative") {
   add(13, 18, "r");
   add(14, 18, "r");
 
-  /* fine-grid heart for the creative tee */
   if (target === "creative") {
-    const heart = [
-      "XXX...XXX",
-      "XXXX.XXXX",
-      ".XXXXXXX.",
-      "..XXXXX..",
-      "...XXX...",
-      "....X...."
-    ];
     const cell = 1 / 3;
-    const x0 = 13.5 - 4.5 * cell;
-    const y0 = 25;
-    heart.forEach((row, ry) => {
-      [...row].forEach((char, rx) => {
-        if (char !== "X") return;
-        add(Math.round(x0 + rx * cell), Math.round(y0 + ry * cell), "heart");
+    const x0 = GRID_W / 2 - (SHIRT_NUMBER[0].length * cell) / 2;
+    SHIRT_NUMBER.forEach((row, y) => {
+      [...row].forEach((pixel, x) => {
+        if (pixel === "X") add(Math.round(x0 + x * cell), 25 + y, "T");
       });
     });
   }
 
   return [...map.values()];
 }
-
-/* heart color is not a matrix char; expose it for the loader */
-DEFAULT_PALETTE.heart = "#E53935";
 
 /* ============================================================
    RENDERER
@@ -571,7 +626,9 @@ export function createCharacter({
   const controller = new AbortController();
   const signal = controller.signal;
 
-  let mode = initialMode === "developer" ? "developer" : "creative";
+  let mode = ["creative", "developer", "holiday"].includes(initialMode)
+    ? initialMode
+    : "creative";
   let transitionFrom = mode;
   let transitionStart = -1e9;
   let reduced = Boolean(reducedMotion);
@@ -644,6 +701,7 @@ export function createCharacter({
     const head = GRIDS[targetMode];
     drawGrid(g, head.base);
     drawGrid(g, head.hair);
+    if (head.hat) drawGrid(g, head.hat);
     drawGrid(g, head.brows);
     drawGrid(g, head.glasses);
     drawGrid(g, head.ear);
@@ -662,11 +720,13 @@ export function createCharacter({
   function buildCaches() {
     headCache = {
       creative: buildHead("creative"),
-      developer: buildHead("developer")
+      developer: buildHead("developer"),
+      holiday: buildHead("holiday")
     };
     bodyCache = {
       creative: buildBody("creative"),
-      developer: buildBody("developer")
+      developer: buildBody("developer"),
+      holiday: buildBody("holiday")
     };
   }
 
@@ -722,40 +782,30 @@ export function createCharacter({
     }
   }
 
-  const HEART = [
-    "XXX...XXX",
-    "XXXX.XXXX",
-    ".XXXXXXX.",
-    "..XXXXX..",
-    "...XXX...",
-    "....X...."
-  ];
-
-  function drawHeart(g, offsetY, now) {
-    const cell = unit / 3;
-    const pulse = now % 1500 < 150 ? -1 : 0;
-    const x0 = 13.5 * unit - 4.5 * cell;
-    const y0 = 25 * unit + offsetY + pulse * cell;
-    g.fillStyle = palette.heart || "#E53935";
-    for (let row = 0; row < HEART.length; row += 1) {
-      for (let col = 0; col < HEART[row].length; col += 1) {
-        if (HEART[row][col] !== "X") continue;
-        g.fillRect(
-          Math.round(x0 + col * cell),
-          Math.round(y0 + row * cell),
-          Math.ceil(cell),
-          Math.ceil(cell)
-        );
-      }
-    }
-  }
-
   function drawCharacter(g, targetMode, jumpY, bodyY, opts = {}) {
     g.drawImage(headCache[targetMode], 0, jumpY);
     drawEyes(g, jumpY, opts);
     drawMouth(g, jumpY, Boolean(opts.open));
     g.drawImage(bodyCache[targetMode], 0, bodyY + jumpY);
-    if (targetMode === "creative") drawHeart(g, bodyY + jumpY, opts.now || performance.now());
+    if (targetMode === "creative") drawShirtNumber(g, bodyY + jumpY);
+  }
+
+  function drawShirtNumber(g, offsetY) {
+    const cell = unit / 3;
+    const x0 = (GRID_W / 2) * unit - (SHIRT_NUMBER[0].length * cell) / 2;
+    const y0 = 25 * unit + offsetY;
+    g.fillStyle = palette.T;
+    SHIRT_NUMBER.forEach((row, y) => {
+      [...row].forEach((pixel, x) => {
+        if (pixel !== "X") return;
+        g.fillRect(
+          Math.round(x0 + x * cell),
+          Math.round(y0 + y * cell),
+          Math.ceil(cell),
+          Math.ceil(cell)
+        );
+      });
+    });
   }
 
   function composeFrame(targetMode, jumpY = 0, bodyY = 0, opts = {}) {
@@ -962,7 +1012,7 @@ export function createCharacter({
   }
 
   function setMode(nextMode, { instant = false } = {}) {
-    if (nextMode !== "creative" && nextMode !== "developer") return;
+    if (!["creative", "developer", "holiday"].includes(nextMode)) return;
     if (nextMode === mode) return;
     transitionFrom = mode;
     mode = nextMode;

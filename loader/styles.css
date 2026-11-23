@@ -7,6 +7,11 @@ html.is-loader-active body {
   overflow: hidden;
 }
 
+/* The overlay is opaque: keep the page out of layout until boot ends. */
+html.is-loader-active body > *:not(.agrvai-loader) {
+  display: none;
+}
+
 .agrvai-loader {
   position: fixed;
   inset: 0;

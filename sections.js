@@ -77,12 +77,16 @@ export function initSections({
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           entry.target.classList.add("in-view");
+          entry.target.classList.remove("reveal-pending");
           observer.unobserve(entry.target);
         });
       },
       { threshold: 0.14, rootMargin: "0px 0px -6% 0px" }
     );
-    revealNodes.forEach((node) => observer.observe(node));
+    revealNodes.forEach((node) => {
+      node.classList.add("reveal-pending");
+      observer.observe(node);
+    });
     cleanups.push(() => observer.disconnect());
   } else {
     revealNodes.forEach((node) => node.classList.add("in-view"));

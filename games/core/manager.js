@@ -6,7 +6,6 @@
 import { createHud } from "./hud.js";
 import { createGameShell } from "./shell.js";
 import { GAMES, gameById } from "../registry.js";
-import "../styles.css";
 
 const KONAMI = [
   "ArrowUp",

@@ -4,19 +4,21 @@
    here. Nothing in the UI should need a second copy.
    ============================================================ */
 
+const areasOfKnowledgePage = "areas-de-conhecimento.html";
+
 export const CONFIG = {
   brand: "AGRVAI",
 
   /* ---------- ENHANCEMENT FLAGS (additive) ---------- */
   features: {
-    loader: true,
+    loader: false,
     minigames: true,
     transitions: true,
     knowledge: true
   },
 
   meta: {
-    title: "AGRVAI — Transformando pixels em experiências digitais memoráveis",
+    title: "David Sousa",
     description:
       "AGRVAI — portfólio em pixel art que mistura design editorial, interfaces feitas à mão e engenharia 8-bit. Transformando pixels em experiências digitais memoráveis desde 2010.",
     themeColor: "#121212"
@@ -43,6 +45,7 @@ export const CONFIG = {
   },
 
   fonts: {
+    /* Editorial headlines, highly readable UI, and pixel-art microcopy. */
     body: '"Space Grotesk", "Segoe UI", sans-serif',
     display: '"Fraunces", "Iowan Old Style", Georgia, serif',
     pixel: '"Pixelify Sans", "Courier New", monospace'
@@ -50,8 +53,8 @@ export const CONFIG = {
 
   /* ---------- LOGO ---------- */
   logo: {
-    text: "AGRVAI",
-    ariaLabel: "AGRVAI — voltar ao topo"
+    text: "DVD",
+    ariaLabel: "DVD — voltar ao topo"
   },
 
   /* ---------- PRIMARY NAV ---------- */
@@ -60,7 +63,8 @@ export const CONFIG = {
     items: [
       { id: "about", label: "Criador" },
       { id: "hands", label: "Projetos" },
-      { id: "tetris", label: "Jogar" }
+      { id: "tetris", label: "Jogar" },
+      { id: "knowledge", label: "Áreas de conhecimento", href: areasOfKnowledgePage, level: "★" }
     ],
     cta: {
       label: "Contato",
@@ -82,7 +86,6 @@ export const CONFIG = {
       K: "#231C28",
       D: "#2D2830"
     },
-    speech: ["oi, meu nome é David", "bem vindo ao meu portfólio"],
     pixelSize: 0,
     mobileVw: 0.032,
     transition: 650,
@@ -126,14 +129,15 @@ export const CONFIG = {
 
   /* ---------- HERO ---------- */
   hero: {
-    lines: ["Transformo pixels", "em experiências", "digitais", "memoráveis."],
+    lines: ["Portfólio virtual", "2026"],
     subtitleLines: [
-      "Código fluido e design cuidadoso,",
-      "criando e dando vida a visões desde 2010."
+      "Bem vindo ao meu portfólio",
+      "Aqui você encontrará todas minhas atividades ao longo do ano de 2026, aproveite a exper"
     ],
     modes: [
       { id: "developer", label: "Modo Desenvolvedor", cardLabel: "DESENVOLVEDOR" },
-      { id: "creative", label: "Modo Criativo", cardLabel: "CRIATIVO" }
+      { id: "creative", label: "Modo Criativo", cardLabel: "CRIATIVO" },
+      { id: "holiday", label: "Modo Férias", cardLabel: "FÉRIAS" }
     ],
     defaultMode: "creative",
     characterAria:
@@ -166,6 +170,13 @@ export const CONFIG = {
         label: "/projetos",
         ariaLabel: "Projetos",
         href: "#hands"
+      },
+      {
+        id: "knowledge",
+        icon: "book",
+        label: "/áreas",
+        ariaLabel: "Áreas de conhecimento",
+        href: areasOfKnowledgePage
       }
     ]
   },
@@ -176,13 +187,13 @@ export const CONFIG = {
     { id: "about", label: "Criador" },
     { id: "pixels", label: "Pixels" },
     { id: "ideas", label: "Ideias" },
-    { id: "brain-section", label: "Cérebro" },
+    { id: "tetris", label: "Atividades" },
     { id: "dna", label: "DNA" },
+    { id: "hands", label: "Projetos" },
     { id: "emotion", label: "Emoção" },
     { id: "beauty", label: "Beleza" },
-    { id: "hands", label: "Projetos" },
     { id: "windows", label: "Janelas" },
-    { id: "tetris", label: "Tetris" },
+    { id: "brain-section", label: "Cérebro" },
     { id: "cta", label: "Contato" },
     { id: "world", label: "Mundo" }
   ],
@@ -223,36 +234,34 @@ export const CONFIG = {
   copy: {
     about: {
       kicker: "NÍVEL 02 / CRIADOR",
-      title: "Sobre Mim.",
-      lead: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      title: "Idedeintificação pessoal .",
+      lead: "Nome: \n David Da Silva Sousa\nFiliação:\n Denise Gomes Da Silva  Luz\n Mayke Montiel Santos Luz\nIdade:\n 18 anos\nTelefone:\n +55 (89) 9419-5831\nEndereço:\n Rua Cristo Rei \n Bairro: São José\n Orientadora: \n  Wallace \n  Série: \n , 3 º Série EMI\n",
       body: "Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla."
     },
     pixels: {
       kicker: "NÍVEL 03 / ORIGEM",
-      title: "História de Vida.",
-      lead: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.",
-      body: "Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur."
+      title: "Objetivos.",
+      lead: "Organizar um plano de estudos com rotina, foco na prática e técnicas de revisão para conseguir estudar com êxito e manter o aprendizado contínuo.\n\nDesenvolver habilidades técnicas, inteligência emocional e resolução de problemas para o mercado de trabalho e vida pessoal, tornando-se um profissional qualificado.\n\nIncluir no portfólio escolar: perfil com visão de futuro, mapeamento de competências, trilha de projetos práticos realizados, certificados de cursos extracurriculares e um diário de autoavaliação.",
+      body: "Explorar e dominar novas ferramentas digitais e metodologias de produtividade, demonstrando inovação e adaptabilidade no portfólio para se destacar diante das rápidas mudanças do mercado."
     },
     ideas: {
-      kicker: "NÍVEL 04 / FAÍSCA",
-      title: "É aqui que as ideias tomam forma.",
-      lead: "Transformo conceitos iniciais em direções de interface: estrutura, fluxo e as primeiras telas que provam a ideia."
+      title: "Plano pessoal de estudo 'PPE'"
     },
     "brain-section": {
       kicker: "NÍVEL 05 / CONCEITO",
-      title: "Torne o invisível legível.",
+      title: "Considerações finais",
       lead: "Mapeio a ideia em wireframes, componentes e um plano de build.",
       body: "Cada parte ganha nome, propósito e lugar antes da primeira linha de código."
     },
     dna: {
       kicker: "NÍVEL 06 / SISTEMA",
-      title: "Deste fio, tudo cresce…",
+      title: "História de vida",
       lead: "Tokens de design, escalas tipográficas, espaçamento e regras de movimento, documentados e reutilizáveis.",
       body: "O sistema mantém a próxima tela consistente sem travar o trabalho."
     },
     emotion: {
       kicker: "NÍVEL 07 / EMOÇÃO",
-      title: "Mais do que função.",
+      title: "Referências",
       lead: "Movimento, tempo e feedback carregam significado. Eles confirmam ações e orientam a atenção.",
       body: "Mova o ponteiro pelo campo para testar a resposta."
     },
@@ -264,25 +273,25 @@ export const CONFIG = {
     },
     hands: {
       kicker: "NÍVEL 09 / PROJETOS",
-      title: "Ideias não são nada sem mãos que as construam.",
+      title: "Projeto de vida",
       lead: "Três projetos autorais que cobrem sistemas de UI, áudio generativo e ferramentas de design."
     },
     windows: {
       kicker: "NÍVEL 10 / PROCESSO",
-      title: "Cada janela é uma decisão.",
+      title: "Currículo",
       lead: "Alertas, estados de carregamento, avisos e confirmações: as pequenas interfaces que mantêm um processo claro.",
       body: "Feche, minimize e restaure as janelas para testar cada estado."
     },
     tetris: {
       kicker: "NÍVEL 11 / JOGO",
-      title: "Encaixe perfeito.",
+      title: "Visualize as atividades do ano de 2026",
       lead: "Um pequeno tabuleiro estilo Tetris feito para ritmo, cliques e linhas limpas.",
       body: "O tabuleiro roda sozinho. Use Próxima para acelerar a próxima peça."
     },
     cta: {
-      kicker: "NÍVEL 12 / CONTATO",
-      title: ["Empilhe sua visão", "com a minha."],
-      lead: "Me conte o que você quer construir. Respondo com os próximos passos."
+      kicker: "NÍVEL 12 / ANEXOS",
+      title: "Anexos",
+      lead: "Fotos e registros reunidos em quadros pixelados."
     },
     world: {
       kicker: "NÍVEL 13 / MUNDO",

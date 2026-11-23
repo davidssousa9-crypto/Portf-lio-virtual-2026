@@ -2,8 +2,6 @@
    Enhancements boot — additive layer over the frozen portfolio.
    ============================================================ */
 
-import "./styles.css";
-import { createSpeechBubble } from "./speech.js";
 import { createDockMenu } from "./dock-menu.js";
 import { initMotion } from "./motion.js";
 import { createAudioEngine } from "./audio-engine.js";
@@ -17,12 +15,7 @@ export function initEnhancements({
   ticker = null,
   announce = () => {}
 } = {}) {
-  const hero = document.getElementById("hero");
   const dock = document.getElementById("dock");
-  const speechLines = config?.character?.speech || [
-    "oi, meu nome é David",
-    "bem vindo ao meu portfólio"
-  ];
 
   const dockMenu = createDockMenu({ dock, audio });
   const audioEngine = createAudioEngine({
@@ -37,28 +30,6 @@ export function initEnhancements({
   });
 
   const motion = initMotion({ config, ticker, reducedMotion });
-
-  const speech = createSpeechBubble({
-    host: hero,
-    lines: speechLines,
-    reducedMotion
-  });
-
-  let speechFallback = 0;
-  const startSpeech = (delay = 600) => {
-    window.clearTimeout(speechFallback);
-    speech?.start(delay);
-  };
-  if (window.__agrvaiLoaderDone) {
-    startSpeech(reducedMotion ? 0 : 600);
-  } else {
-    window.addEventListener("agrvai:loader-complete", () => {
-      startSpeech(reducedMotion ? 0 : 600);
-    }, { once: true });
-    speechFallback = window.setTimeout(() => {
-      if (!window.__agrvaiLoaderDone) startSpeech(reducedMotion ? 0 : 600);
-    }, reducedMotion ? 1200 : 2800);
-  }
 
   const query = new URLSearchParams(window.location.search);
   let lab = null;
@@ -76,18 +47,15 @@ export function initEnhancements({
 
   return {
     dockMenu,
-    speech,
     motion,
     games,
     audioEngine,
     lab: () => lab,
     destroy() {
-      window.clearTimeout(speechFallback);
       motion?.destroy();
       games?.destroy();
       audioEngine?.destroy();
       dockMenu?.destroy();
-      speech?.destroy();
       lab?.destroy?.();
     }
   };

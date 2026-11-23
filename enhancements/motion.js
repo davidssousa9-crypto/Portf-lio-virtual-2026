@@ -6,11 +6,8 @@
    ============================================================ */
 
 import Lenis from "lenis";
-import "lenis/dist/lenis.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-import "./motion.css";
 
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({ ignoreMobileResize: true });
@@ -239,6 +236,7 @@ export function initMotion({ config = {}, ticker = null, reducedMotion = false }
   /* ---------- Lenis ---------- */
   const lenis = new Lenis({
     lerp: 0.095,
+    /* debug */
     smoothWheel: true,
     wheelMultiplier: 1,
     touchMultiplier: 1.35,
@@ -412,6 +410,27 @@ export function initMotion({ config = {}, ticker = null, reducedMotion = false }
   };
   window.addEventListener("pageshow", onPageShow);
   cleanups.push(() => window.removeEventListener("pageshow", onPageShow));
+
+  let refreshTimer = 0;
+  const onLayoutRefresh = () => {
+    window.clearTimeout(refreshTimer);
+    refreshTimer = window.setTimeout(() => {
+      lenis.resize();
+      ScrollTrigger.refresh();
+    }, 120);
+  };
+  window.addEventListener("agrvai:layout-refresh", onLayoutRefresh);
+  cleanups.push(() => {
+    window.clearTimeout(refreshTimer);
+    window.removeEventListener("agrvai:layout-refresh", onLayoutRefresh);
+  });
+
+  /* content-visibility changes the page height as sections render;
+     Lenis caches its scroll limit, so recompute it after boot. */
+  const resizeAfterBoot = () => window.requestAnimationFrame(() => lenis.resize());
+  resizeAfterBoot();
+  window.addEventListener("load", resizeAfterBoot, { once: true });
+  cleanups.push(() => window.removeEventListener("load", resizeAfterBoot));
 
   enterWipe();
 

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Currículo de David Da Silva Sousa, estudante e desenvolvedor front-end.">
+  <title>Currículo • David Da Silva Sousa</title>
+  <link rel="stylesheet" href="./areas/atividades.css">
+  <style>
+    .resume-tags,
+    .resume-projects {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .resume-tags {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+    }
+
+    .resume-tags li,
+    .resume-project {
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: var(--surface-raised);
+    }
+
+    .resume-tags li {
+      color: var(--lime);
+      font-family: var(--font-pixel);
+      font-size: 11px;
+    }
+
+    .resume-project h3 {
+      margin: 0 0 8px;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 20px;
+    }
+
+    .resume-project p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .resume-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body class="activity-page">
+  <header class="activity-topbar">
+    <a class="activity-back" href="./index.html#windows">← Voltar</a>
+    <span class="topbar-tag">PORTFÓLIO · CURRÍCULO</span>
+  </header>
+
+  <main class="atividades">
+    <header class="page-hero">
+      <p class="activity-kicker"><span class="activity-kicker__dot" aria-hidden="true"></span>CURRÍCULO · 2026</p>
+      <h1 class="subject-name">David Da Silva Sousa</h1>
+      <p class="hero-sub">Estudante da 3ª série do Ensino Médio Integrado (EMI) · SESI-SENAI</p>
+    </header>
+
+    <div class="center">
+      <section class="eixo-container" aria-labelledby="resumeProfile">
+        <header class="eixo-heading">
+          <span class="eixo-index">PERFIL</span>
+          <h2 id="resumeProfile">Desenvolvimento front-end</h2>
+        </header>
+        <p>Estudante com interesse em interfaces digitais e experiências interativas. Reúne no portfólio projetos autorais de sistemas de UI, áudio generativo e ferramentas de design.</p>
+      </section>
+
+      <section class="eixo-container" aria-labelledby="resumeEducation">
+        <header class="eixo-heading">
+          <span class="eixo-index">FORMAÇÃO</span>
+          <h2 id="resumeEducation">Formação</h2>
+        </header>
+        <p>3ª série do Ensino Médio Integrado (EMI) · SESI-SENAI</p>
+        <p>Picos · Piauí</p>
+      </section>
+
+      <section class="eixo-container" aria-labelledby="resumeSkills">
+        <header class="eixo-heading">
+          <span class="eixo-index">TECNOLOGIAS</span>
+          <h2 id="resumeSkills">Tecnologias e áreas</h2>
+        </header>
+        <ul class="resume-tags">
+          <li>HTML · CSS · JavaScript</li>
+          <li>Interfaces front-end</li>
+          <li>Sistemas de UI</li>
+          <li>Design tokens</li>
+          <li>Canvas e pixel art</li>
+          <li>Áudio Web generativo</li>
+        </ul>
+      </section>
+
+      <section class="eixo-container" aria-labelledby="resumeProjects">
+        <header class="eixo-heading">
+          <span class="eixo-index">PORTFÓLIO</span>
+          <h2 id="resumeProjects">Projetos</h2>
+        </header>
+        <ul class="resume-projects">
+          <li class="resume-project">
+            <h3>Onde estou</h3>
+            <p>Interface de desktop em que cada janela funciona como um objeto interativo, com foco em teclado e sem dependências.</p>
+          </li>
+          <li class="resume-project">
+            <h3>Onde quero chegar</h3>
+            <p>Rádio generativa em que cada faixa cria sua própria capa em tempo real.</p>
+          </li>
+          <li class="resume-project">
+            <h3>Como chegarei lá</h3>
+            <p>Playground de design tokens que transforma decisões de espaçamento e cor em uma experiência interativa.</p>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <nav class="resume-actions" aria-label="Navegação do currículo">
+      <a class="pixel-btn" href="./index.html#windows">Voltar ao portfólio</a>
+      <a class="pixel-btn pixel-btn--solid" href="./index.html#cta">Contato <span aria-hidden="true">▶</span></a>
+    </nav>
+  </main>
+</body>
+
+</html>

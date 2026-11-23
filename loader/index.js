@@ -3,7 +3,6 @@
    Emits `agrvai:loader-complete` on window when the reveal starts.
    ============================================================ */
 
-import "./styles.css";
 import { getCharacterPixels } from "../character.js";
 
 const SKIP_KEY = "agrvai-loader-skip";
@@ -180,18 +179,23 @@ export function initLoader({ config = {}, reducedMotion = false } = {}) {
     const j = Math.floor(random() * (i + 1));
     [pixels[i], pixels[j]] = [pixels[j], pixels[i]];
   }
-  let shownPixels = -1;
+  let shownPixels = 0;
 
   function drawPortrait(count) {
     const clamped = Math.max(0, Math.min(pixels.length, count));
     if (clamped === shownPixels) return;
-    shownPixels = clamped;
-    portraitCtx.clearRect(0, 0, portrait.width, portrait.height);
-    for (let i = 0; i < clamped; i += 1) {
+    if (clamped < shownPixels) {
+      portraitCtx.clearRect(0, 0, portrait.width, portrait.height);
+      shownPixels = 0;
+    }
+    /* Paint only what is new: the final progress jump used to repaint
+       the whole portrait in a single long task. */
+    for (let i = shownPixels; i < clamped; i += 1) {
       const pixel = pixels[i];
       portraitCtx.fillStyle = pixel.color;
       portraitCtx.fillRect(pixel.x * CELL, pixel.y * CELL, CELL, CELL);
     }
+    shownPixels = clamped;
   }
 
   let progress = 0;
@@ -389,7 +393,7 @@ export function initLoader({ config = {}, reducedMotion = false } = {}) {
           }, 520);
           autoTimer = window.setTimeout(
             () => leave(false),
-            reduced ? 900 : 6500
+            reduced ? 900 : 1800
           );
         }
       }

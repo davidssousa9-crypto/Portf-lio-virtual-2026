@@ -1,0 +1,18 @@
+{
+  "planHash": "4661125f5906072b7326b254a6939525542a077ffab641b0de91c122f1d68200",
+  "phase": "standalone",
+  "recordedAtUtc": "2026-11-22T05:32:29.8394391Z",
+  "retryCount": 1,
+  "resetBaseline": false,
+  "complete": false,
+  "runningStep": "tests-pass",
+  "partialOutput": "\r\n\u003E agrvai-portfolio@2.0.0 test:smoke\r\n\u003E playwright test --project=desktop tests/smoke.spec.ts\r\n\r\n\r\nRunning 8 tests using 1 worker\r\n\r\n  ok 1 [desktop] \u203A tests\\smoke.spec.ts:8:1 \u203A home carrega com o conte\u00FAdo do autor e sem erros de console (3.9s)\r\n  ok 2 [desktop] \u203A tests\\smoke.spec.ts:27:1 \u203A hierarquia tipogr\u00E1fica combina t\u00EDtulos editoriais, leitura e detalhes pixel (2.5s)\r\n  ok 3 [desktop] \u203A tests\\smoke.spec.ts:42:1 \u203A conte\u00FAdo textual continua vis\u00EDvel se o JavaScript n\u00E3o iniciar (1.6s)\r\n  ok 4 [desktop] \u203A tests\\smoke.spec.ts:53:1 \u203A t\u00EDtulo aparece na primeira tela em janela pequena (2.1s)\r\n  x  5 [desktop] \u203A tests\\smoke.spec.ts:64:1 \u203A base de conhecimento carrega com cinco mundos e HUD (10.9s)\r\n",
+  "cleanupCompleted": true,
+  "result": {
+    "setupSucceeded": false,
+    "setupDurationMs": 0,
+    "setupFailureOutput": null,
+    "assertions": [],
+    "executions": []
+  }
+}

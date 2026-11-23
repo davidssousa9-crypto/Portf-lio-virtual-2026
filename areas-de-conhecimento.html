@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#121212">
+  <title>Matérias — Plano Pessoal de Estudo</title>
+  <style>
+    :root {
+      --bg: #121212;
+      --surface: #1a1a1a;
+      --surface-raised: #202020;
+      --border: #2a2a2a;
+      --text: #e8e8e8;
+      --muted: #a5a5a5;
+      --lime: #c8f000;
+      --amber: #f9c53b;
+      --cyan: #12b8e0;
+      --red: #ef3e3e;
+      --orange: #ff5a3d;
+      --teal: #2fd39a;
+      --shadow: #000;
+      --font-display: Georgia, "Times New Roman", serif;
+      --font-ui: "Pixelify Sans", "Courier New", monospace;
+      --font-body: "Segoe UI", sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+    }
+    button, a, input, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; }
+    [hidden] { display: none !important; }
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      left: 12px;
+      top: -60px;
+      padding: 10px 14px;
+      background: var(--lime);
+      color: #111;
+      font-family: var(--font-ui);
+    }
+    .skip-link:focus { top: 12px; }
+    .progress {
+      position: fixed;
+      z-index: 80;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 4px;
+      background: var(--lime);
+      box-shadow: 0 0 0 1px #000;
+    }
+    .topbar {
+      position: sticky;
+      z-index: 70;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 66px;
+      padding: 10px 22px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(18,18,18,.96);
+    }
+    .brand {
+      color: var(--text);
+      text-decoration: none;
+      font: 700 11px var(--font-ui);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .brand span { color: var(--lime); }
+    .mode-switch {
+      display: flex;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .mode-switch button {
+      min-height: 34px;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font: 700 9px var(--font-ui);
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    .mode-switch button[aria-pressed="true"] {
+      background: var(--lime);
+      color: #111;
+      box-shadow: 3px 3px 0 var(--shadow);
+    }
+    .wrap { width: min(1180px, calc(100% - 44px)); margin-inline: auto; }
+    .hero {
+      min-height: 520px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      align-items: center;
+      gap: 48px;
+      padding-block: 68px;
+    }
+    .kicker {
+      margin: 0 0 12px;
+      color: var(--lime);
+      font: 700 10px var(--font-ui);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .hero h1, .section-title {
+      margin: 0;
+      max-width: 780px;
+      font-family: var(--font-display);
+      font-size: clamp(44px, 7vw, 88px);
+      line-height: .95;
+      letter-spacing: -.055em;
+    }
+    .hero h1 em { color: var(--lime); font-style: normal; }
+    .hero-lead {
+      max-width: 620px;
+      margin: 22px 0 30px;
+      color: #bdbdbd;
+      font-size: clamp(17px, 2vw, 21px);
+    }
+    .press-start {
+      min-height: 48px;
+      border: 1px solid var(--lime);
+      border-radius: 0;
+      padding: 12px 18px;
+      background: var(--lime);
+      color: #111;
+      box-shadow: 5px 5px 0 var(--shadow);
+      font: 800 11px var(--font-ui);
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    .press-start:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--shadow); }
+    .hero-avatar {
+      position: relative;
+      display: grid;
+      place-items: end center;
+      min-height: 360px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(90deg, transparent 49%, rgba(200,240,0,.06) 50%, transparent 51%) 0 0 / 24px 24px,
+        linear-gradient(rgba(200,240,0,.04) 1px, transparent 1px) 0 0 / 100% 24px,
+        var(--surface);
+      box-shadow: 8px 8px 0 var(--shadow);
+      overflow: hidden;
+    }
+    .hero-avatar img {
+      width: 88%;
+      height: 340px;
+      object-fit: cover;
+      object-position: center 20%;
+      image-rendering: auto;
+      filter: contrast(1.08) saturate(.78);
+    }
+    .hero-avatar svg {
+      width: 220px;
+      height: 300px;
+      shape-rendering: crispEdges;
+      image-rendering: pixelated;
+      filter: contrast(1.08);
+    }
+    .avatar-status {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      padding: 7px 9px;
+      border: 1px solid var(--lime);
+      background: #111;
+      color: var(--lime);
+      font: 700 8px var(--font-ui);
+      text-transform: uppercase;
+    }
+    .section { padding: 78px 0; border-top: 1px solid var(--border); }
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    .section-title { font-size: clamp(34px, 5vw, 58px); }
+    .view-switch {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .view-switch button {
+      min-height: 38px;
+      border: 0;
+      border-right: 1px solid var(--border);
+      padding: 8px 12px;
+      background: transparent;
+      color: var(--muted);
+      font: 700 9px var(--font-ui);
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    .view-switch button:last-child { border-right: 0; }
+    .view-switch button[aria-pressed="true"] { background: var(--lime); color: #111; }
+    .console-shell {
+      position: relative;
+      padding: 22px 26px 38px;
+      border: 1px solid var(--border);
+      background: #151515;
+      box-shadow: 8px 8px 0 var(--shadow);
+    }
+    .console-top {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      align-items: end;
+      min-height: 302px;
+      gap: clamp(8px, 2vw, 22px);
+      padding: 18px 14px 0;
+      border-bottom: 18px solid #292929;
+    }
+    .cartridge {
+      --accent: var(--lime);
+      position: relative;
+      display: block;
+      width: 100%;
+      min-width: 0;
+      max-width: 190px;
+      margin-inline: auto;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: var(--text);
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 120ms steps(3, end);
+    }
+    .cartridge:hover, .cartridge:focus-visible { transform: translateY(-12px); }
+    .cartridge-body {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border: 2px solid var(--accent);
+      border-bottom-width: 14px;
+      background: var(--surface-raised);
+      box-shadow: 5px 5px 0 var(--shadow);
+      text-align: left;
+    }
+    .cartridge-body::before {
+      content: "";
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      bottom: -10px;
+      height: 6px;
+      background: var(--accent);
+      opacity: .8;
+    }
+    .cart-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 34px;
+      padding: 6px 8px;
+      border-bottom: 1px solid var(--border);
+      color: var(--accent);
+      font: 700 8px var(--font-ui);
+      text-transform: uppercase;
+    }
+    .cart-art {
+      display: grid;
+      place-items: center;
+      height: 42%;
+      border-bottom: 1px solid var(--border);
+      background: #171717;
+    }
+    .cart-art svg { width: 66%; height: 78%; shape-rendering: crispEdges; }
+    .cart-info { padding: 9px 9px 6px; }
+    .cart-info h3 {
+      margin: 0 0 2px;
+      color: var(--accent);
+      font: 800 clamp(10px, 1vw, 13px) var(--font-ui);
+      text-transform: uppercase;
+    }
+    .cart-class { display: block; color: var(--muted); font: 700 8px var(--font-ui); }
+    .stars { margin-top: 7px; color: var(--amber); font: 10px var(--font-ui); letter-spacing: 2px; }
+    .stats { display: grid; gap: 5px; margin-top: 8px; }
+    .stat { display: grid; grid-template-columns: 58px 1fr; align-items: center; gap: 5px; }
+    .stat span { color: var(--muted); font: 700 7px var(--font-ui); text-transform: uppercase; }
+    .stat i { display: block; height: 5px; background: #303030; }
+    .stat i::after { content: ""; display: block; height: 100%; width: var(--value); background: var(--accent); }
+    .cart-exam {
+      display: block;
+      margin: 8px 9px 0;
+      color: var(--text);
+      font: 700 7px var(--font-ui);
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .roster {
+      display: none;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    body[data-view="roster"] .console-shell { display: none; }
+    body[data-view="roster"] .roster { display: grid; }
+    .roster .cartridge { max-width: none; }
+    .roster .cartridge-body { max-height: 330px; }
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1fr 180px 180px;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .toolbar input, .toolbar select {
+      min-height: 42px;
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 0;
+      background: var(--surface);
+      color: var(--text);
+      padding: 8px 10px;
+      font: 700 9px var(--font-ui);
+    }
+    .pellet-nav {
+      position: fixed;
+      z-index: 60;
+      right: 16px;
+      top: 50%;
+      display: grid;
+      gap: 10px;
+      transform: translateY(-50%);
+    }
+    .pellet-nav a {
+      display: grid;
+      place-items: center;
+      width: 12px;
+      height: 12px;
+      border: 2px solid #555;
+      background: transparent;
+      color: transparent;
+      text-decoration: none;
+    }
+    .pellet-nav a[aria-current="true"] { border-color: var(--lime); background: var(--lime); box-shadow: 0 0 0 3px #111; }
+    .left-rail {
+      position: fixed;
+      z-index: 55;
+      left: 12px;
+      bottom: 74px;
+      display: grid;
+      gap: 8px;
+    }
+    .rail-button, .menu-button {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--amber);
+      box-shadow: 3px 3px 0 var(--shadow);
+      cursor: pointer;
+    }
+    .rail-button { width: 38px; height: 38px; font: 700 10px var(--font-ui); }
+    .menu-button {
+      position: fixed;
+      z-index: 55;
+      left: 12px;
+      bottom: 18px;
+      min-height: 42px;
+      padding: 8px 12px;
+      color: var(--amber);
+      font: 800 9px var(--font-ui);
+      text-transform: uppercase;
+    }
+    .placeholder {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 28px;
+      color: var(--muted);
+    }
+    .placeholder h2 { color: var(--text); font-family: var(--font-display); }
+    .toast {
+      position: fixed;
+      z-index: 90;
+      right: 22px;
+      bottom: 22px;
+      max-width: 320px;
+      border: 1px solid var(--lime);
+      background: #111;
+      padding: 12px 14px;
+      box-shadow: 5px 5px 0 var(--shadow);
+      font: 700 9px var(--font-ui);
+      transform: translateY(20px);
+      opacity: 0;
+      transition: opacity 120ms steps(2), transform 120ms steps(2);
+    }
+    .toast.is-visible { opacity: 1; transform: translateY(0); }
+    body[data-mode="focus"] .hero-avatar img { filter: contrast(1) saturate(.7); }
+    body[data-mode="focus"] .cartridge:hover { transform: none; }
+    body[data-mode="focus"] .console-shell { box-shadow: 5px 5px 0 var(--shadow); }
+    body[data-mode="adventure"] .hero-avatar::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      right: 0;
+      height: 18px;
+      background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(200,240,0,.14) 3px 4px);
+      animation: crt-scan 3.8s steps(24, end) infinite;
+      pointer-events: none;
+    }
+    body[data-mode="adventure"] .hero-avatar svg {
+      animation: avatar-idle 2.4s steps(4, end) infinite;
+    }
+    body[data-mode="adventure"] .cartridge:hover .cart-art,
+    body[data-mode="adventure"] .cartridge:focus-visible .cart-art {
+      background:
+        linear-gradient(90deg, transparent 0 48%, rgba(200,240,0,.08) 48% 52%, transparent 52%),
+        #171717;
+      animation: cart-flicker 420ms steps(4, end) 1;
+    }
+    body[data-mode="adventure"] .cartridge.is-inserting {
+      animation: cart-insert 520ms steps(6, end) 1;
+    }
+    body[data-mode="adventure"] .console-shell.is-inserting {
+      animation: console-flash 520ms steps(5, end) 1;
+    }
+    .boot-flash {
+      position: fixed;
+      z-index: 95;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: #0d0d0d;
+      color: var(--lime);
+      font: 700 11px var(--font-ui);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      animation: boot-away 1.1s steps(8, end) 1 forwards;
+      pointer-events: none;
+    }
+    .boot-flash span::after {
+      content: "_";
+      animation: boot-cursor 800ms steps(2, end) infinite;
+    }
+    @keyframes crt-scan {
+      0% { top: -18px; opacity: 0; }
+      10% { opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+    @keyframes avatar-idle {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    @keyframes cart-flicker {
+      0%, 100% { opacity: 1; }
+      30% { opacity: .72; }
+      60% { opacity: .92; }
+    }
+    @keyframes cart-insert {
+      0% { transform: translateY(-12px); }
+      55% { transform: translateY(18px) scaleY(.92); }
+      100% { transform: translateY(0) scaleY(1); }
+    }
+    @keyframes console-flash {
+      0%, 100% { filter: none; }
+      25% { filter: brightness(1.8); }
+      50% { filter: brightness(.55); }
+      75% { filter: brightness(1.35); }
+    }
+    @keyframes boot-away {
+      0%, 72% { opacity: 1; visibility: visible; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+    @keyframes boot-cursor { 50% { opacity: 0; } }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr 260px; }
+      .console-top { overflow-x: auto; grid-template-columns: repeat(5, 150px); justify-content: start; }
+      .roster { grid-template-columns: repeat(2, 1fr); }
+      .toolbar { grid-template-columns: 1fr 1fr; }
+      .toolbar input { grid-column: 1 / -1; }
+    }
+    @media (max-width: 650px) {
+      .wrap { width: min(100% - 28px, 1180px); }
+      .topbar { padding-inline: 14px; }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-block: 48px; }
+      .hero-avatar { min-height: 300px; }
+      .hero-avatar img { height: 280px; }
+      .section { padding-block: 54px; }
+      .section-heading { align-items: start; flex-direction: column; }
+      .console-shell { padding-inline: 12px; }
+      .console-top {
+        grid-template-columns: repeat(5, min(72vw, 210px));
+        scroll-snap-type: x mandatory;
+        padding-inline: 8px;
+      }
+      .cartridge { scroll-snap-align: center; }
+      .roster { grid-template-columns: 1fr; }
+      .toolbar { grid-template-columns: 1fr; }
+      .toolbar input { grid-column: auto; }
+      .pellet-nav { right: 8px; }
+      .left-rail { display: none; }
+      .menu-button { bottom: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .cartridge, .toast, .press-start,
+      .hero-avatar, .hero-avatar svg, .hero-avatar::after,
+      .boot-flash { transition: none; animation: none !important; }
+    }
+  </style>
+</head>
+<body data-view="shelf" data-mode="adventure">
+  <a class="skip-link" href="#materias">Pular para as matérias</a>
+  <div class="progress" id="progressBar" aria-hidden="true"></div>
+
+  <header class="topbar" aria-label="Controles da página">
+    <a class="brand" href="/"><span>PPE</span>/26 · Matérias</a>
+    <div class="mode-switch" role="group" aria-label="Modo de apresentação">
+      <button type="button" data-mode="focus" aria-pressed="false">Modo foco</button>
+      <button type="button" data-mode="adventure" aria-pressed="true">Modo aventura</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="materias" aria-labelledby="materiasTitle">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Console 01 / cinco matérias</p>
+            <h2 class="section-title" id="materiasTitle">Selecione um cartucho.</h2>
+          </div>
+          <div class="view-switch" role="group" aria-label="Alternar visualização">
+            <button type="button" data-view="shelf" aria-pressed="true">Prateleira</button>
+            <button type="button" data-view="roster" aria-pressed="false">Grade</button>
+          </div>
+        </div>
+        <div class="toolbar" role="search">
+          <input id="subjectSearch" type="search" placeholder="Buscar matéria ou tema..." aria-label="Buscar matéria ou tema">
+          <select id="subjectSort" aria-label="Ordenar matérias">
+            <option value="priority">Prioridade</option>
+            <option value="mastery">Domínio</option>
+            <option value="name">Nome</option>
+          </select>
+          <select id="subjectFilter" aria-label="Filtrar matérias">
+            <option value="all">Todas as matérias</option>
+            <option value="enem">ENEM</option>
+            <option value="senai">SENAI</option>
+          </select>
+        </div>
+        <div class="console-shell" id="consoleShelf">
+          <div class="console-top" id="consoleTop" aria-label="Prateleira de matérias"></div>
+        </div>
+        <div class="roster" id="rosterGrid" aria-label="Grade de matérias"></div>
+      </div>
+    </section>
+
+    <section class="section" id="nivel" aria-labelledby="nivelTitle">
+      <div class="wrap placeholder">
+        <p class="kicker">C:/PPE/MATERIAS/LEVEL_SCREEN</p>
+        <h2 id="nivelTitle">Tela de progresso em preparação</h2>
+        <p>Selecione um cartucho para registrar a missão que você deseja continuar na próxima fase.</p>
+      </div>
+    </section>
+  </main>
+
+  <nav class="pellet-nav" aria-label="Navegação da página">
+    <a href="#materias" aria-label="Matérias" aria-current="true"></a>
+    <a href="#nivel" aria-label="Nível"></a>
+  </nav>
+
+  <aside class="left-rail" aria-label="Atalhos">
+    <button class="rail-button" type="button" id="soundToggle" aria-label="Som desligado" title="Som">S</button>
+    <button class="rail-button" type="button" id="menuRail" aria-label="Abrir menu" title="Menu">M</button>
+  </aside>
+  <button class="menu-button" type="button" id="menuButton">MENU</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const CONFIG = {
+      student: {
+        name: "David Da Silva Sousa",
+        turma: "[TURMA]",
+        course: "[CURSO TÉCNICO]",
+        goal: "[ENEM / VESTIBULAR / CONCLUIR O CURSO]",
+        examDates: "[DATAS]"
+      },
+      subjects: [
+        {
+          id: "linguagens", name: "Linguagens", className: "Bardo", accent: "#c8f000",
+          mastery: 62, difficulty: 48, priority: 4, constancy: 58, stars: 3,
+          xp: 62, tags: ["ENEM"], exam: "PROVA EM [DIAS]",
+          topics: ["Interpretação de texto", "Gêneros textuais", "Gramática", "Redação", "Literatura"]
+        },
+        {
+          id: "matematica", name: "Matemática", className: "Mago", accent: "#12b8e0",
+          mastery: 46, difficulty: 84, priority: 5, constancy: 51, stars: 2,
+          xp: 46, tags: ["ENEM", "SENAI"], exam: "PROVA EM [DIAS]",
+          topics: ["Razão", "Porcentagem", "Funções", "Geometria", "Probabilidade"]
+        },
+        {
+          id: "humanas", name: "Humanas", className: "Explorador", accent: "#f9c53b",
+          mastery: 68, difficulty: 55, priority: 3, constancy: 72, stars: 3,
+          xp: 68, tags: ["ENEM"], exam: "PROVA EM [DIAS]",
+          topics: ["Brasil Colônia", "Era Vargas", "Cartografia", "Filosofia", "Cidadania"]
+        },
+        {
+          id: "natureza", name: "Natureza", className: "Alquimista", accent: "#2fd39a",
+          mastery: 52, difficulty: 72, priority: 4, constancy: 60, stars: 3,
+          xp: 52, tags: ["ENEM"], exam: "PROVA EM [DIAS]",
+          topics: ["Cinética", "Energia", "Estudo da matéria", "Genética", "Ecologia"]
+        },
+        {
+          id: "senai", name: "SENAI", className: "Engenheiro", accent: "#ff5a3d",
+          mastery: 58, difficulty: 68, priority: 5, constancy: 64, stars: 3,
+          xp: 58, tags: ["SENAI"], exam: "ENTREGA EM [DIAS]",
+          topics: ["Segurança do trabalho", "Metrologia", "Desenho técnico", "[UNIDADE CURRICULAR]", "Projeto integrador"]
+        }
+      ]
+    };
+
+    const icons = {
+      linguagens: '<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="4" width="20" height="14" fill="#C8F000"/><rect x="9" y="7" width="14" height="2" fill="#121212"/><rect x="9" y="11" width="10" height="2" fill="#121212"/><rect x="10" y="18" width="3" height="3" fill="#C8F000"/><rect x="13" y="21" width="3" height="3" fill="#C8F000"/><rect x="16" y="24" width="3" height="3" fill="#C8F000"/></svg>',
+      matematica: '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10" fill="none" stroke="#12B8E0" stroke-width="3" shape-rendering="crispEdges"/><path d="M7 16h18M16 7v18" stroke="#12B8E0" stroke-width="2"/><rect x="14" y="14" width="4" height="4" fill="#12B8E0"/></svg>',
+      humanas: '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="#F9C53B"/><rect x="14" y="5" width="4" height="22" fill="#121212"/><rect x="5" y="14" width="22" height="4" fill="#121212"/><rect x="9" y="9" width="14" height="14" fill="#F9C53B" stroke="#121212" stroke-width="2"/></svg>',
+      natureza: '<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="12" y="4" width="8" height="5" fill="#2FD39A"/><rect x="14" y="9" width="4" height="5" fill="#2FD39A"/><path d="M11 14h10l5 12H6z" fill="#2FD39A"/><rect x="10" y="20" width="12" height="3" fill="#121212"/></svg>',
+      senai: '<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="12" y="12" width="8" height="8" fill="#FF5A3D"/><rect x="14" y="5" width="4" height="22" fill="#FF5A3D"/><rect x="5" y="14" width="22" height="4" fill="#FF5A3D"/><rect x="10" y="10" width="12" height="12" fill="#121212"/><rect x="13" y="13" width="6" height="6" fill="#FF5A3D"/></svg>'
+    };
+
+    const state = loadState();
+    let audioContext = null;
+
+    function playSfx(kind = "cursor") {
+      if (!state.sound) return;
+      try {
+        audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
+        const now = audioContext.currentTime;
+        const tones = {
+          cursor: [260, .025, 0],
+          insert: [420, .07, 0],
+          select: [330, .06, .02],
+          start: [220, .14, 0],
+          menu: [180, .04, 0]
+        };
+        const [frequency, duration, delay] = tones[kind] || tones.cursor;
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.type = "square";
+        oscillator.frequency.setValueAtTime(frequency, now + delay);
+        gain.gain.setValueAtTime(.055, now + delay);
+        gain.gain.exponentialRampToValueAtTime(.001, now + delay + duration);
+        oscillator.connect(gain);
+        gain.connect(audioContext.destination);
+        oscillator.start(now + delay);
+        oscillator.stop(now + delay + duration);
+      } catch (_) {
+        state.sound = false;
+      }
+    }
+    function loadState() {
+      const fallback = { mode: "adventure", view: "shelf", sound: false, selected: null };
+      try {
+        const saved = JSON.parse(localStorage.getItem("ppe-materias-v1"));
+        return saved ? { ...fallback, ...saved } : fallback;
+      } catch (_) { return fallback; }
+    }
+    function saveState() {
+      try { localStorage.setItem("ppe-materias-v1", JSON.stringify(state)); } catch (_) {}
+    }
+    function stars(count) { return "★".repeat(count) + "☆".repeat(5 - count); }
+    function starMarkup(subject) {
+      return `<span class="cart-info"><span class="cart-class">${subject.className}</span></span>`;
+    }
+    function cartridgeMarkup(subject) {
+      return `
+        <a class="cartridge" href="areas/${subject.id}/index.html" data-subject="${subject.id}" style="--accent:${subject.accent}" aria-label="Abrir ${subject.name}, classe ${subject.className}">
+          <span class="cartridge-body">
+            <span class="cart-head"><span>${subject.id === "senai" ? "PPE // SENAI" : "PPE // 2026"}</span><span>LVL.${String(subject.priority + 5).padStart(2, "0")}</span></span>
+            <span class="cart-art">${icons[subject.id]}</span>
+            <span class="cart-info">
+              <h3>${subject.name}</h3>
+              <span class="cart-class">CLASSE · ${subject.className}</span>
+              <span class="stars" aria-label="${subject.stars} de 5 estrelas">${stars(subject.stars)}</span>
+              <span class="stats">
+                ${statMarkup("Domínio", subject.mastery)}
+                ${statMarkup("Dificuldade", subject.difficulty)}
+                ${statMarkup("Prioridade", subject.priority * 20)}
+                ${statMarkup("Constância", subject.constancy)}
+              </span>
+            </span>
+            <span class="cart-exam">${subject.exam}</span>
+          </span>
+        </a>`;
+    }
+    function statMarkup(label, value) {
+      return `<span class="stat"><span>${label}</span><i style="--value:${Math.min(value, 100)}%"></i></span>`;
+    }
+    function getFilteredSubjects() {
+      const search = document.getElementById("subjectSearch").value.toLowerCase().trim();
+      const filter = document.getElementById("subjectFilter").value;
+      const sort = document.getElementById("subjectSort").value;
+      let subjects = CONFIG.subjects.filter(subject => {
+        const matchesFilter = filter === "all" || subject.tags.some(tag => tag.toLowerCase() === filter);
+        const matchesSearch = !search || [subject.name, subject.className, ...subject.topics].join(" ").toLowerCase().includes(search);
+        return matchesFilter && matchesSearch;
+      });
+      if (sort === "priority") subjects.sort((a, b) => b.priority - a.priority);
+      if (sort === "mastery") subjects.sort((a, b) => a.mastery - b.mastery);
+      if (sort === "name") subjects.sort((a, b) => a.name.localeCompare(b.name));
+      return subjects;
+    }
+    function renderSubjects() {
+      const subjects = getFilteredSubjects();
+      document.getElementById("consoleTop").innerHTML = subjects.map(cartridgeMarkup).join("");
+      document.getElementById("rosterGrid").innerHTML = subjects.map(cartridgeMarkup).join("");
+    }
+    function setMode(mode) {
+      state.mode = mode;
+      document.body.dataset.mode = mode;
+      document.querySelectorAll("[data-mode]").forEach(button => {
+        button.setAttribute("aria-pressed", String(button.dataset.mode === mode));
+      });
+      saveState();
+    }
+    function setView(view) {
+      state.view = view;
+      document.body.dataset.view = view;
+      document.querySelectorAll("[data-view]").forEach(button => {
+        button.setAttribute("aria-pressed", String(button.dataset.view === view));
+      });
+      saveState();
+    }
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("is-visible");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove("is-visible"), 2200);
+    }
+
+    document.querySelectorAll(".mode-switch [data-mode]").forEach(button => button.addEventListener("click", () => {
+      setMode(button.dataset.mode);
+      playSfx("menu");
+    }));
+    document.querySelectorAll("[data-view]").forEach(button => button.addEventListener("click", () => setView(button.dataset.view)));
+    ["subjectSearch", "subjectSort", "subjectFilter"].forEach(id => document.getElementById(id).addEventListener("input", renderSubjects));
+
+    document.addEventListener("click", event => {
+      const cartridge = event.target.closest("[data-subject]");
+      if (!cartridge) return;
+      const subject = CONFIG.subjects.find(item => item.id === cartridge.dataset.subject);
+      cartridge.classList.remove("is-inserting");
+      void cartridge.offsetWidth;
+      cartridge.classList.add("is-inserting");
+      document.getElementById("consoleShelf").classList.remove("is-inserting");
+      void document.getElementById("consoleShelf").offsetWidth;
+      document.getElementById("consoleShelf").classList.add("is-inserting");
+      state.selected = subject.id;
+      saveState();
+      document.getElementById("nivelTitle").textContent = `${subject.name} · ${subject.className}`;
+      document.querySelector("#nivel .placeholder").insertAdjacentHTML("beforeend",
+        `<p>Temas sugeridos: ${subject.topics.join(" · ")}.</p>`);
+      showToast(`Cartucho inserido // ${subject.name}`);
+      playSfx("insert");
+      if (navigator.vibrate) navigator.vibrate(35);
+      document.getElementById("nivel").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    });
+
+    document.getElementById("soundToggle").addEventListener("click", event => {
+      state.sound = !state.sound;
+      event.currentTarget.textContent = state.sound ? "ON" : "S";
+      event.currentTarget.setAttribute("aria-label", state.sound ? "Som ligado" : "Som desligado");
+      saveState();
+      if (state.sound) playSfx("select");
+    });
+    document.getElementById("menuButton").addEventListener("click", () => showToast("Menu do Plano Pessoal // em preparação"));
+    document.getElementById("menuRail").addEventListener("click", () => document.getElementById("menuButton").click());
+
+    window.addEventListener("scroll", () => {
+      const height = document.documentElement.scrollHeight - innerHeight;
+      document.getElementById("progressBar").style.width = `${height > 0 ? scrollY / height * 100 : 0}%`;
+      const sections = ["materias", "nivel"];
+      let current = sections[0];
+      sections.forEach(id => {
+        const section = document.getElementById(id);
+        if (section && section.getBoundingClientRect().top < innerHeight * .45) current = id;
+      });
+      document.querySelectorAll(".pellet-nav a").forEach(link => {
+        link.setAttribute("aria-current", String(link.getAttribute("href") === `#${current}`));
+      });
+    }, { passive: true });
+
+    setMode(state.mode);
+    setView(state.view);
+    renderSubjects();
+
+    document.addEventListener("pointerover", event => {
+      if (event.target.closest(".cartridge")) playSfx("cursor");
+    }, { passive: true });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Enter" && event.target.classList.contains("cartridge")) playSfx("select");
+    });
+  </script>
+</body>
+</html>

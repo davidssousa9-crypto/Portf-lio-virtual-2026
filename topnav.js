@@ -32,6 +32,9 @@ export function createTopNav({
 
   const entries = items
     .map((item) => {
+      if (item.href) {
+        return { ...item, index: -1, level: item.level || "★", external: true };
+      }
       const index = sections.findIndex((section) => section.id === item.id);
       if (index < 0) return null;
       return { ...item, index, level: pad2(index + 1) };
@@ -60,8 +63,8 @@ export function createTopNav({
   function createDesktopLink(entry) {
     const link = document.createElement("a");
     link.className = "topnav__link";
-    link.href = `#${entry.id}`;
-    link.dataset.navId = entry.id;
+    link.href = entry.href || `#${entry.id}`;
+    if (!entry.external) link.dataset.navId = entry.id;
 
     const mark = document.createElement("span");
     mark.className = "topnav__link-mark";
@@ -79,8 +82,8 @@ export function createTopNav({
   function createMenuLink(entry) {
     const link = document.createElement("a");
     link.className = "topnav-menu__link";
-    link.href = `#${entry.id}`;
-    link.dataset.navId = entry.id;
+    link.href = entry.href || `#${entry.id}`;
+    if (!entry.external) link.dataset.navId = entry.id;
 
     const index = document.createElement("span");
     index.className = "topnav-menu__idx";

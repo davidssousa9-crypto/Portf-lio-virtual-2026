@@ -3,17 +3,19 @@
    progress, Pomodoro, import/export and keyboard navigation.
    ============================================================ */
 
-import "@fontsource/fraunces/600.css";
-import "@fontsource/space-grotesk/400.css";
-import "@fontsource/space-grotesk/500.css";
-import "@fontsource/pixelify-sans/400.css";
-import "@fontsource/pixelify-sans/600.css";
+import "@fontsource/fraunces/latin-600.css";
+import "@fontsource/space-grotesk/latin-400.css";
+import "@fontsource/space-grotesk/latin-500.css";
+import "@fontsource/space-grotesk/latin-600.css";
+import "@fontsource/space-grotesk/latin-700.css";
+import "@fontsource/pixelify-sans/latin-400.css";
+import "@fontsource/pixelify-sans/latin-600.css";
+import "@fontsource/pixelify-sans/latin-700.css";
 import "../styles.css";
 import "./styles.css";
 
 import { CONFIG } from "../src/config.js";
 import { initLoader } from "../loader/index.js";
-import { createAudioEngine } from "../enhancements/audio-engine.js";
 import { WORLDS, worldById, worldIndex } from "./worlds.js";
 import { createProgress } from "./progress.js";
 import { createGuide } from "./npc.js";
@@ -40,7 +42,67 @@ function shuffle(list) {
 /* ------------------------------------------------------------
    BOOT: loader, audio, progress, guide
    ------------------------------------------------------------ */
-const audio = createAudioEngine();
+const SOUND_KEY = "agrvai-sound-enabled";
+
+function readSoundPreference() {
+  try {
+    return window.localStorage.getItem(SOUND_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+/* Howler/zzfx are heavy; load them on the first gesture instead of
+   during the study page boot. The facade keeps the UI in sync. */
+let audioEngine = null;
+let audioPromise = null;
+
+function ensureAudio() {
+  if (audioEngine) return Promise.resolve(audioEngine);
+  if (!audioPromise) {
+    audioPromise = import("../enhancements/audio-engine.js")
+      .then(({ createAudioEngine }) => {
+        audioEngine = createAudioEngine({ enabled: readSoundPreference() });
+        return audioEngine;
+      })
+      .catch(() => null);
+  }
+  return audioPromise;
+}
+
+const audio = {
+  sfx(name) {
+    audioEngine?.sfx(name);
+  },
+  isEnabled() {
+    return audioEngine ? audioEngine.isEnabled() : readSoundPreference();
+  },
+  setEnabled(value) {
+    const next = Boolean(value);
+    try {
+      window.localStorage.setItem(SOUND_KEY, next ? "1" : "0");
+    } catch {
+      /* storage can be blocked */
+    }
+    ensureAudio().then((engine) => {
+      if (!engine) return;
+      engine.setEnabled(next);
+      if (next) engine.unlock();
+    });
+    window.dispatchEvent(
+      new CustomEvent("agrvai:sound-change", { detail: { enabled: next } })
+    );
+    return next;
+  },
+  unlock() {
+    ensureAudio().then((engine) => engine?.unlock());
+  }
+};
+
+const wakeAudio = () => audio.unlock();
+window.addEventListener("pointerdown", wakeAudio, { once: true, passive: true });
+window.addEventListener("keydown", wakeAudio, { once: true });
+
 const loader = initLoader({ config: CONFIG, reducedMotion });
 const progress = createProgress();
 const guide = createGuide({
@@ -136,10 +198,7 @@ function renderWorldCards(snapshot) {
     card.querySelector("[data-card-meter]").style.width = `${Math.round(entry.cardRatio * 100)}%`;
     card.querySelector("[data-card-status]").textContent =
       entry.cards === entry.cardsTotal ? "DOMINADO" : `${Math.round(entry.cardRatio * 100)}%`;
-    card.setAttribute(
-      "aria-label",
-      `${world.name}: ${entry.cards} de ${entry.cardsTotal} cards dominados. Quiz ${entry.quizBest}. Chefe ${entry.bossBest}.`
-    );
+
   });
 }
 
@@ -1216,6 +1275,9 @@ function updateSoundUI() {
 }
 
 window.addEventListener("agrvai:sound-change", updateSoundUI);
+window.addEventListener("storage", (event) => {
+  if (event.key === SOUND_KEY) updateSoundUI();
+});
 
 /* ------------------------------------------------------------
    RENDER ALL

@@ -7,10 +7,31 @@
   <meta name="description" content="AGRVAI — portfólio em pixel art que mistura design editorial, interfaces feitas à mão e engenharia 8-bit. Transformando pixels em experiências digitais memoráveis desde 2010.">
   <title>David Sousa</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23121212'/%3E%3Crect x='4' y='4' width='8' height='8' fill='%23CEFF00'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Pixelify+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="node_modules/@fontsource/fraunces/latin-600.css">
+  <link rel="stylesheet" href="node_modules/@fontsource/space-grotesk/latin-400.css">
+  <link rel="stylesheet" href="node_modules/@fontsource/space-grotesk/latin-500.css">
+  <link rel="stylesheet" href="node_modules/@fontsource/space-grotesk/latin-600.css">
+  <link rel="stylesheet" href="node_modules/@fontsource/space-grotesk/latin-700.css">
+  <link rel="stylesheet" href="node_modules/@fontsource/pixelify-sans/latin-400.css">
+  <link rel="stylesheet" href="node_modules/@fontsource/pixelify-sans/latin-600.css">
+  <link rel="stylesheet" href="node_modules/@fontsource/pixelify-sans/latin-700.css">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="loader/styles.css">
+  <link rel="stylesheet" href="enhancements/styles.css">
+  <link rel="stylesheet" href="enhancements/motion.css">
+  <link rel="stylesheet" href="node_modules/lenis/dist/lenis.css">
+  <link rel="stylesheet" href="games/styles.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "howler": "https://esm.sh/howler@2.2.4",
+        "zzfx": "https://esm.sh/zzfx@1.4.0",
+        "lenis": "https://esm.sh/lenis@1.3.27",
+        "gsap": "https://esm.sh/gsap@3.15.0",
+        "gsap/ScrollTrigger": "https://esm.sh/gsap@3.15.0/ScrollTrigger"
+      }
+    }
+  </script>
   <script>document.documentElement.classList.remove('no-js');</script>
 </head>
 <body>
@@ -21,7 +42,7 @@
     <div class="topnav__inner">
       <nav class="topnav__links" id="topNavLinks" aria-label="Navegação principal"></nav>
 
-      <a class="logo topnav__logo" id="logo" href="#hero" aria-label="AGRVAI — voltar ao topo">
+      <a class="logo topnav__logo" id="logo" href="#hero" aria-label="DVD — voltar ao topo">
         <span class="logo__mount" id="logoMount" aria-hidden="true"></span>
       </a>
 
@@ -54,14 +75,12 @@
 
       <div class="hero__content">
         <h1 class="hero__title" id="heroTitle">
-          <span class="hero__line"><span class="hero__initial" id="heroInitial">T</span>ransformo pixels</span>
-          <span class="hero__line">em experiências</span>
-          <span class="hero__line">digitais</span>
-          <span class="hero__line">memoráveis.</span>
+          <span class="hero__line"><span class="hero__initial" id="heroInitial">P</span>ortfólio virtual </span>
+          <span class="hero__line">2026</span>
         </h1>
         <p class="hero__subtitle" id="heroSubtitle">
-          <span class="hero__subline">Código fluido e design cuidadoso,</span>
-          <span class="hero__subline">criando e dando vida a visões desde 2010.</span>
+          <span class="hero__subline">Bem vindo ao meu portfólio</span>
+          <span class="hero__subline">Aqui você encontrará todas minhas atividades ao longo do ano de 2026, aproveite a exper</span>
         </p>
 
         <div class="mode-switch" id="modeSwitch" role="group" aria-label="Selecione o modo do personagem">
@@ -81,8 +100,8 @@
     <section class="section about" id="about" aria-labelledby="aboutTitle">
       <div class="wrap section-grid">
         <div class="section-copy" data-reveal>
-          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 02 / CRIADOR</p>
-          <h2 class="display" id="aboutTitle">Idedeintificação pessoal .</h2>
+          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 18 / CRIADOR</p>
+          <h2 class="display" id="aboutTitle">Identificação pessoal</h2>
           <p class="lead">Nome: 
  David Da Silva Sousa
 Filiação:
@@ -104,17 +123,24 @@ Orientadora:
         </div>
 
         <div class="player-card" data-reveal style="--delay:120ms">
+          <span class="player-card__corner player-card__corner--tl" aria-hidden="true"></span>
+          <span class="player-card__corner player-card__corner--tr" aria-hidden="true"></span>
+          <span class="player-card__corner player-card__corner--bl" aria-hidden="true"></span>
+          <span class="player-card__corner player-card__corner--br" aria-hidden="true"></span>
+          <span class="player-card__crest" aria-hidden="true">✦</span>
           <div class="player-card__head">
-            <span class="player-card__label">PERFIL DO JOGADOR</span>
+            <span class="player-card__label">IDENTIDADE / 01</span>
             <span class="player-card__lvl">NÍV. 32</span>
           </div>
-          <div class="player-card__portrait" aria-hidden="true">
-            <span class="portrait-pixel p1"></span><span class="portrait-pixel p2"></span>
-            <span class="portrait-pixel p3"></span><span class="portrait-pixel p4"></span>
-            <span class="portrait-pixel p5"></span><span class="portrait-pixel p6"></span>
-            <span class="portrait-pixel p7"></span><span class="portrait-pixel p8"></span>
-            <span class="portrait-pixel p9"></span><span class="portrait-pixel p10"></span>
-            <span class="portrait-pixel p11"></span><span class="portrait-pixel p12"></span>
+          <div class="player-card__portrait">
+            <div class="player-card__photo" id="personalPhoto" role="img" aria-label="Espaço reservado para foto pessoal">
+              <!-- <img src="./img/sua-foto.jpg" alt="Sua foto"> -->
+              <span class="player-card__photo-placeholder" aria-hidden="true">FOTO</span>
+            </div>
+            <div class="player-card__identity">
+              <strong>David Da Silva Sousa</strong>
+              <span>Desenvolvedor Front-end</span>
+            </div>
           </div>
           <dl class="player-card__stats">
             <div><dt>CLASSE</dt><dd>FRONT-END</dd></div>
@@ -133,9 +159,13 @@ Orientadora:
       <div class="wrap section-grid section-grid--reverse">
         <div class="section-copy" data-reveal>
           <p class="kicker"><span class="kicker__dot"></span>NÍVEL 03 / ORIGEM</p>
-          <h2 class="display" id="pixelsTitle">História de Vida.</h2>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.</p>
-          <p class="body">Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <h2 class="display" id="pixelsTitle">Objetivos.</h2>
+          <p class="lead">Organizar um plano de estudos com rotina, foco na prática e técnicas de revisão para conseguir estudar com êxito e manter o aprendizado contínuo.
+
+Desenvolver habilidades técnicas, inteligência emocional e resolução de problemas para o mercado de trabalho e vida pessoal, tornando-se um profissional qualificado.
+
+Incluir no portfólio escolar: perfil com visão de futuro, mapeamento de competências, trilha de projetos práticos realizados, certificados de cursos extracurriculares e um diário de autoavaliação.</p>
+          <p class="body">Explorar e dominar novas ferramentas digitais e metodologias de produtividade, demonstrando inovação e adaptabilidade no portfólio para se destacar diante das rápidas mudanças do mercado.o</p>
           <p class="pixel-readout"><span id="pixelProgress">000</span> / 256 PX ACESOS</p>
         </div>
         <div class="pixel-machine" data-reveal style="--delay:100ms">
@@ -147,38 +177,166 @@ Orientadora:
 
     <!-- ============================== IDEAS ============================== -->
     <section class="section ideas" id="ideas" aria-labelledby="ideasTitle">
-      <div class="wrap ideas__inner">
-        <div class="ideas__copy" data-reveal>
-          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 04 / FAÍSCA</p>
-          <h2 class="display display--wide" id="ideasTitle">É aqui que as ideias tomam forma.</h2>
-          <p class="lead">Transformo conceitos iniciais em direções de interface: estrutura, fluxo e as primeiras telas que provam a ideia.</p>
-        </div>
-        <div class="idea-orbit" data-reveal style="--delay:120ms" aria-hidden="true">
-          <span class="orbit-node n1">FAÍSCA</span>
-          <span class="orbit-node n2">FORMA</span>
-          <span class="orbit-node n3">SENTIR</span>
-          <span class="orbit-node n4">ENTREGAR</span>
-          <span class="orbit-line l1"></span>
-          <span class="orbit-line l2"></span>
-          <span class="orbit-line l3"></span>
-          <span class="orbit-core"></span>
-        </div>
-      </div>
-    </section>
+      <div class="wrap ppe-game" id="ppeExperience">
+        <header class="ppe-hero" data-reveal>
+          <h2 class="display display--wide" id="ideasTitle">Plano pessoal de estudo 'PPE'</h2>
+          <p class="ppe-subtitle">ROTINA SEMANAL // SYSTEM.READY<span aria-hidden="true">_</span></p>
+        </header>
 
-    <!-- ============================== BRAIN ============================== -->
-    <section class="section brain" id="brain-section" aria-labelledby="brainTitle">
-      <div class="wrap brain__inner">
-        <div class="brain__visual" data-reveal>
-          <canvas id="brainCanvas" class="brain-canvas" width="720" height="540" aria-hidden="true"></canvas>
-          <span class="concept-tag">CONCEITO</span>
+        <section class="ppe-hud" aria-label="Progresso do plano">
+          <div class="ppe-hud__identity">
+            <span class="ppe-level-badge"><span>LVL.</span><b id="ppeLevel">01</b></span>
+            <span class="ppe-streak"><span class="ppe-flame" aria-hidden="true"></span><b id="ppeStreak">0</b><span>STREAK</span></span>
+            <span class="ppe-xp-label"><b id="ppeXP">0</b> XP</span>
+            <div class="ppe-xp-meter">
+              <span id="ppeLevelXP">0 / 100 XP</span>
+              <div class="ppe-meter__track" id="ppeLevelXPBar" role="progressbar" aria-label="Progresso para o próximo nível" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
+            </div>
+          </div>
+          <div class="ppe-meter ppe-meter--energy">
+            <div class="ppe-meter__label"><span>ENERGY</span><b id="ppeEnergyLabel">100 / 100</b></div>
+            <div class="ppe-meter__track" id="ppeEnergyBar" role="progressbar" aria-label="Energia do dia" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i></i></div>
+          </div>
+          <div class="ppe-next-block">
+            <span id="ppeNowBadge" hidden>NOW</span>
+            <span id="ppeNextLabel">NEXT BLOCK</span>
+            <b id="ppeNextCountdown">--:--</b>
+          </div>
+          <div class="ppe-stats" aria-label="Atributos">
+            <div class="ppe-stat" data-stat="focus"><span>FOCUS</span><div class="ppe-stat__track" role="progressbar" aria-label="Focus"><i></i></div><b>0</b></div>
+            <div class="ppe-stat" data-stat="knowledge"><span>KNOWLEDGE</span><div class="ppe-stat__track" role="progressbar" aria-label="Knowledge"><i></i></div><b>0</b></div>
+            <div class="ppe-stat" data-stat="discipline"><span>DISCIPLINE</span><div class="ppe-stat__track" role="progressbar" aria-label="Discipline"><i></i></div><b>0</b></div>
+          </div>
+          <div class="ppe-boss-meter">
+            <div class="ppe-meter__label"><span>WEEKLY BOSS / REVISÃO</span><b id="ppeBossHPLabel">100%</b></div>
+            <div class="ppe-meter__track ppe-meter__track--boss" id="ppeBossHP" role="progressbar" aria-label="Energia do chefe semanal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i></i></div>
+          </div>
+        </section>
+
+        <div class="ppe-toolbar">
+          <div class="ppe-mode-switch" role="group" aria-label="Modo de visualização">
+            <button type="button" class="is-active" data-ppe-mode="table" aria-pressed="true">TABLE MODE</button>
+            <button type="button" data-ppe-mode="map" aria-pressed="false">GAME MAP MODE</button>
+          </div>
+          <span class="ppe-gamepad-hint" id="ppeGamepadHint">⌖ GAMEPAD: —</span>
+          <div class="ppe-toolbar__actions">
+            <button type="button" class="ppe-tool-button" data-ppe-action="settings" aria-expanded="false" aria-controls="ppeSettings">SETTINGS</button>
+            <button type="button" class="ppe-tool-button ppe-tool-button--reset" data-ppe-action="reset-open">RESET PROGRESS</button>
+          </div>
         </div>
-        <div class="section-copy" data-reveal style="--delay:120ms">
-          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 05 / CONCEITO</p>
-          <h2 class="display" id="brainTitle">Torne o invisível legível.</h2>
-          <p class="lead">Mapeio a ideia em wireframes, componentes e um plano de build.</p>
-          <p class="body">Cada parte ganha nome, propósito e lugar antes da primeira linha de código.</p>
+        <div class="ppe-timer-strip" id="ppeTimerStrip" hidden>
+          <span>FOCUS TIMER</span>
+          <div class="ppe-meter__track" id="ppeGlobalTimerBar" role="progressbar" aria-label="Tempo restante do timer" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i></i></div>
+          <b id="ppeGlobalTimerLabel">25:00</b>
+          <button type="button" data-ppe-action="timer-pause">PAUSE</button>
+          <button type="button" data-ppe-action="timer-abort">ABORT</button>
         </div>
+
+        <section class="ppe-mode-panel" data-ppe-panel="table" aria-label="Tabela semanal de estudos">
+          <div class="ppe-schedule">
+            <div class="ppe-window-bar">
+              <span class="ppe-window-controls" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="ppe-window-path">C:/PPE/STUDY_PLAN</span>
+              <span class="ppe-window-level">LVL 04</span>
+            </div>
+            <div class="ppe-schedule__scroll" role="region" aria-label="Tabela semanal. Deslize horizontalmente para ver todos os dias." tabindex="0">
+              <table class="ppe-schedule__table" id="ppeScheduleTable" role="grid" aria-label="Horários e atividades semanais" aria-describedby="ppeKeyboardHint">
+                <thead><tr id="ppeWeekdayHeaders" role="row"></tr></thead>
+                <tbody id="ppeScheduleBody"></tbody>
+              </table>
+            </div>
+            <ul class="ppe-legend" aria-label="Legenda das atividades">
+              <li><span class="ppe-badge ppe-badge--activities">ATIVIDADES</span></li>
+              <li><span class="ppe-badge ppe-badge--training">SESI/SENAI</span></li>
+              <li><span class="ppe-badge ppe-badge--study">ESTUDOS</span></li>
+              <li><span class="ppe-badge ppe-badge--contraturno">CONTRATURNO</span></li>
+              <li><span class="ppe-badge ppe-badge--review">REVISÃO</span></li>
+            </ul>
+          </div>
+          <p class="ppe-sr-only" id="ppeKeyboardHint">Use as setas ou W A S D para mover. Enter ou espaço seleciona. Escape fecha o painel.</p>
+          <div class="ppe-day-summary" id="ppeDaySummary" hidden aria-live="polite">
+            <div><span class="ppe-panel-kicker">DAY COMPLETE</span><p id="ppeDaySummaryText"></p></div>
+            <button type="button" data-ppe-action="summary-close" aria-label="Fechar resumo do dia">×</button>
+          </div>
+        </section>
+
+        <section class="ppe-mode-panel ppe-map-panel" data-ppe-panel="map" aria-label="Mapa semanal" hidden>
+          <div class="ppe-map-window">
+            <div class="ppe-window-bar">
+              <span class="ppe-window-controls" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="ppe-window-path">C:/PPE/WEEK_MAP</span>
+              <span class="ppe-window-level">STAGE SELECT</span>
+            </div>
+            <div class="ppe-map-track" id="ppeMapTrack"></div>
+          </div>
+        </section>
+
+        <section class="ppe-detail-panel" id="ppeDetailPanel" role="dialog" aria-modal="false" aria-labelledby="ppeDetailTitle" hidden>
+          <div class="ppe-panel-heading">
+            <span class="ppe-detail-icon" aria-hidden="true">▣</span>
+            <div><span class="ppe-panel-kicker">BLOCK SUMMARY</span><h3 id="ppeDetailTitle"></h3></div>
+            <button type="button" class="ppe-close-button" data-ppe-action="close-panel" aria-label="Fechar detalhes">×</button>
+          </div>
+          <p class="ppe-dialog-text" id="ppeDialogText" aria-live="polite"></p>
+          <div class="ppe-detail-meta">
+            <div><span>TYPE</span><b id="ppeDetailType"></b></div>
+            <div><span>DURATION</span><b id="ppeDetailDuration"></b></div>
+            <div><span>REWARD</span><b id="ppeDetailReward"></b></div>
+          </div>
+          <div class="ppe-timer" id="ppeTimer" hidden>
+            <div class="ppe-meter__label"><span>FOCUS TIMER</span><b id="ppeTimerLabel">25:00</b></div>
+            <div class="ppe-meter__track" id="ppeTimerProgress" role="progressbar" aria-label="Tempo restante do bloco" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i id="ppeTimerBar"></i></div>
+            <div class="ppe-timer__actions">
+              <button type="button" data-ppe-action="timer-pause">PAUSE</button>
+              <button type="button" data-ppe-action="timer-abort">ABORT</button>
+            </div>
+          </div>
+          <fieldset class="ppe-checklist">
+            <legend>SUBTASKS <span>EDITABLE PLACEHOLDERS</span></legend>
+            <div id="ppeChecklist"></div>
+          </fieldset>
+          <label class="ppe-notes">NOTES<textarea id="ppeNotes" rows="3" placeholder="Anote ideias e pontos para revisar..."></textarea></label>
+          <div class="ppe-quiz" id="ppeQuiz" hidden>
+            <p id="ppeQuizPrompt"></p>
+            <label>RESPOSTA<textarea id="ppeQuizAnswer" rows="2"></textarea></label>
+            <button type="button" data-ppe-action="quiz-submit">SAVE ANSWER & COMPLETE</button>
+          </div>
+          <div class="ppe-boss-menu" id="ppeBossMenu" hidden>
+            <span>WEEKLY BOSS MENU</span>
+            <button type="button" data-boss-action="study">STUDY</button>
+            <button type="button" data-boss-action="quiz">QUIZ</button>
+            <button type="button" data-boss-action="notes">NOTES</button>
+            <button type="button" data-boss-action="skip">SKIP</button>
+          </div>
+          <div class="ppe-dialog-actions">
+            <button type="button" data-ppe-action="timer-start">START</button>
+            <button type="button" data-ppe-action="complete">COMPLETE</button>
+            <button type="button" data-ppe-action="skip">SKIP</button>
+          </div>
+        </section>
+
+        <aside class="ppe-settings" id="ppeSettings" aria-label="Configurações" hidden>
+          <div class="ppe-panel-heading"><span class="ppe-panel-kicker">SETTINGS.SYS</span><button type="button" class="ppe-close-button" data-ppe-action="settings-close" aria-label="Fechar configurações">×</button></div>
+          <label><span>◖ SOUND</span><input type="checkbox" data-ppe-setting="sound"></label>
+          <label><span>▣ VIBRATION</span><input type="checkbox" data-ppe-setting="vibration"></label>
+          <label><span>⌖ GAMEPAD HINTS</span><input type="checkbox" data-ppe-setting="gamepadHints"></label>
+          <label><span>▤ CRT SCANLINES</span><input type="checkbox" data-ppe-setting="scanlines"></label>
+          <label><span>◩ REDUCED EFFECTS</span><input type="checkbox" data-ppe-setting="reducedEffects"></label>
+        </aside>
+
+        <dialog class="ppe-reset-dialog" id="ppeResetDialog" aria-labelledby="ppeResetTitle">
+          <span class="ppe-panel-kicker">RESET.SYS</span>
+          <h3 id="ppeResetTitle">Resetar todo o progresso?</h3>
+          <p>XP, notas, checklist e progresso semanal serão apagados.</p>
+          <div class="ppe-dialog-actions">
+            <button type="button" data-ppe-action="reset-cancel">CANCEL</button>
+            <button type="button" data-ppe-action="reset-confirm">RESET</button>
+          </div>
+        </dialog>
+
+        <div class="ppe-toast" id="ppeToast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+        <div class="ppe-sr-only" id="ppeLive" aria-live="polite" aria-atomic="true"></div>
+        <div class="ppe-effects" id="ppeEffects" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -187,8 +345,8 @@ Orientadora:
       <div class="wrap section-grid dna__grid">
         <div class="section-copy" data-reveal>
           <p class="kicker"><span class="kicker__dot"></span>NÍVEL 06 / SISTEMA</p>
-          <h2 class="display" id="dnaTitle">Deste fio, tudo cresce…</h2>
-          <p class="lead">Tokens de design, escalas tipográficas, espaçamento e regras de movimento, documentados e reutilizáveis.</p>
+          <h2 class="display" id="dnaTitle">História de vida</h2>
+          <p class="lead">Meu nome é David Da Silva Sousa tenho 17 anos e nasci na cidade de Picos Piauí, onde cresci e desenvolvi habilidades. Minha jornada estudantil começa lá no infantil na escola Frei Galvão, até chegar 2018 e eu me adentrar no SESI, desde então venho absorvendo conhecimentos , habilidades e talentos, minha meta é conseguir ter uma vida financeira estável e bem organizada.</p>
           <p class="body">O sistema mantém a próxima tela consistente sem travar o trabalho.</p>
           <div class="dna__legend" aria-hidden="true">
             <span><i class="swatch swatch--lime"></i>LÓGICA</span>
@@ -203,17 +361,64 @@ Orientadora:
       </div>
     </section>
 
-    <!-- ============================== EMOTION ============================== -->
-    <section class="section emotion" id="emotion" aria-labelledby="emotionTitle">
-      <canvas id="emotionCanvas" class="emotion-canvas" width="1440" height="900" aria-hidden="true"></canvas>
-      <div class="wrap emotion__inner">
-        <div class="section-copy" data-reveal>
-          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 07 / EMOÇÃO</p>
-          <h2 class="display" id="emotionTitle">Mais do que função.</h2>
-          <p class="lead">Movimento, tempo e feedback carregam significado. Eles confirmam ações e orientam a atenção.</p>
-          <p class="body">Mova o ponteiro pelo campo para testar a resposta.</p>
+    <!-- ============================== HANDS ============================== -->
+    <section class="section hands" id="hands" aria-labelledby="handsTitle">
+      <div class="wrap">
+        <div class="hands__head" data-reveal>
+          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 05 / PROJETOS</p>
+          <h2 class="display" id="handsTitle">Projeto de vida</h2>
+          <p class="lead">Projetos e organizações.</p>
         </div>
-        <p class="emotion__hint" aria-hidden="true">MOVA O PONTEIRO <span>→</span></p>
+        <div class="projects">
+          <article class="project-card" data-reveal style="--delay:0ms">
+            <div class="project-card__thumb"><canvas class="sprite-canvas" data-sprite="ghost" width="192" height="192" aria-hidden="true"></canvas><span class="project-card__id">PROJETO_01</span></div>
+            <div class="project-card__body">
+              <h3>Onde estou</h3>
+              <p>Sou aluno da terceira série do Ensino Médio na escola SESI Wilma Catão Araújo e curso também o ultimo ano em técnico em informática para a internet pelo SENAI</p>
+              <ul class="tag-list"><li>ESCOLARIDADE</li><li>CURSO PROFISSIONALIZANTE</li><li>2026</li></ul>
+            </div>
+          </article>
+          <article class="project-card" data-reveal style="--delay:100ms">
+            <div class="project-card__thumb"><canvas class="sprite-canvas" data-sprite="cassette" width="192" height="192" aria-hidden="true"></canvas><span class="project-card__id">PROJETO_02</span></div>
+            <div class="project-card__body">
+              <h3>Onde quero chegar</h3>
+              <p>Primeiramente me superar em um vestibular para poder passar em uma faculdade de T.I, para análise e desenvolvivemento de sistemas focando nesse curso superior para me formar no tecnólogo e já ingressar no mercado de trabalho como um profissional.</p>
+              <ul class="tag-list"><li>PROJETAR</li><li>ALMEJAR</li><li>REALIZAR</li></ul>
+            </div>
+          </article>
+          <article class="project-card" data-reveal style="--delay:200ms">
+            <div class="project-card__thumb"><canvas class="sprite-canvas" data-sprite="rocket" width="192" height="192" aria-hidden="true"></canvas><span class="project-card__id">PROJETO_03</span></div>
+            <div class="project-card__body">
+              <h3>Como chegarei lá</h3>
+              <p>Me esforçando e me dedicando todos os dias para adiquirir conhecimento e habilidades, para assim alcançar meus objetivos e metas pessoais.</p>
+              <ul class="tag-list"><li>FOCO</li><li>FORÇA</li><li>FÉ</li></ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== TETRIS ============================== -->
+    <section class="section tetris" id="tetris" aria-labelledby="tetrisTitle">
+      <div class="wrap section-grid tetris__grid">
+        <div class="section-copy" data-reveal>
+          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 11 / JOGO</p>
+          <h2 class="display" id="tetrisTitle">Visualize as atividades do ano de 2026</h2>
+          <p class="lead">Um pequeno tabuleiro estilo Tetris feito para ritmo, cliques e linhas limpas.</p>
+          <p class="body">O tabuleiro roda sozinho. Use Próxima para acelerar a próxima peça.</p>
+          <div class="tetris__actions">
+            <button class="pixel-btn pixel-btn--solid" id="tetrisNext" type="button">Próxima <span aria-hidden="true">▶</span></button>
+            <a class="pixel-btn" href="./areas-de-conhecimento.html">Áreas de conhecimento <span aria-hidden="true">▶</span></a>
+          </div>
+          <p class="pixel-readout">LINHAS <span id="tetrisLines">000</span> · PEÇAS <span id="tetrisPieces">000</span></p>
+        </div>
+        <div class="tetris-machine" data-reveal style="--delay:100ms">
+          <div class="tetris-machine__bar"><span>TETRIS.EXE</span><span>DEMO ESTÁTICA</span></div>
+          <div class="tetris-machine__screen">
+            <canvas id="tetrisCanvas" class="tetris-canvas" width="300" height="480" aria-hidden="true"></canvas>
+            <div class="tetris-flash" id="tetrisFlash" aria-hidden="true">ENCAIXE PERFEITO!</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -237,51 +442,15 @@ Orientadora:
       </div>
     </section>
 
-    <!-- ============================== HANDS ============================== -->
-    <section class="section hands" id="hands" aria-labelledby="handsTitle">
-      <div class="wrap">
-        <div class="hands__head" data-reveal>
-          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 09 / PROJETOS</p>
-          <h2 class="display" id="handsTitle">Ideias não são nada sem mãos que as construam.</h2>
-          <p class="lead">Três projetos autorais que cobrem sistemas de UI, áudio generativo e ferramentas de design.</p>
-        </div>
-        <div class="projects">
-          <article class="project-card" data-reveal style="--delay:0ms">
-            <div class="project-card__thumb"><canvas class="sprite-canvas" data-sprite="ghost" width="192" height="192" aria-hidden="true"></canvas><span class="project-card__id">PROJETO_01</span></div>
-            <div class="project-card__body">
-              <h3>ARCADE OS</h3>
-              <p>Um desktop de navegador que trata cada janela como um objeto jogável. Teclado primeiro, sem dependências.</p>
-              <ul class="tag-list"><li>CANVAS</li><li>SISTEMA DE UI</li><li>2026</li></ul>
-            </div>
-          </article>
-          <article class="project-card" data-reveal style="--delay:100ms">
-            <div class="project-card__thumb"><canvas class="sprite-canvas" data-sprite="cassette" width="192" height="192" aria-hidden="true"></canvas><span class="project-card__id">PROJETO_02</span></div>
-            <div class="project-card__body">
-              <h3>PIXEL FM</h3>
-              <p>Uma rádio generativa minúscula em que cada faixa desenha a própria capa em tempo real. Som ligado por escolha.</p>
-              <ul class="tag-list"><li>ÁUDIO WEB</li><li>GENERATIVO</li><li>2025</li></ul>
-            </div>
-          </article>
-          <article class="project-card" data-reveal style="--delay:200ms">
-            <div class="project-card__thumb"><canvas class="sprite-canvas" data-sprite="rocket" width="192" height="192" aria-hidden="true"></canvas><span class="project-card__id">PROJETO_03</span></div>
-            <div class="project-card__body">
-              <h3>SYNTH LAB</h3>
-              <p>Um playground de tokens de design que transforma decisões de espaçamento e cor em uma pequena máquina jogável.</p>
-              <ul class="tag-list"><li>SISTEMA DE DESIGN</li><li>FERRAMENTAS</li><li>2025</li></ul>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <!-- ============================== WINDOWS ============================== -->
     <section class="section windows" id="windows" aria-labelledby="windowsTitle">
       <div class="wrap section-grid windows__grid">
         <div class="section-copy" data-reveal>
           <p class="kicker"><span class="kicker__dot"></span>NÍVEL 10 / PROCESSO</p>
-          <h2 class="display" id="windowsTitle">Cada janela é uma decisão.</h2>
+          <h2 class="display" id="windowsTitle">Currículo</h2>
           <p class="lead">Alertas, estados de carregamento, avisos e confirmações: as pequenas interfaces que mantêm um processo claro.</p>
           <p class="body">Feche, minimize e restaure as janelas para testar cada estado.</p>
+          <a class="pixel-btn pixel-btn--solid" href="./curriculo.html">Ver currículo <span aria-hidden="true">▶</span></a>
           <button class="pixel-btn" id="restoreWindows" type="button">Restaurar janelas</button>
         </div>
 
@@ -311,7 +480,7 @@ Orientadora:
             </div>
             <div class="win__body">
               <p><strong>renderizando pixels…</strong></p>
-              <div class="bar" aria-label="Progresso de carregamento: 64 por cento"><i style="--fill:64%"></i></div>
+              <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="64" aria-label="Progresso de carregamento: 64 por cento"><i style="--fill:64%"></i></div>
               <p class="win__meta">64% · 2.048 blocos na fila</p>
             </div>
           </article>
@@ -341,7 +510,7 @@ Orientadora:
             </div>
             <div class="win__body">
               <p><strong>Todos os sistemas operando normalmente.</strong></p>
-              <div class="bar" aria-label="Prontidão: 100 por cento"><i style="--fill:100%"></i></div>
+              <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="Prontidão: 100 por cento"><i style="--fill:100%"></i></div>
               <p class="win__meta">100% · pronto para o próximo nível</p>
             </div>
           </article>
@@ -366,26 +535,36 @@ Orientadora:
       </div>
     </section>
 
-    <!-- ============================== TETRIS ============================== -->
-    <section class="section tetris" id="tetris" aria-labelledby="tetrisTitle">
-      <div class="wrap section-grid tetris__grid">
+    <!-- ============================== EMOTION ============================== -->
+    <section class="section emotion" id="emotion" aria-labelledby="emotionTitle">
+      <canvas id="emotionCanvas" class="emotion-canvas" width="1440" height="900" aria-hidden="true"></canvas>
+      <div class="wrap emotion__inner">
         <div class="section-copy" data-reveal>
-          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 11 / JOGO</p>
-          <h2 class="display" id="tetrisTitle">Encaixe perfeito.</h2>
-          <p class="lead">Um pequeno tabuleiro estilo Tetris feito para ritmo, cliques e linhas limpas.</p>
-          <p class="body">O tabuleiro roda sozinho. Use Próxima para acelerar a próxima peça.</p>
-          <div class="tetris__actions">
-            <button class="pixel-btn pixel-btn--solid" id="tetrisNext" type="button">Próxima <span aria-hidden="true">▶</span></button>
-            <a class="pixel-btn" href="#cta">Continuar</a>
-          </div>
-          <p class="pixel-readout">LINHAS <span id="tetrisLines">000</span> · PEÇAS <span id="tetrisPieces">000</span></p>
+          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 07 / EMOÇÃO</p>
+          <h2 class="display" id="emotionTitle">Referências</h2>
+          <p class="lead">https://www.todamateria.com.br/ 
+https://brasilescola.uol.com.br/
+https://chatgpt.com/
+https://claude.ai/</p>
+          <p class="body">Portfólio desenvolvido com conhecimentos aprendidos no curso técnico em informática para a internet.</p>
         </div>
-        <div class="tetris-machine" data-reveal style="--delay:100ms">
-          <div class="tetris-machine__bar"><span>TETRIS.EXE</span><span>DEMO ESTÁTICA</span></div>
-          <div class="tetris-machine__screen">
-            <canvas id="tetrisCanvas" class="tetris-canvas" width="300" height="480" aria-hidden="true"></canvas>
-            <div class="tetris-flash" id="tetrisFlash" aria-hidden="true">ENCAIXE PERFEITO!</div>
-          </div>
+        <p class="emotion__hint" aria-hidden="true">MOVA O PONTEIRO <span>→</span></p>
+      </div>
+    </section>
+
+    <!-- ============================== BRAIN ============================== -->
+    <section class="section brain" id="brain-section" aria-labelledby="brainTitle">
+      <div class="wrap brain__inner">
+        <div class="brain__visual" data-reveal>
+          <canvas id="brainCanvas" class="brain-canvas" width="720" height="540" aria-hidden="true"></canvas>
+          <span class="concept-tag">CONCEITO</span>
+        </div>
+        <div class="section-copy" data-reveal style="--delay:120ms">
+          <p class="kicker"><span class="kicker__dot"></span>NÍVEL 09 / CONCEITO</p>
+          <h2 class="display" id="brainTitle">Considerações finais</h2>
+          <p class="lead">Este portfólio reflete todas as atividades desenvolvidas na terceira série, destacando meu progresso e aprendizado. Aprendi conceitos fundamentais e desenvolvi habilidades importantes, como organização e gestão de tempo, essenciais para alcançar resultados melhores nos estudos. Foi uma experiência enriquecedora que reforçou a importância de manter um registro organizado e dedicado ao meu desenvolvimento.
+</p>
+          <p class="body">Agradeço a cada um de vocês que acompanharam minhqa jornada até aqui, foi um grande prazer aprender com profissionais qualificados e desenvolver ainda mais meus conhecimentos e habilidades.</p>
         </div>
       </div>
     </section>
@@ -396,11 +575,11 @@ Orientadora:
         <span class="cta-block b1"></span><span class="cta-block b2"></span><span class="cta-block b3"></span><span class="cta-block b4"></span><span class="cta-block b5"></span>
       </div>
       <div class="wrap cta__inner" data-reveal>
-        <p class="kicker kicker--center"><span class="kicker__dot"></span>NÍVEL 12 / CONTATO</p>
-        <h2 class="display display--center" id="ctaTitle">Empilhe sua visão<br>com a minha.</h2>
-        <p class="lead lead--center">Me conte o que você quer construir. Respondo com os próximos passos.</p>
-        <button class="pixel-btn pixel-btn--solid pixel-btn--large" type="button" data-open-contact>Fale comigo <span aria-hidden="true">▶</span></button>
-        <p class="cta__meta">TEMPO DE RESPOSTA: GERALMENTE UM CAFÉ</p>
+        <p class="kicker kicker--center"><span class="kicker__dot"></span>NÍVEL 12 / ANEXOS</p>
+        <h2 class="display display--center" id="ctaTitle">Anexos</h2>
+        <p class="lead lead--center">Fotos e registros reunidos em quadros pixelados.</p>
+        <a class="pixel-btn pixel-btn--solid pixel-btn--large" href="./anexos.html">Ver anexos <span aria-hidden="true">▶</span></a>
+        <p class="cta__meta">6 ESPAÇOS EDITÁVEIS · 26 FOTOS NO ACERVO</p>
       </div>
     </section>
 
