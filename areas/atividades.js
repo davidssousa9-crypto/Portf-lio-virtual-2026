@@ -18,9 +18,9 @@
         'novaordemmund.png',
         'charge.png',
         'impactosdaredesocial.png',
-        'ética profissional david.png',
-        'java.png',
-        'progamação2horassousa.png',
+        '2.png',
+        'lampdavid.png',
+        'sitesnoopy.png',
         'CRIADOR.png'
     ]);
 
