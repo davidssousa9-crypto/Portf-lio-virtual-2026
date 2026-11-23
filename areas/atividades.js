@@ -2,9 +2,9 @@
     'use strict';
 
     const chosenActivities = new Set([
-        'css copy.png',
-        'revisakerc.png',
-        'modernismo.png',
+        'css.png',
+        'joselinsrego.png',
+        'frase.png',
         'morteevida.png',
         '84.png',
         'neodarwinismo.png',
